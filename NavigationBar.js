@@ -1,18 +1,15 @@
-import React, { useState } from "react"
 import AppBar from "@material-ui/core/AppBar"
-import Toolbar from "@material-ui/core/Toolbar"
-import Tabs from "@material-ui/core/Tabs"
-import Tab from "@material-ui/core/Tab"
-import { Link } from "gatsby"
 import { withStyles } from "@material-ui/core/styles"
-import Colors from "../data/Colors"
+import Tabs from "@material-ui/core/Tabs"
+import Toolbar from "@material-ui/core/Toolbar"
+import React from "react"
 import styled from "styled-components"
-import MobileNav from "./MobileNav"
-import { Sizes as ViewSizes } from "./Views"
+import Colors from "../data/Colors"
 import Sizes from "../data/Sizes"
-import PropTypes from "prop-types"
-import { MobileView } from "./Views"
-import MyAnilink from "./MyAnilink";
+import MobileNav from "./MobileNav"
+import MyAnilink from "./MyAnilink"
+import { MobileView, Sizes as ViewSizes } from "./Views"
+import MyLink from "./MyLink"
 
 class NavigationBar extends React.Component {
   constructor(props) {
@@ -46,10 +43,12 @@ class NavigationBar extends React.Component {
       `)};
     `
 
+    let navigationLinks = [new MyLink("Home", "/"), new MyLink("News", "/news")]
+
     return (
       <StyledAppBar position="static" color="primary" colorPrimary>
         <StyledToolbar>
-          <MobileNav pages={this.props.pages} />
+          <MobileNav pages={navigationLinks} />
           <StyledTabs>
             {(() => {
               const StyledTab = styled.p`
@@ -73,7 +72,7 @@ class NavigationBar extends React.Component {
 
               let array = []
 
-              this.props.pages.map(item => {
+              navigationLinks.map(item => {
                 // If the current URL is the same as the item path, mark Tab as active
                 array.push(
                   <MyAnilink path={item.path}>
