@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Heading from '../components/Heading'
-import {Col, Row, Container as LayoutWrapper} from '../components/Wrappers' 
-import Page from '../components/Page'
+import Page from '../components/Page';
+import { Heading } from '../components/Typography';
+import { Col, Container as LayoutWrapper, Row } from '../components/Wrappers';
 
 // Main Page component
 class Sample extends Component {
@@ -10,7 +10,7 @@ class Sample extends Component {
   
         <Page>
           <LayoutWrapper>
-            <Heading type="h2">Sample</Heading>
+            <Heading type="h1">Sample</Heading>
             <Row>
               <Col>
                 
