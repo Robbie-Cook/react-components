@@ -10,6 +10,8 @@ import MobileNav from "./MobileNav"
 import MyAnilink from "./MyAnilink"
 import { MobileView, Sizes as ViewSizes } from "./Views"
 import MyLink from "./MyLink"
+import { Link, Heading } from "./Typography"
+import Spacer from "./Spacer"
 
 class NavigationBar extends React.Component {
   constructor(props) {
@@ -21,6 +23,7 @@ class NavigationBar extends React.Component {
     const StyledAppBar = withStyles({
       root: {
         backgroundColor: Colors.backgroundColor,
+        height: Sizes.navbar.height,
       },
     })(AppBar)
 
@@ -48,6 +51,14 @@ class NavigationBar extends React.Component {
     return (
       <StyledAppBar position="static" color="primary" colorPrimary>
         <StyledToolbar>
+          {heading && (
+            <>
+              <Heading type="h3" margin="0">
+                {heading}
+              </Heading>
+              <Spacer width="56px"></Spacer>
+            </>
+          )}
           <MobileNav pages={navigationLinks} />
           <StyledTabs>
             {(() => {
