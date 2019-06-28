@@ -15,7 +15,7 @@ class Button extends Component {
     const customTheme = {
       button: {
         border: {
-          color: Colors.textColor,
+          color: Colors.text.color,
         },
         color: (() => {
           if (this.props.active) {
@@ -55,7 +55,7 @@ class Button extends Component {
       }
 
       margin: ${this.props.margin ? this.props.margin : new Dimensions(10, 20)};
-      color: ${Colors.textColor};
+      color: ${Colors.text.color};
       line-height: 27px;
       font-size: 16px;
       padding: 5px 12px;
@@ -71,7 +71,7 @@ class Button extends Component {
     `
 
     const BorderedText = styled.p`
-      color: ${Colors.textColor};
+      color: ${Colors.text.color};
       margin: 0;
       text-decoration: none;
       ${(() => {
@@ -112,7 +112,7 @@ Button.propTypes = {
   activeColor: PropTypes.string,
   activeStyle: PropTypes.string,
   hoverColor: PropTypes.string,
-  activeTextColor: PropTypes.string,
+  activetext.color: PropTypes.string,
 }
 
 /**

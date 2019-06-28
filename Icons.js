@@ -35,7 +35,7 @@ class Icon extends Component {
       text-align: center;
       font-size: ${diameter - 15}px;
       cursor: pointer;
-      background-color: ${Colors.textColor};
+      background-color: ${Colors.text.color};
       margin: 0 9px;
       color: ${Colors.backgroundColor};
       transition: 0.1s;
@@ -43,12 +43,12 @@ class Icon extends Component {
 
       &:hover {
         background-color: ${Colors.link.color};
-        color: ${Colors.textColor};
+        color: ${Colors.text.color};
       }
 
       &:active {
         background-color: ${Colors.link.color};
-        color: ${Colors.textColor};
+        color: ${Colors.text.color};
       }
     `
 

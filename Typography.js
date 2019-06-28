@@ -27,7 +27,7 @@ class Heading extends Component {
       font-weight: bold;
       margin: ${this.props.margin};
       text-transform: lowercase;
-
+      color: ${Colors.text.color};
     `
 
     const h1Height = "53px"
