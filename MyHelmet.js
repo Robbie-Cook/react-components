@@ -27,7 +27,7 @@ class MyHelmet extends React.Component {
           <style>
             {`
               body {
-                background-color: ${Colors.page.backgroundColor}; 
+                background-color: ${Colors.backgroundColor}; 
               }
             `}
           </style>

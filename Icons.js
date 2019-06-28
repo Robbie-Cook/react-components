@@ -37,7 +37,7 @@ class Icon extends Component {
       cursor: pointer;
       background-color: ${Colors.textColor};
       margin: 0 9px;
-      color: ${Colors.page.backgroundColor};
+      color: ${Colors.backgroundColor};
       transition: 0.1s;
       transition-timing-function: ease-out;
 

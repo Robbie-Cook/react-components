@@ -2,7 +2,6 @@
 
 /* Imports */
 /* Stylesheets etc. */
-import "../css/global-styles.css"
 import React, { Component } from "react"
 import styled from "styled-components"
 import Colors from "../data/Colors"
@@ -14,7 +13,7 @@ import Dimensions from "./Dimensions"
 
 // Styles for component
 const StyledPage = styled.div`
-  background-color: ${Colors.page.backgroundColor};
+  background-color: ${Colors.backgroundColor};
 
   display: flex;
   flex-direction: column;

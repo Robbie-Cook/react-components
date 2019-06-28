@@ -27,7 +27,7 @@ class BorderBox extends Component {
 
       &::-webkit-scrollbar {
         width: 10px;
-        background-color: ${Colors.page.backgroundColor};
+        background-color: ${Colors.backgroundColor};
       }
 
       &::-webkit-scrollbar-thumb {
