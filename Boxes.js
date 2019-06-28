@@ -10,6 +10,7 @@ class BorderBox extends Component {
   render() {
     const Box = styled.div`
       border: 8px solid ${Colors.text.color};
+      border-radius: 4px;
       padding: 20px;
       display: flex;
       flex-direction: ${this.props.horizontalScroll ? "row" : "column"};

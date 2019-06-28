@@ -39,7 +39,7 @@ class NavigationBar extends React.Component {
 
     const StyledToolbar = styled(Toolbar)`
       z-index: 150;
-      margin-left: ${Sizes.page.sideMargin};
+      margin-left: 0;
       padding: 0;
       ${new MobileView(`
         margin-left: 20px;
@@ -47,6 +47,7 @@ class NavigationBar extends React.Component {
     `
 
     let navigationLinks = [new MyLink("Home", "/"), new MyLink("News", "/news")]
+    let heading = "Open Politics"
 
     return (
       <StyledAppBar position="static" color="primary" colorPrimary>
@@ -62,33 +63,28 @@ class NavigationBar extends React.Component {
           <MobileNav pages={navigationLinks} />
           <StyledTabs>
             {(() => {
-              const StyledTab = styled.p`
-                font-weight: bold;
-
-                color: ${Colors.textColor};
-
-                &.active {
-                  color: ${Colors.link.color};
-                }
-
-                &:hover {
-                  color: ${Colors.link.color};
-                }
-
-                height: ${Sizes.navbar.height};
-                text-decoration: none;
-                margin-right: 97px;
-                transition: 0.1s;
-              `
-
               let array = []
 
+              let LinkContainer = styled.div`
+                margin-right: 30px;
+              `
               navigationLinks.map(item => {
                 // If the current URL is the same as the item path, mark Tab as active
                 array.push(
-                  <MyAnilink path={item.path}>
-                    <StyledTab>{item.name}</StyledTab>
-                  </MyAnilink>
+                  <LinkContainer>
+                    <MyAnilink path={item.path}>
+                      <Link
+                        style={`
+                          line-height: ${Sizes.navbar.height};
+                          position: relative;
+                          bottom: -5px;
+                          color: ${Colors.text.color}
+                        `}
+                      >
+                        {item.name}
+                      </Link>
+                    </MyAnilink>
+                  </LinkContainer>
                 )
               })
               return array

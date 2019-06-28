@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import Page from '../components/Page';
+import WebPage from '../components/Page';
 import { Heading } from '../components/Typography';
-import { Col, Container as LayoutWrapper, Row } from '../components/Wrappers';
+import { Col, Row, LayoutWrapper } from "../components/Layout"
 
 // Main Page component
 class Sample extends Component {
     render() {
       return (
   
-        <Page>
+        <WebPage>
           <LayoutWrapper>
             <Heading type="h1">Sample</Heading>
             <Row>
@@ -20,7 +20,7 @@ class Sample extends Component {
               </Col>
             </Row>
           </LayoutWrapper>
-        </Page>
+        </WebPage>
       );
     }
   }
