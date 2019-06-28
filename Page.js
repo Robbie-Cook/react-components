@@ -27,12 +27,7 @@ const StyledPage = styled.div`
 `
 
 /* Navigation links, which are passed to navbar.js */
-let navigationLinks = [
-  new MyLink("Home", "/"),
-  new MyLink("About", "/about"),
-  new MyLink("Projects", "/projects"),
-  new MyLink("Music", "/music"),
-]
+
 
 /**
  * Define a React Context for all child components to use
@@ -51,7 +46,7 @@ class WebPage extends Component {
       <ColorsContext.Provider value={Colors}>
         <MyHelmet /> {/* SEO Stuff */}
         <div>
-          <NavigationBar pages={navigationLinks} />
+          <NavigationBar />
           <div style={this.props.style}>
             <StyledPage style={this.props.style}>
               {this.props.children}
