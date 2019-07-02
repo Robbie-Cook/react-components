@@ -300,10 +300,10 @@ class MyRadioButton extends Component {
     const MyRadioButton = styled.button`
       margin: 5px 0px 5px 0;
       border-radius: 0px;
-      border: 1px solid ${Colors.textColor};
+      border: 1px solid ${Colors.text.color};
       background-color: ${Colors.page.backgroundColor};
       height: 32px;
-      color: ${Colors.textColor};
+      color: ${Colors.text.color};
       ${this.props.active ? this.props.activeStyle : null};
       cursor: pointer;
       font-size: 18px;

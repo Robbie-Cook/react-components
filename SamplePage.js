@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
-import Heading from '../components/Heading'
-import {Col, Row, Container as LayoutWrapper} from '../components/Wrappers' 
-import Page from '../components/Page'
+import WebPage from '../components/Page';
+import { Heading } from '../components/Typography';
+import { Col, Row, LayoutWrapper } from "../components/Layout"
 
 // Main Page component
 class Sample extends Component {
     render() {
       return (
   
-        <Page>
+        <WebPage>
           <LayoutWrapper>
-            <Heading type="h2">Sample</Heading>
+            <Heading type="h1">Sample</Heading>
             <Row>
               <Col>
                 
@@ -20,7 +20,7 @@ class Sample extends Component {
               </Col>
             </Row>
           </LayoutWrapper>
-        </Page>
+        </WebPage>
       );
     }
   }
