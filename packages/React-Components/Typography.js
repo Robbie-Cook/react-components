@@ -27,7 +27,7 @@ class Heading extends Component {
       font-weight: bold;
       margin: ${this.props.margin};
       text-transform: lowercase;
-
+      color: ${Colors.text.color};
     `
 
     const h1Height = "53px"
@@ -64,6 +64,7 @@ class Heading extends Component {
       & * {
         align-self: center;
       }
+      ${this.props.center && "align-self: center"};
       ${this.props.style};
     `
 
@@ -107,10 +108,13 @@ class Heading extends Component {
 Heading.propTypes = {
   type: PropTypes.string,
   codify: PropTypes.bool,
-  style: PropTypes.string
+  style: PropTypes.string,
+  margin: PropTypes.string,
+  center: PropTypes.bool,
 }
 Heading.defaultProps = {
   margin: "0 0 20px 0;",
+  center: false,
 }
 
 /**
@@ -122,9 +126,32 @@ class Text extends Component {
   render() {
     Text = styled.p`
       margin: 12px 0;
+      
+      /* Local to this politics */
+      font-family: 'Roboto', sans-serif;
+      ${this.props.style};
     `
     return <Text>{this.props.children}</Text>
   }
 }
+Text.defaultProps = {
+  style: "",
+}
 
-export { Heading, Text }
+class Link extends Component {
+  render() {
+    const StyledLink = styled.a`
+      font-family: 'Roboto', sans-serif;
+      color: ${Colors.link.color};
+      ${this.props.style};
+    `
+    return(
+      <StyledLink>{this.props.children}</StyledLink>
+    );
+  }
+}
+Link.defaultProps = {
+  style: "",
+}
+
+export { Heading, Text, Link }

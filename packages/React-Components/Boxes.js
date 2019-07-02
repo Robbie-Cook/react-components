@@ -9,7 +9,8 @@ import Colors from "../data/Colors"
 class BorderBox extends Component {
   render() {
     const Box = styled.div`
-      border: 4px solid ${Colors.textColor};
+      border: 8px solid ${Colors.text.color};
+      border-radius: 4px;
       padding: 20px;
       display: flex;
       flex-direction: ${this.props.horizontalScroll ? "row" : "column"};
@@ -27,11 +28,11 @@ class BorderBox extends Component {
 
       &::-webkit-scrollbar {
         width: 10px;
-        background-color: ${Colors.page.backgroundColor};
+        background-color: ${Colors.backgroundColor};
       }
 
       &::-webkit-scrollbar-thumb {
-        background-color: ${Colors.textColor};
+        background-color: ${Colors.text.color};
         );
       }
     `

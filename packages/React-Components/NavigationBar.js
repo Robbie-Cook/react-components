@@ -1,18 +1,17 @@
-import React, { useState } from "react"
 import AppBar from "@material-ui/core/AppBar"
-import Toolbar from "@material-ui/core/Toolbar"
-import Tabs from "@material-ui/core/Tabs"
-import Tab from "@material-ui/core/Tab"
-import { Link } from "gatsby"
 import { withStyles } from "@material-ui/core/styles"
-import Colors from "../data/Colors"
+import Tabs from "@material-ui/core/Tabs"
+import Toolbar from "@material-ui/core/Toolbar"
+import React from "react"
 import styled from "styled-components"
-import MobileNav from "./MobileNav"
-import { Sizes as ViewSizes } from "./Views"
+import Colors from "../data/Colors"
 import Sizes from "../data/Sizes"
-import PropTypes from "prop-types"
-import { MobileView } from "./Views"
-import MyAnilink from "./MyAnilink";
+import MobileNav from "./MobileNav"
+import MyAnilink from "./MyAnilink"
+import { MobileView, Sizes as ViewSizes } from "./Views"
+import MyLink from "./MyLink"
+import { Link, Heading } from "./Typography"
+import Spacer from "./Spacer"
 
 class NavigationBar extends React.Component {
   constructor(props) {
@@ -24,6 +23,7 @@ class NavigationBar extends React.Component {
     const StyledAppBar = withStyles({
       root: {
         backgroundColor: Colors.backgroundColor,
+        height: Sizes.navbar.height,
       },
     })(AppBar)
 
@@ -39,46 +39,52 @@ class NavigationBar extends React.Component {
 
     const StyledToolbar = styled(Toolbar)`
       z-index: 150;
-      margin-left: ${Sizes.page.sideMargin};
+      margin-left: 0;
       padding: 0;
       ${new MobileView(`
         margin-left: 20px;
       `)};
     `
 
+    let navigationLinks = [new MyLink("Home", "/"), new MyLink("News", "/news")]
+    let heading = "Open Politics"
+
     return (
       <StyledAppBar position="static" color="primary" colorPrimary>
         <StyledToolbar>
-          <MobileNav pages={this.props.pages} />
+          {heading && (
+            <>
+              <Heading type="h3" margin="0">
+                {heading}
+              </Heading>
+              <Spacer width="56px"></Spacer>
+            </>
+          )}
+          <MobileNav pages={navigationLinks} />
           <StyledTabs>
             {(() => {
-              const StyledTab = styled.p`
-                font-weight: bold;
-
-                color: ${Colors.textColor};
-
-                &.active {
-                  color: ${Colors.link.color};
-                }
-
-                &:hover {
-                  color: ${Colors.link.color};
-                }
-
-                height: ${Sizes.navbar.height};
-                text-decoration: none;
-                margin-right: 97px;
-                transition: 0.1s;
-              `
-
               let array = []
 
-              this.props.pages.map(item => {
+              let LinkContainer = styled.div`
+                margin-right: 30px;
+              `
+              navigationLinks.map(item => {
                 // If the current URL is the same as the item path, mark Tab as active
                 array.push(
-                  <MyAnilink path={item.path}>
-                    <StyledTab>{item.name}</StyledTab>
-                  </MyAnilink>
+                  <LinkContainer>
+                    <MyAnilink path={item.path}>
+                      <Link
+                        style={`
+                          line-height: ${Sizes.navbar.height};
+                          position: relative;
+                          bottom: -5px;
+                          color: ${Colors.text.color}
+                        `}
+                      >
+                        {item.name}
+                      </Link>
+                    </MyAnilink>
+                  </LinkContainer>
                 )
               })
               return array
