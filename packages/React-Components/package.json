@@ -1,6 +1,6 @@
 {
-  "name": "@robbie-cook/react-components",
-  "version": "1.0.0",
+  "name": "@robbie_cook/react-components",
+  "version": "1.0.2",
   "description": "A set of common components for React",
   "main": "index.js",
   "scripts": {
@@ -25,6 +25,8 @@
     "@material-ui/icons": "^4.2.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-redux": "^7.1.0",
+    "redux": "^4.0.1",
     "styled-components": "^4.3.2"
   }
 }
