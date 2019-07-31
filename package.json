@@ -22,5 +22,8 @@
   "homepage": "https://github.com/Robbie-Cook/React-Components#readme",
   "devDependencies": {
     "lerna": "^3.16.4"
+  },
+  "dependencies": {
+    "lodash": "^4.17.15"
   }
 }
