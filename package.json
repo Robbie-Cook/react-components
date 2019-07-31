@@ -20,6 +20,7 @@
     "url": "https://github.com/Robbie-Cook/React-Components/issues"
   },
   "homepage": "https://github.com/Robbie-Cook/React-Components#readme",
-  "dependencies": {
+  "devDependencies": {
+    "lerna": "^3.16.4"
   }
 }
