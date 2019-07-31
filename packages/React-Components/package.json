@@ -1,6 +1,6 @@
 {
   "name": "@robbie-cook/react-components",
-  "version": "1.0.5",
+  "version": "1.0.0",
   "description": "A set of common components for React",
   "main": "index.js",
   "scripts": {
