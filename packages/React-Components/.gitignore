@@ -1,0 +1,8 @@
+node_modules
+redux/actions/colorAction\.js
+
+redux/ContextWrapper\.js
+
+redux/reducers/color\.js
+
+*.log
