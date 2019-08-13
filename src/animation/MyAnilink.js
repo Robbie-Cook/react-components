@@ -3,7 +3,6 @@ import PropTypes from "prop-types"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 import styled from "styled-components"
 
-// Sample component
 class MyAnilink extends Component {
   render() {
     const StyledAnilink = styled(AniLink)`
