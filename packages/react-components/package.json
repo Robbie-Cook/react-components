@@ -1,0 +1,26 @@
+{
+  "name": "@robbie-cook/react-components",
+  "version": "1.0.0",
+  "description": "My React Components",
+  "author": "RobbieCook <robbieck7@gmail.com>",
+  "homepage": "https://github.com/Robbie-Cook/React-Components/tree/master/packages/react-components#readme",
+  "license": "ISC",
+  "main": "lib/react-components.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Robbie-Cook/React-Components.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/Robbie-Cook/React-Components/issues"
+  }
+}
