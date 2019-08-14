@@ -2,7 +2,7 @@
   "name": "@robbie-cook/react-components",
   "version": "3.0.0",
   "description": "A bunch of common react components",
-  "main": "./index.js",
+  "main": "./build/index.js",
   "peerDependencies": {
     "react": "^16.4.0"
   },
