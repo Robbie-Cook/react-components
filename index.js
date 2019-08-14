@@ -1,1 +1,1 @@
-import { Dimensions, MyLink, Typography } from "./src/utilities"
+import { Dimensions, MyLink, Heading, Link, Text } from "./src/utilities"
