@@ -2,11 +2,12 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-import Dimensions from "@robbie-cook/react-components"
+import {Heading} from "@robbie-cook/react-components"
 
 function App() {
   return (
     <div className="App">
+      {/* <Heading>Test heading</Heading> */}
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
