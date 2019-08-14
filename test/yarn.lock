@@ -1090,10 +1090,10 @@
     react-lifecycles-compat "^3.0.4"
     warning "^3.0.0"
 
-"@robbie-cook/react-components@^3.0.2":
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/@robbie-cook/react-components/-/react-components-3.0.2.tgz#ec991c7c6797eb45b34fe153dfe21f3d2cce7354"
-  integrity sha512-SPQXFDJ//9w1Qrs7u0UoNlAk9gu3fFox3sVD67WkiNa4h9042bzSLsUk4KMqqh6cMUaFvFh4bntiaPx8pcX4Kg==
+"@robbie-cook/react-components@^3.0.3":
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/@robbie-cook/react-components/-/react-components-3.0.3.tgz#5e68ef50caed3e67105cca7065e6f7ebbd242903"
+  integrity sha512-9wG0hcnpK9jpiGjawC9EXI7QMa8ZrdX+4a3ebewvvxGm+QeUE3ORwOIUJhJwUW146ekscq0gMvg5r/4RuymG+w==
   dependencies:
     "@babel/plugin-proposal-class-properties" "^7.5.5"
     babel-eslint "^10.0.2"
