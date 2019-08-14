@@ -31,5 +31,5 @@ This project is in its very early stages, but it is massively necessary for me. 
 
 * ThemeProvider introduction - I will use React's Context API to make the theme customisable at a page / website level. Probably page
   * Gradual ThemeProvider implementation as needed across components (major version change will be needed)
-  * 
+ 
 
