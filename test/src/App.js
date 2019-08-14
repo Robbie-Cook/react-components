@@ -2,7 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-import Dimensions from "../build/index.js"
+import Dimensions from "@robbie-cook/react-components"
 
 function App() {
   return (
