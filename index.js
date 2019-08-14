@@ -1,4 +1,1 @@
-import Spacer from "./Spacer"
-import TransitionWrapper from "./animation/TransitionWrapper"
-
-export {Spacer, TransitionWrapper}
+export { Dimensions, MyLink, Heading, Link, Text } from "./src/utilities"
