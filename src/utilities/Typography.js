@@ -1,9 +1,8 @@
 import styled from "styled-components"
 import React, { Component } from "react"
 import PropTypes from "prop-types"
-import Colors from "../data/Colors"
-import Spacer from "./Spacer"
-import Codify from "./Codify"
+import Colors from "../themes/Colors"
+import Codify from "../ui-components/Codify"
 
 /**
  *  Common components relating to text. This includes
