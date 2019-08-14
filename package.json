@@ -15,10 +15,16 @@
   "license": "ISC",
   "keywords": [],
   "dependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "babel-eslint": "^10.0.2",
     "babel-plugin-transform-react-jsx": "^6.24.1",
+    "eslint": "6.1.0",
     "extract-text-webpack-plugin": "^3.0.2",
+    "gatsby": "^2.13.62",
     "react": "^16.9.0",
-    "webpack": "^4.39.2"
+    "react-dom": "^16.9.0",
+    "styled-components": "^4.3.2",
+    "webpack": "4.39.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.5.5",
@@ -27,6 +33,7 @@
     "@babel/preset-env": "^7.5.5",
     "babel-loader": "^8.0.6",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "webpack-cli": "^3.3.6"
+    "webpack-cli": "^3.3.6",
+    "webpack-node-externals": "^1.7.2"
   }
 }
