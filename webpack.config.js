@@ -1,9 +1,12 @@
 // webpack.config.js
 var path = require('path');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var nodeExternals = require('webpack-node-externals');
 
 module.exports = {
   entry: './index.js',
+  target: 'node',
+  externals: [nodeExternals()],
   output: {
     path: path.resolve(__dirname, 'build'),
     filename: 'index.js',
@@ -13,12 +16,18 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
-        include: path.resolve(__dirname, 'src'),
-        exclude: /(node_modules|bower_components|build)/,
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env']
+            presets: ["@babel/preset-react", '@babel/preset-env'],
+            plugins: [
+                [
+                  "@babel/plugin-proposal-class-properties",
+                  {
+                    "loose": true
+                  }
+                ]
+              ]
           }
         }
       }, {
