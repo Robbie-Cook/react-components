@@ -10,7 +10,7 @@ export { BorderBox, Col, Row,
 
 export { MobileNav, NavigationBar } from "./src/navigation"
 
-export { Colors } from "./src/themes"
+export { Colors, ThemeContext } from "./src/themes"
 
 export { Button, ButtonGenerator, ButtonWrapper, Carousel, Codify, Icon, IconsWrapper, Spacer } from "./src/ui-components"
 
