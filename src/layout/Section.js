@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import Sizes from "../layout";
+import Sizes from "../themes";
 
 /**
  * A component designed to take up exactly the window size (minus the
