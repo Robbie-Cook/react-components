@@ -1,4 +1,4 @@
-export { MyAnilink, TransitionWrapper} from "./src/animation"
+export { MyAnilink, TransitionWrapper, Transition } from "./src/animation"
 
 export { SampleComponent, SamplePage } from "./src/examples"
 
