@@ -5,11 +5,11 @@ import Toolbar from "@material-ui/core/Toolbar";
 import React from "react";
 import styled from "styled-components";
 import { MyAnilink } from "../animation";
-import { MobileView, Sizes, ViewSizes } from "../layout";
+import { MobileView, ViewSizes } from "../layout";
 import { MobileNav } from "../navigation";
-import { Colors } from "../themes";
+import { Colors, Sizes } from "../themes";
 import { Spacer } from "../ui-components";
-import {MyLink, Heading, Link } from "../utilities";
+import { Heading, Link, MyLink } from "../utilities";
 
 class NavigationBar extends React.Component {
   constructor(props) {
