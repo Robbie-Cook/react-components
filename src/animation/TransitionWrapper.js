@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { PureComponent } from "react";
 import posed from "react-pose";
 import styled from "styled-components";
-import { Colors } from "../themes";
+import { ThemeContext } from "../themes";
 
 
 /**
@@ -13,6 +13,7 @@ class TransitionWrapper extends PureComponent {
   constructor(props) {
     super(props)
   }
+  static contextType = ThemeContext
 
   PosedDiv = posed.div({
     visible: {
@@ -32,7 +33,7 @@ class TransitionWrapper extends PureComponent {
 
   SpinnerWrapper = styled.div`
     min-width: 100px;
-    color: ${Colors.text.color};
+    color: ${this.context.text.color};
     animation-name: spin;
     animation-duration: 2500ms;
     animation-iteration-count: infinite;
