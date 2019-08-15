@@ -11,8 +11,8 @@ import { Link } from "gatsby";
 import React from "react";
 import styled from "styled-components";
 import { MyAnilink } from "../animation";
-import { Sizes, ViewSizes } from "../layout";
-import { Colors } from "../themes";
+import { ViewSizes } from "../layout";
+import { Colors, Sizes } from "../themes";
 
 /**
  * A class representing a mobile nav.

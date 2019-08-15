@@ -1,14 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
+import { Heading, Transition, ThemeContext, Colors } from "@robbie-cook/react-components";
+import React, { useEffect, useState } from 'react';
 import './App.css';
 
-import { Heading } from "@robbie-cook/react-components"
-
+/**
+ * The main entry point for the app
+ */
 function App() {
+  // State updated when component painted
+  const [loaded, setLoaded] = useState(false)
+  useEffect(() => {setLoaded(true)})
+
   return (
     <div className="App">
       <header className="App-header">
-        <Heading>Storyboard for React Components</Heading>
+        <ThemeContext.Provider value={Colors}>
+          <Transition loaded={loaded}>
+            <Heading>Storyboard for React Components</Heading>
+          </Transition>
+        </ThemeContext.Provider> 
       </header>
     </div>
   );
