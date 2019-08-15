@@ -3,7 +3,8 @@
  */
 
 import styled from "styled-components"
-import Colors from "../data/Colors"
+import { Colors } from "../themes"
+
 import React, { Component } from "react"
 import PropTypes from "prop-types"
 import { MobileView } from "./Views"

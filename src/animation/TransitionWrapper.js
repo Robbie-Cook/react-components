@@ -1,11 +1,10 @@
-import styled from "styled-components"
-import posed from "react-pose"
-import Colors from "../Colors"
-import React, { PureComponent } from "react"
+import { faCircleNotch } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, { PureComponent } from "react";
+import posed from "react-pose";
+import styled from "styled-components";
+import { Colors } from "../themes";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faCircleNotch } from "@fortawesome/free-solid-svg-icons"
-import { isThisTypeNode } from "typescript"
 
 /**
  * A loading screen

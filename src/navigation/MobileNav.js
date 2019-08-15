@@ -1,19 +1,18 @@
-import React from "react"
-import IconButton from "@material-ui/core/IconButton"
-import MenuIcon from "@material-ui/icons/Menu"
-import MenuItem from "@material-ui/core/MenuItem"
-import MenuList from "@material-ui/core/MenuList"
-import { Link } from "gatsby"
-import ClickAwayListener from "@material-ui/core/ClickAwayListener"
-import Grow from "@material-ui/core/Grow"
-import Paper from "@material-ui/core/Paper"
-import Popper from "@material-ui/core/Popper"
-import { withStyles } from "@material-ui/core/styles"
-import Colors from "../data/Colors"
-import styled from "styled-components"
-import { Sizes as ViewSizes } from "./Views"
-import Sizes from "../data/Sizes"
-import MyAnilink from "./MyAnilink"
+import ClickAwayListener from "@material-ui/core/ClickAwayListener";
+import Grow from "@material-ui/core/Grow";
+import IconButton from "@material-ui/core/IconButton";
+import MenuItem from "@material-ui/core/MenuItem";
+import MenuList from "@material-ui/core/MenuList";
+import Paper from "@material-ui/core/Paper";
+import Popper from "@material-ui/core/Popper";
+import { withStyles } from "@material-ui/core/styles";
+import MenuIcon from "@material-ui/icons/Menu";
+import { Link } from "gatsby";
+import React from "react";
+import styled from "styled-components";
+import { MyAnilink } from "../animation";
+import { Sizes, ViewSizes } from "../layout";
+import { Colors } from "../themes";
 
 /**
  * A class representing a mobile nav.

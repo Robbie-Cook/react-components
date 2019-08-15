@@ -1,7 +1,8 @@
 import React, { Component } from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
-import Colors from "../data/Colors"
+import { Colors } from "../themes"
+
 
 /**
  * Wraps a set of Icons

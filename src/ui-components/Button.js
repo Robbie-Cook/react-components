@@ -1,9 +1,10 @@
 import React, { Component } from "react"
 import PropTypes from "prop-types"
 import { Button as GrommetButton, Grommet } from "grommet"
-import Colors from "../data/Colors"
+import { Colors } from "../themes"
+
 import styled from "styled-components"
-import Dimensions from "../components/Dimensions"
+import { Dimensions } from "../utilities"
 
 /**
  * A class for generic buttons.
@@ -111,8 +112,7 @@ Button.propTypes = {
   active: PropTypes.bool, // whether or not this button is active
   activeColor: PropTypes.string,
   activeStyle: PropTypes.string,
-  hoverColor: PropTypes.string,
-  activetext.color: PropTypes.string,
+  hoverColor: PropTypes.string
 }
 
 /**

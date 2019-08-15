@@ -1,6 +1,6 @@
 // webpack.config.js
 var path = require('path');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
+// var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var nodeExternals = require('webpack-node-externals');
 
 module.exports = {
@@ -32,13 +32,7 @@ module.exports = {
         }
       }, {
         test: /\.*css$/,
-        use : ExtractTextPlugin.extract({
-            fallback : 'style-loader',
-            use : [
-                'css-loader',
-                'sass-loader'
-            ]
-        })
+        use: ['style-loader', 'css-loader'],
        },
     ]
   },
