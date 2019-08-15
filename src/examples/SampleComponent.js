@@ -6,5 +6,5 @@ export default function Sample(props) {
   return <></>
 }
 Sample.defaultProps = {
-  optionalWidth: PropTypes.number,
+  optionalWidth: '20px',
 }
