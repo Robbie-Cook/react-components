@@ -1,14 +1,17 @@
-import React from 'react';
-import logo from './logo.svg';
+import { Heading, Transition, ThemeContext, Colors } from "@robbie-cook/react-components";
+import React, { useEffect, useState } from 'react';
 import './App.css';
 
-import { Heading } from "@robbie-cook/react-components"
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Heading>Storyboard for React Components</Heading>
+        <ThemeContext.Provider value={Colors}>
+          <Transition useState={useState} useEffect={useEffect}>
+            <Heading>Storyboard for React Components</Heading>
+          </Transition>
+        </ThemeContext.Provider> 
       </header>
     </div>
   );
