@@ -56,7 +56,7 @@ TransitionWrapper.defaultProps = {
 
 // A spinner graphic
 function Spinner(props) {
-  StyledSpinnerWrapper = styled.div`
+  const StyledSpinnerWrapper = styled.div`
   min-width: 100px;
   color: ${props.color}
   animation-name: spin;
