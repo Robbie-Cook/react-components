@@ -8,7 +8,7 @@ import './App.css';
 function App() {
   // State updated when component painted
   const [loaded, setLoaded] = useState(false)
-  useEffect(() => {setLoaded(true)})
+  useEffect(() => {setLoaded(true)}, [])
 
   return (
     <div className="App">
