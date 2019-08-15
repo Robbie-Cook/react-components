@@ -3,3 +3,7 @@ demo
 .babelrc
 webpack.config.js
 test
+node_modules
+.gitignore
+yarn-error.log
+yarn.lock
