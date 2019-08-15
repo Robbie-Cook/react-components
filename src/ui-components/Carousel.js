@@ -1,11 +1,11 @@
-import React, { Component } from "react"
-import PropTypes from "prop-types"
+import PropTypes from "prop-types";
+import React, { Component } from "react";
 /* Carousel */
-import "react-responsive-carousel/lib/styles/carousel.min.css"
-import { Carousel as ReactCarousel } from "react-responsive-carousel"
-import styled from "styled-components"
-import { MobileView } from "./Views"
-import Colors from "../data/Colors"
+import { Carousel as ReactCarousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import styled from "styled-components";
+import { Colors } from "../themes"
+;
 
 /*
  * An image carousel

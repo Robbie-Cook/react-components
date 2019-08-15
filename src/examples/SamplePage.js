@@ -1,7 +1,6 @@
-import React, { Component } from "react"
-import WebPage from "../components/Page"
-import { Heading } from "./typography"
-import { Col, Row, LayoutWrapper } from "../components/Layout"
+import React from "react";
+import { Col, LayoutWrapper, Row, WebPage } from "../layout";
+import { Heading } from "../utilities";
 
 // Main Page component
 export default function Sample(props) {

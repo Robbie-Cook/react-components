@@ -2,14 +2,14 @@
 
 /* Imports */
 /* Stylesheets etc. */
-import React, { Component } from "react"
-import styled from "styled-components"
-import Colors from "../data/Colors"
-import NavigationBar from "./NavigationBar"
-import MyLink from "./MyLink"
-import MyHelmet from "./MyHelmet"
-import { MobileView } from "./Views"
-import Dimensions from "./Dimensions"
+import React, { Component } from "react";
+import styled from "styled-components";
+import { Colors } from "../themes";
+import { Dimensions } from "../utilities";
+import { MyHelmet } from "../headers";
+
+import { NavigationBar } from "../navigation";
+import { MobileView } from "../layout";
 
 // Styles for component
 const StyledPage = styled.div`

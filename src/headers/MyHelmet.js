@@ -2,7 +2,8 @@
 
 import React from "react"
 import { Helmet } from "react-helmet"
-import Colors from "../data/Colors"
+import { Colors } from "../themes"
+
 
 class MyHelmet extends React.Component {
   render() {

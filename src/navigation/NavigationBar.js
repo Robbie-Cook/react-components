@@ -1,17 +1,15 @@
-import AppBar from "@material-ui/core/AppBar"
-import { withStyles } from "@material-ui/core/styles"
-import Tabs from "@material-ui/core/Tabs"
-import Toolbar from "@material-ui/core/Toolbar"
-import React from "react"
-import styled from "styled-components"
-import Colors from "../data/Colors"
-import Sizes from "../data/Sizes"
-import MobileNav from "./MobileNav"
-import MyAnilink from "./MyAnilink"
-import { MobileView, Sizes as ViewSizes } from "./Views"
-import MyLink from "./MyLink"
-import { Link, Heading } from "./Typography"
-import Spacer from "./Spacer"
+import AppBar from "@material-ui/core/AppBar";
+import { withStyles } from "@material-ui/core/styles";
+import Tabs from "@material-ui/core/Tabs";
+import Toolbar from "@material-ui/core/Toolbar";
+import React from "react";
+import styled from "styled-components";
+import { MyAnilink } from "../animation";
+import { MobileView, Sizes, ViewSizes } from "../layout";
+import { MobileNav } from "../navigation";
+import { Colors } from "../themes";
+import { Spacer } from "../ui-components";
+import {MyLink, Heading, Link } from "../utilities";
 
 class NavigationBar extends React.Component {
   constructor(props) {
