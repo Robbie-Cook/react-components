@@ -1,2 +1,2 @@
 export { default as MyAnilink } from './MyAnilink';
-export { Transition, SetupTransitionTrigger } from './Transition'
+export { Transition } from './Transition'
