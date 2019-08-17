@@ -3,12 +3,13 @@
   "version": "3.0.10",
   "description": "A bunch of common react components",
   "main": "./build/index.js",
+  "module": "./build/index.es.js",
   "peerDependencies": {
     "react": "^16.4.0"
   },
   "scripts": {
-    "start": "webpack --mode=production --watch webpack.config.js",
-    "build": "webpack --mode=production webpack.config.js",
+    "start": "rollup -c --watch",
+    "build": "rollup -c",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Robbie Cook",
@@ -50,7 +51,7 @@
     "sass-loader": "^7.2.0",
     "styled-components": "^4.3.2",
     "typescript": "^3.5.3",
-    "webpack": "^4.39.2"
+    "webpack": "4.39.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.5.5",
