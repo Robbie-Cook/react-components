@@ -11,18 +11,22 @@ class Colors {
   
   // Link color
   static link = {
-      color: '#6385a9', // also defined in global-styles.css
+      color: '#6385a9',
       colorActive: '#1565c0',
       colorHighlight: '#6385a9'
   }
 
   static text = {
-      color: '#dcd6ce' // also defined in global-styles.css
+      color: this.textColor
   }
 
   static page = {
     backgroundColor: '#0f0f0f',
     secondaryColor: '#EB6D6D', // reddish
+  }
+
+  static navbar = {
+    backgroundColor: this.backgroundColor
   }
 }
 

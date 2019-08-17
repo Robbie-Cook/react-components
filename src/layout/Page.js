@@ -8,8 +8,8 @@ import { Colors } from "../themes";
 import { Dimensions } from "../utilities";
 import { MyHelmet } from "../headers";
 
-import { NavigationBar } from "../navigation";
-import { MobileView } from "../layout";
+import NavigationBar from "../navigation/NavigationBar";
+import { MobileView } from "../layout/Views";
 
 // Styles for component
 const StyledPage = styled.div`

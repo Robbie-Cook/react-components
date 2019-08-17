@@ -1,4 +1,4 @@
-export { MyAnilink, TransitionWrapper, Transition } from "./src/animation"
+export { Transition } from "./src/animation"
 
 export { SampleComponent, SamplePage } from "./src/examples"
 
@@ -8,7 +8,7 @@ export { BorderBox, Col, Row,
     LayoutWrapper, WebPage, Section, 
     MobileView, Container } from "./src/layout"
 
-export { MobileNav, NavigationBar } from "./src/navigation"
+export { NavigationBar } from "./src/navigation"
 
 export { Colors, ThemeContext, Sizes } from "./src/themes"
 
