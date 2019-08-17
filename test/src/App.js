@@ -31,16 +31,21 @@ function App() {
     setLoaded(true);
   }, []);
 
+  new Dimensions();
+
   return (
     <div className="App">
-      <ThemeContext.Provider value={Colors}>
-        <NavigationBar />
-        {/* <header className="App-header">
-          <Transition loaded={loaded}>
-            <Heading>Storyboard for React Components</Heading>
-          </Transition>
-        </header> */}
-      </ThemeContext.Provider>
+      <header className="App-header">
+        {/* <NavigationBar /> */}
+        <Heading>My React storyboard</Heading>
+        <Text>
+          This is a test of the different components in{" "}
+          <Link href="https://www.npmjs.com/package/@robbie-cook/react-components">
+            @robbie-cook/react-components
+          </Link>
+        </Text>
+        <Button label="Testing button" />
+      </header>
     </div>
   );
 }
