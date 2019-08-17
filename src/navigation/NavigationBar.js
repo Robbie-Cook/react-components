@@ -23,70 +23,25 @@ export default function NavigationBar() {
 
   const context = useContext(ThemeContext);
 
-  const StyledTabs = withStyles({
-    root: {
-      // Not ideal, should be done with breakpoints in theme
-      // re: https://stackoverflow.com/questions/45847090/media-queries-in-material-ui-components
-      [`@media (max-width:${ViewSizes.mobileSize}px)`]: {
-        display: "none"
-      }
-    }
-  })(Tabs);
-
-  const StyledToolbar = styled(Toolbar)`
-    z-index: 150;
-    margin-left: 0;
-    padding: 0;
-    ${new MobileView(`
-        margin-left: 20px;
-      `)};
-  `;
-
+  // TODO: turn this into a prop / theme
   let navigationLinks = [new MyLink("Home", "/"), new MyLink("News", "/news")];
   let heading = "Open Politics";
 
   return (
-    <StyledAppBar position="static" color="primary" colorPrimary>
-      <StyledToolbar>
-        {heading && (
-          <>
-            <Heading type="h3" margin="0">
-              {heading}
-            </Heading>
-            <Spacer width="56px" />
-          </>
-        )}
-        {/* <MobileNav pages={navigationLinks} /> */}
-        <StyledTabs>
-          {(() => {
-            let array = [];
-
-            let LinkContainer = styled.div`
-              margin-right: 30px;
-            `;
-            navigationLinks.map(item => {
-              // If the current URL is the same as the item path, mark Tab as active
-              array.push(
-                <LinkContainer>
-                  {/* <MyAnilink path={item.path}> */}
-                  <Link
-                    style={`
-                          line-height: ${Sizes.navbar.height};
-                          position: relative;
-                          bottom: -5px;
-                          color: ${Colors.text.color}
-                        `}
-                  >
-                    {item.name}
-                  </Link>
-                  {/* </MyAnilink> */}
-                </LinkContainer>
-              );
-            });
-            return array;
-          })()}
-        </StyledTabs>
-      </StyledToolbar>
-    </StyledAppBar>
+    <Bar navigationLinks={navigationLinks}>
+    </Bar>
   );
+}
+
+/**
+ * Represents a navigation bar
+ * @param {*} props 
+ */
+function Bar(props) {
+
+}
+Bar.defaultProps = {
+  navigationLinks: [new MyLink("Home", "/"), new MyLink("News", "/news")],
+  height: "60px",
+  backgroundColor: DefaultTheme.navbar.backgroundColor
 }
