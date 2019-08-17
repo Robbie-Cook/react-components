@@ -1,5 +1,4 @@
 /* Defines a page link */
-import { Route } from "gatsby";
 import React from "react";
 
 class MyLink {
