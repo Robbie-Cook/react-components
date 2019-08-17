@@ -1,12 +1,14 @@
 {
   "name": "test",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "dependencies": {
     "@robbie-cook/react-components": "^3.0.4",
+    "eslint": "^6.1.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
-    "react-scripts": "3.1.1"
+    "react-scripts": "3.1.1",
+    "webpack": "4.39.1"
   },
   "scripts": {
     "start": "yarn link @robbie-cook/react-components && react-scripts start",

@@ -1,6 +1,6 @@
-import React, { Component } from "react"
-import styled from "styled-components"
-import PropTypes from "prop-types"
+import React, { Component } from "react";
+import styled from "styled-components";
+import PropTypes from "prop-types";
 
 /**
  * Component for providing space in a UI
@@ -8,20 +8,15 @@ import PropTypes from "prop-types"
  * Values must be given like so
  * <Spacer width="40px" />
  */
-class Spacer extends Component {
-  render() {
-    const Spacer = styled.div`
-      height: ${this.props.height};
-      width: ${this.props.width};
-    `
+export default function Spacer(props) {
+  const MySpacer = styled.div`
+    height: ${this.props.height};
+    width: ${this.props.width};
+  `;
 
-    return <Spacer />
-  }
+  return <MySpacer />;
 }
 Spacer.propTypes = {
   width: PropTypes.string,
-  height: PropTypes.string,
-}
-
-
-export default Spacer
+  height: PropTypes.string
+};
