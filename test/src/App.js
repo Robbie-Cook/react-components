@@ -1,4 +1,4 @@
-// import { Heading, Transition, ThemeContext, Colors } from "@robbie-cook/react-components";
+// import { Heading, Transition, ThemeContext, DefaultTheme } from "@robbie-cook/react-components";
 import React, { useEffect, useState } from "react";
 import "./App.css";
 import {

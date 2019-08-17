@@ -4,7 +4,7 @@ import React, { Component } from "react";
 import { Carousel as ReactCarousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import styled from "styled-components";
-import { Colors } from "../themes"
+import { DefaultTheme } from "../themes"
 ;
 
 /*
@@ -44,7 +44,7 @@ class Carousel extends Component {
       & > div {
         overflow: hidden!important;
         width: 100%;
-        border: 4px solid ${Colors.text.color};
+        border: 4px solid ${DefaultTheme.text.color};
       }
       
       // Make arrows bigger on carousel

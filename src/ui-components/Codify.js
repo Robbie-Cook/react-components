@@ -6,7 +6,7 @@ import React, { Component } from "react"
 import PropTypes from "prop-types"
 import Spacer from "./Spacer"
 import styled from "styled-components"
-import Colors from "../themes/Colors"
+import DefaultTheme from "../themes/DefaultTheme"
 
 /** Icons to display with text */
 class TextIcon extends Component {
@@ -61,7 +61,7 @@ Codify.propTypes = {
   opacity: PropTypes.string,
 }
 Codify.defaultProps = {
-  color: Colors.page.secondaryColor,
+  color: DefaultTheme.page.secondaryColor,
   fontSize: "69px",
   rightTagSpacing: "13px",
   opacity: "1",

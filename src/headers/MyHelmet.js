@@ -2,7 +2,7 @@
 
 import React from "react"
 import { Helmet } from "react-helmet"
-import { Colors } from "../themes"
+import { DefaultTheme } from "../themes"
 
 
 class MyHelmet extends React.Component {
@@ -28,7 +28,7 @@ class MyHelmet extends React.Component {
           <style>
             {`
               body {
-                background-color: ${Colors.backgroundColor};
+                background-color: ${DefaultTheme.backgroundColor};
                 margin: 0;
               }
             `}

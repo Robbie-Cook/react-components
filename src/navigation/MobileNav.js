@@ -12,7 +12,7 @@ import React from "react";
 import styled from "styled-components";
 import { MyAnilink } from "../animation";
 import { ViewSizes } from "../layout/Views";
-import { Colors, Sizes } from "../themes";
+import { DefaultTheme, Sizes } from "../themes";
 
 /**
  * A class representing a mobile nav.
@@ -37,14 +37,14 @@ class MobileNav extends React.Component {
     const StyledMenuItem = styled(MenuItem)`
       font-weight: bold;
       &.active {
-        color: ${Colors.link.color};
+        color: ${DefaultTheme.link.color};
       }
     `
 
     this.props.pages.map(item =>
       array.push(
         <StyledMenuItem component={Link} activeClassName={"active"}>
-          <MyAnilink style={`color: ${Colors.link.color}`} path={item.path}>{item.name}</MyAnilink>
+          <MyAnilink style={`color: ${DefaultTheme.link.color}`} path={item.path}>{item.name}</MyAnilink>
         </StyledMenuItem>
       )
     )

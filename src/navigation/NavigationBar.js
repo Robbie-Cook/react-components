@@ -7,7 +7,7 @@ import styled from "styled-components";
 // import { MyAnilink } from "../animation";
 import { MobileView, ViewSizes } from "../layout/Views";
 // import MobileNav from "../navigation/MobileNav";
-import { Colors, Sizes } from "../themes";
+import { DefaultTheme, Sizes } from "../themes";
 import { Spacer } from "../ui-components";
 import { Heading, Link, MyLink } from "../utilities";
 

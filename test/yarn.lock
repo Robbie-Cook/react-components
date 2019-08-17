@@ -819,9 +819,9 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
-"@csstools/convert-colors@^1.4.0":
+"@csstools/convert-DefaultTheme@^1.4.0":
   version "1.4.0"
-  resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
+  resolved "https://registry.yarnpkg.com/@csstools/convert-DefaultTheme/-/convert-DefaultTheme-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
   integrity sha512-5a6wqoJV/xEdbRNKVo6I4hO3VjyDq//8q2f9I6PBAvMesJHFauXDorcNCsr9RzvsZnaWi5NYCcfyqP1QeFHFbw==
 
 "@csstools/normalize.css@^9.0.1":
@@ -1846,9 +1846,9 @@ ansi-align@^3.0.0:
   dependencies:
     string-width "^3.0.0"
 
-ansi-colors@^3.0.0:
+ansi-DefaultTheme@^3.0.0:
   version "3.2.4"
-  resolved "https://registry.yarnpkg.com/ansi-colors/-/ansi-colors-3.2.4.tgz#e3a3da4bfbae6c86a9c285625de124a234026fbf"
+  resolved "https://registry.yarnpkg.com/ansi-DefaultTheme/-/ansi-DefaultTheme-3.2.4.tgz#e3a3da4bfbae6c86a9c285625de124a234026fbf"
   integrity sha512-hHUXGagefjN2iRrID63xckIvotOXOojhQKWIPUZ4mNUZ9nLZW+7FMNoE1lOkEhNWYsx/7ysGIuJYCiMAA9FnrA==
 
 ansi-escapes@^3.0.0, ansi-escapes@^3.2.0:
@@ -3135,7 +3135,7 @@ cli-table3@^0.5.1:
     object-assign "^4.1.0"
     string-width "^2.1.1"
   optionalDependencies:
-    colors "^1.1.2"
+    DefaultTheme "^1.1.2"
 
 cli-truncate@^1.1.0:
   version "1.1.0"
@@ -3263,9 +3263,9 @@ color@^3.0.0:
     color-convert "^1.9.1"
     color-string "^1.5.2"
 
-colors@^1.1.2:
+DefaultTheme@^1.1.2:
   version "1.3.3"
-  resolved "https://registry.yarnpkg.com/colors/-/colors-1.3.3.tgz#39e005d546afe01e01f9c4ca8fa50f686a01205d"
+  resolved "https://registry.yarnpkg.com/DefaultTheme/-/DefaultTheme-1.3.3.tgz#39e005d546afe01e01f9c4ca8fa50f686a01205d"
   integrity sha512-mmGt/1pZqYRjMxB1axhTo16/snVZ5krrKkcmMeVKxzECMMXoCgnvTPp10QgHfcbQZw8Dq2jMNG6je4JlWU0gWg==
 
 combined-stream@^1.0.6, combined-stream@~1.0.6:
@@ -9492,7 +9492,7 @@ postcss-color-gray@^5.0.0:
   resolved "https://registry.yarnpkg.com/postcss-color-gray/-/postcss-color-gray-5.0.0.tgz#532a31eb909f8da898ceffe296fdc1f864be8547"
   integrity sha512-q6BuRnAGKM/ZRpfDascZlIZPjvwsRye7UDNalqVz3s7GDxMtqPY6+Q871liNxsonUw8oC61OG+PSaysYpl1bnw==
   dependencies:
-    "@csstools/convert-colors" "^1.4.0"
+    "@csstools/convert-DefaultTheme" "^1.4.0"
     postcss "^7.0.5"
     postcss-values-parser "^2.0.0"
 
@@ -9509,7 +9509,7 @@ postcss-color-mod-function@^3.0.3:
   resolved "https://registry.yarnpkg.com/postcss-color-mod-function/-/postcss-color-mod-function-3.0.3.tgz#816ba145ac11cc3cb6baa905a75a49f903e4d31d"
   integrity sha512-YP4VG+xufxaVtzV6ZmhEtc+/aTXH3d0JLpnYfxqTvwZPbJhWqp8bSY3nfNzNRFLgB4XSaBA82OE4VjOOKpCdVQ==
   dependencies:
-    "@csstools/convert-colors" "^1.4.0"
+    "@csstools/convert-DefaultTheme" "^1.4.0"
     postcss "^7.0.2"
     postcss-values-parser "^2.0.0"
 
@@ -9678,7 +9678,7 @@ postcss-lab-function@^2.0.1:
   resolved "https://registry.yarnpkg.com/postcss-lab-function/-/postcss-lab-function-2.0.1.tgz#bb51a6856cd12289ab4ae20db1e3821ef13d7d2e"
   integrity sha512-whLy1IeZKY+3fYdqQFuDBf8Auw+qFuVnChWjmxm/UhHWqNHZx+B99EwxTvGYmUBqe3Fjxs4L1BoZTJmPu6usVg==
   dependencies:
-    "@csstools/convert-colors" "^1.4.0"
+    "@csstools/convert-DefaultTheme" "^1.4.0"
     postcss "^7.0.2"
     postcss-values-parser "^2.0.0"
 
@@ -12802,7 +12802,7 @@ webpack-log@^2.0.0:
   resolved "https://registry.yarnpkg.com/webpack-log/-/webpack-log-2.0.0.tgz#5b7928e0637593f119d32f6227c1e0ac31e1b47f"
   integrity sha512-cX8G2vR/85UYG59FgkoMamwHUIkSSlV3bBMRsbxVXVUk2j6NleCKjQ/WE9eYg9WY4w25O9w8wKP4rzNZFmUcUg==
   dependencies:
-    ansi-colors "^3.0.0"
+    ansi-DefaultTheme "^3.0.0"
     uuid "^3.3.2"
 
 webpack-manifest-plugin@2.0.4:

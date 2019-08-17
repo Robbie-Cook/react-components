@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import PropTypes from "prop-types"
 import { Button as GrommetButton, Grommet } from "grommet"
-import { Colors } from "../themes"
+import { DefaultTheme } from "../themes"
 
 import styled from "styled-components"
 import { Dimensions } from "../utilities"
@@ -16,35 +16,35 @@ class Button extends Component {
     const customTheme = {
       button: {
         border: {
-          color: Colors.text.color,
+          color: DefaultTheme.text.color,
         },
         color: (() => {
           if (this.props.active) {
             if (this.props.activeColor) {
               return this.props.activeColor
             }
-            return Colors.link.colorActive
+            return DefaultTheme.link.colorActive
           } else if (this.props.color) {
             return this.props.color
           }
-          return Colors.link.color
+          return DefaultTheme.link.color
         })(),
       },
     }
 
     const activeStyle = this.props.activeStyle
       ? this.props.activeStyle
-      : `background-color: ${Colors.link.colorActive}`
+      : `background-color: ${DefaultTheme.link.colorActive}`
 
     const MyButton = styled(GrommetButton)`
-      border: 3px solid ${Colors.link.color};
+      border: 3px solid ${DefaultTheme.link.color};
       border-radius: 6px;
-      color: ${Colors.text.color};
+      color: ${DefaultTheme.text.color};
       transition: 0.03s;
 
       /* for svg icons */
-      fill: ${Colors.text.color};
-      stroke: ${Colors.text.color};
+      fill: ${DefaultTheme.text.color};
+      stroke: ${DefaultTheme.text.color};
 
       &:hover {
         & p {
@@ -52,11 +52,11 @@ class Button extends Component {
         }
         background-color: ${this.props.hoverColor
           ? this.props.hoverColor
-          : Colors.link.color};
+          : DefaultTheme.link.color};
       }
 
       margin: ${this.props.margin ? this.props.margin : new Dimensions(10, 20)};
-      color: ${Colors.text.color};
+      color: ${DefaultTheme.text.color};
       line-height: 27px;
       font-size: 16px;
       padding: 5px 12px;
@@ -65,19 +65,19 @@ class Button extends Component {
       // Styles for active links
       background-color: ${this.props.activeColor
         ? this.props.activeColor
-        : Colors.link.color};
+        : DefaultTheme.link.color};
 
       ${this.props.style};
       ${this.props.active && activeStyle};
     `
 
     const BorderedText = styled.p`
-      color: ${Colors.text.color};
+      color: ${DefaultTheme.text.color};
       margin: 0;
       text-decoration: none;
       ${(() => {
         return this.props.underline
-          ? `border-bottom: 1px solid ${Colors.text.color};`
+          ? `border-bottom: 1px solid ${DefaultTheme.text.color};`
           : ``
       })()}
 

@@ -3,7 +3,7 @@
  */
 
 import styled from "styled-components"
-import { Colors } from "../themes"
+import { DefaultTheme } from "../themes"
 
 import React, { Component } from "react"
 import PropTypes from "prop-types"

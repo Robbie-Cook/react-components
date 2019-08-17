@@ -5,7 +5,7 @@ css/global-styles.css.
 This is to be replaced with React.Context, where this is an object passed 
 through a color context
 */
-class Colors {
+class DefaultTheme {
   static textColor = "#dcd6ce"
   static backgroundColor = "#0f0f0f"
   
@@ -30,4 +30,4 @@ class Colors {
   }
 }
 
-export default Colors
+export default DefaultTheme

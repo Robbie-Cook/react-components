@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
-import { Colors } from "../themes"
+import { DefaultTheme } from "../themes"
 
 
 /**
@@ -36,20 +36,20 @@ class Icon extends Component {
       text-align: center;
       font-size: ${diameter - 15}px;
       cursor: pointer;
-      background-color: ${Colors.text.color};
+      background-color: ${DefaultTheme.text.color};
       margin: 0 9px;
-      color: ${Colors.backgroundColor};
+      color: ${DefaultTheme.backgroundColor};
       transition: 0.1s;
       transition-timing-function: ease-out;
 
       &:hover {
-        background-color: ${Colors.link.color};
-        color: ${Colors.text.color};
+        background-color: ${DefaultTheme.link.color};
+        color: ${DefaultTheme.text.color};
       }
 
       &:active {
-        background-color: ${Colors.link.color};
-        color: ${Colors.text.color};
+        background-color: ${DefaultTheme.link.color};
+        color: ${DefaultTheme.text.color};
       }
     `
 
