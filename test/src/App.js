@@ -1,3 +1,4 @@
+<<<<<<< develop
 import {
   Heading,
   Transition,
@@ -7,6 +8,18 @@ import {
 } from "@robbie-cook/react-components";
 import React, { useEffect, useState } from "react";
 import "./App.css";
+=======
+// import { Heading, Transition, ThemeContext, Colors } from "@robbie-cook/react-components";
+import React, { useEffect, useState } from "react";
+import "./App.css";
+import {
+  Heading,
+  Dimensions,
+  Text,
+  Link,
+  Button
+} from "@robbie-cook/react-components";
+>>>>>>> Cleaning up circular dependencies
 
 /**
  * The main entry point for the app

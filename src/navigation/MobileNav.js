@@ -11,7 +11,7 @@ import { Link } from "gatsby";
 import React from "react";
 import styled from "styled-components";
 import { MyAnilink } from "../animation";
-import { ViewSizes } from "../layout";
+import { ViewSizes } from "../layout/Views";
 import { Colors, Sizes } from "../themes";
 
 /**
