@@ -12,8 +12,8 @@ class MyLink {
    * Determines whether a link is active
    * @returns true if so, otherwise false
    */
-  isActive(currentPath) {
-    return currentPath === this.path;
+  isActive() {
+    return document.URL.split('/')[3] === this.path;
   }
 }
 export default MyLink;

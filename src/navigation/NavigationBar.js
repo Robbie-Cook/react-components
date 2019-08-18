@@ -13,10 +13,8 @@ import NavButton from "./NavButton";
 /** Represents a navbar element */
 function NavBar(props) {
   const [loaded, setLoaded] = useState(false);
-  const [currentPath, setCurrentPath] = useState("");
   useEffect(() => {
     setLoaded(true);
-    setCurrentPath(window.location.pathname);
   });
 
   const theme = useContext(ThemeContext).navbar;
@@ -39,7 +37,7 @@ function NavBar(props) {
         <NavButton
           to={value.path}
           label={value.name}
-          active={value.isActive(currentPath)}
+          active={value.isActive()}
         />
       );
     });
