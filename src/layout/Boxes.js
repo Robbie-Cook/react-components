@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
-import { Colors } from "../themes"
+import { DefaultTheme } from "../themes"
 
 /**
  *  A bordered box.
@@ -9,7 +9,7 @@ import { Colors } from "../themes"
 class BorderBox extends Component {
   render() {
     const Box = styled.div`
-      border: 8px solid ${Colors.text.color};
+      border: 8px solid ${DefaultTheme.text.color};
       border-radius: 4px;
       padding: 20px;
       display: flex;
@@ -28,11 +28,11 @@ class BorderBox extends Component {
 
       &::-webkit-scrollbar {
         width: 10px;
-        background-color: ${Colors.backgroundColor};
+        background-color: ${DefaultTheme.backgroundColor};
       }
 
       &::-webkit-scrollbar-thumb {
-        background-color: ${Colors.text.color};
+        background-color: ${DefaultTheme.text.color};
         );
       }
     `

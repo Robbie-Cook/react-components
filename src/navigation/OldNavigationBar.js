@@ -7,7 +7,7 @@ import styled from "styled-components";
 import { MyAnilink } from "../animation";
 import { MobileView, ViewSizes } from "../layout";
 import { MobileNav } from "../navigation";
-import { Sizes, Colors } from "../themes";
+import { Sizes, DefaultTheme } from "../themes";
 import { Spacer } from "../ui-components";
 import { Heading, Link, MyLink } from "../utilities";
 
@@ -21,7 +21,7 @@ class NavigationBar extends Component {
   /* CSS */
   // const StyledAppBar = withStyles({
   //   root: {
-  //     backgroundColor: Colors.backgroundColor,
+  //     backgroundColor: DefaultTheme.backgroundColor,
   //     height: Sizes.navbar.height
   //   }
   // })(AppBar);
@@ -77,7 +77,7 @@ class NavigationBar extends Component {
                           line-height: ${Sizes.navbar.height};
                           position: relative;
                           bottom: -5px;
-                          color: ${Colors.text.color}
+                          color: ${DefaultTheme.text.color}
                         `}
                     >
                       {item.name}

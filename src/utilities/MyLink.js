@@ -1,20 +1,19 @@
-/* Defines a page link */
-import React from "react";
-
+/**
+ * Represents a link to a page
+ */
 class MyLink {
-    constructor(name, path, component, exact=false) {
-        this.name = name
-        this.path = path
-        this.exact = exact // whether or not the path has to be exact
-    }
+  constructor(name, path, component, exact = false) {
+    this.name = name;
+    this.path = path;
+    this.exact = exact; // whether or not the path has to be exact
+  }
 
-    // Convert navbar link to a Router element
-    getRoute() {
-        let route = <Route path={this.path} component={this.component} />;
-        if (this.exact) {
-          route = <Route exact path={this.path} component={this.component} />
-        }
-        return route
-    }
+  /**
+   * Determines whether a link is active
+   * @returns true if so, otherwise false
+   */
+  isActive() {
+    return window.location.pathname === this.path;
+  }
 }
 export default MyLink;

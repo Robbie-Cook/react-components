@@ -1,4 +1,4 @@
-// import { Heading, Transition, ThemeContext, Colors } from "@robbie-cook/react-components";
+// import { Heading, Transition, ThemeContext, DefaultTheme } from "@robbie-cook/react-components";
 import React, { useEffect, useState } from "react";
 import "./App.css";
 import {
@@ -6,7 +6,14 @@ import {
   Dimensions,
   Text,
   Link,
-  Button
+  Button,
+  Transition,
+  NavigationBar,
+  DefaultTheme,
+  ThemeContext,
+  SiteContext,
+  DefaultSiteContext,
+  Page
 } from "@robbie-cook/react-components";
 
 /**
@@ -22,19 +29,27 @@ function App() {
   new Dimensions();
 
   return (
-    <div className="App">
-      <header className="App-header">
-        {/* <NavigationBar /> */}
-        <Heading>My React storyboard</Heading>
-        <Text>
-          This is a test of the different components in{" "}
-          <Link href="https://www.npmjs.com/package/@robbie-cook/react-components">
-            @robbie-cook/react-components
-          </Link>
-        </Text>
-        <Button label="Testing button" />
-      </header>
-    </div>
+    <SiteContext.Provider value={DefaultSiteContext}>
+      <ThemeContext.Provider value={DefaultTheme}>
+        <Page>
+          <Transition loaded={loaded}>
+            <Heading>My React storyboard</Heading>
+            <Text>
+              This is a test of the different components in{" "}
+              <Link href="https://www.npmjs.com/package/@robbie-cook/react-components">
+                @robbie-cook/react-components
+              </Link>
+            </Text>
+            <Button label="Testing button" />
+          </Transition>
+
+          <Heading type="h2">Testing loader</Heading>
+          <Transition loaded={false}>
+            <Text>Hidden text</Text>
+          </Transition>
+        </Page>
+      </ThemeContext.Provider>
+    </SiteContext.Provider>
   );
 }
 

@@ -6,3 +6,4 @@ redux/ContextWrapper\.js
 redux/reducers/color\.js
 
 *.log
+*.stackdump

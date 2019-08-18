@@ -4,7 +4,7 @@
 /* Stylesheets etc. */
 import React, { Component } from "react";
 import styled from "styled-components";
-import { Colors } from "../themes";
+import { DefaultTheme } from "../themes";
 import { Dimensions } from "../utilities";
 import { MyHelmet } from "../headers";
 
@@ -13,7 +13,7 @@ import { MobileView } from "../layout/Views";
 
 // Styles for component
 const StyledPage = styled.div`
-  background-color: ${Colors.backgroundColor};
+  background-color: ${DefaultTheme.backgroundColor};
 
   display: flex;
   flex-direction: column;
@@ -24,27 +24,25 @@ const StyledPage = styled.div`
     flex-direction: column;
     padding: ${new Dimensions(20, 30)}; 
   `)}
-`
+`;
 
 /* Navigation links, which are passed to navbar.js */
 
-
 /**
  * Define a React Context for all child components to use
- * Made to make finding colors easier
+ * Made to make finding DefaultTheme easier
  */
-const ColorsContext = React.createContext(Colors)
 
 // Main Page component
-class WebPage extends Component {
+class Page extends Component {
   constructor(props) {
-    super(props)
+    super(props);
   }
 
   render() {
     return (
-      <ColorsContext.Provider value={Colors}>
-        <MyHelmet /> {/* SEO Stuff */}
+      <>
+        <MyHelmet />
         <div>
           <NavigationBar />
           <div style={this.props.style}>
@@ -53,9 +51,9 @@ class WebPage extends Component {
             </StyledPage>
           </div>
         </div>
-      </ColorsContext.Provider>
-    )
+      </>
+    );
   }
 }
 
-export default WebPage
+export default Page;
