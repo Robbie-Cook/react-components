@@ -29,11 +29,6 @@ const Row = styled.div`
  * A column on a page
  */
 function Col(props) {
-  propTypes = {
-    width: PropTypes.string // Given as a string,
-    // not as a number, e.g. 50%
-  };
-
   const StyleCol = styled.div`
     display: flex;
     flex-direction: column;
@@ -47,5 +42,9 @@ function Col(props) {
 
   return <StyleCol>{props.children}</StyleCol>;
 }
+Col.propTypes = {
+  width: PropTypes.string // Given as a string,
+  // not as a number, e.g. 50%
+};
 
 export { Col, Row, LayoutWrapper };
