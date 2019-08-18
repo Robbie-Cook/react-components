@@ -6,7 +6,7 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import { DefaultTheme } from "../themes";
 import { Dimensions } from "../utilities";
-import { MyHelmet } from "../headers";
+import MyHelmet from "../headers/MyHelmet";
 
 import NavigationBar from "../navigation/NavigationBar";
 import { MobileView } from "../layout/Views";

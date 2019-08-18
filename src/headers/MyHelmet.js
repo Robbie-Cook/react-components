@@ -1,42 +1,38 @@
 // Metadata for each page
 
-import React from "react"
-import { Helmet } from "react-helmet"
-import { DefaultTheme } from "../themes"
+import React, {useContext} from "react";
+import { Helmet } from "react-helmet";
+import ThemeContext from "../themes/ThemeContext";
 
+function MyHelmet() {
+  const theme = useContext(ThemeContext)
 
-class MyHelmet extends React.Component {
-  render() {
-    return (
-      <div className="application">
-        <Helmet>
-          <meta charSet="utf-8" />
-          {/* Load Google Fonts */}
-          <link
-            href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Roboto:300,400,700&display=swap"
-            rel="stylesheet"
-          />
+  return (
+    <div className="application">
+      <Helmet>
+        <meta charSet="utf-8" />
+        {/* Load Google Fonts */}
+        <link
+          href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Roboto:300,400,700&display=swap"
+          rel="stylesheet"
+        />
 
-          <title>Robbie Cook</title>
-          <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1.0"
-          />
-          {/* <link rel="canonical" href="http://mysite.com/example" /> */}
+        <title>Robbie Cook</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        {/* <link rel="canonical" href="http://mysite.com/example" /> */}
 
-          {/* Done for initial loading */}
-          <style>
-            {`
+        {/* Done for initial loading */}
+        <style>
+          {`
               body {
-                background-color: ${DefaultTheme.backgroundColor};
+                background-color: ${theme.backgroundColor};
                 margin: 0;
               }
             `}
-          </style>
-        </Helmet>
-      </div>
-    )
-  }
+        </style>
+      </Helmet>
+    </div>
+  );
 }
 
-export default MyHelmet
+export default MyHelmet;
