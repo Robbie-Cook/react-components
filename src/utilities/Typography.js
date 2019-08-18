@@ -1,7 +1,8 @@
 import styled from "styled-components";
-import React, { Component } from "react";
+import React, { Component, useContext } from "react";
 import PropTypes from "prop-types";
 import DefaultTheme from "../themes/DefaultTheme";
+import ThemeContext from "../themes/ThemeContext";
 import Codify from "../ui-components/Codify";
 
 /**
@@ -121,17 +122,19 @@ Heading.defaultProps = {
  * Should be used in place of <p>, because this
  * is a globally-styled version
  */
-class Text extends Component {
-  render() {
-    Text = styled.p`
-      margin: 12px 0;
+function Text(props) {
+  const globalTheme = useContext(ThemeContext);
+  const localTheme = globalTheme.text
 
-      /* Local to this politics */
-      font-family: "Roboto", sans-serif;
-      ${this.props.style};
-    `;
-    return <Text>{this.props.children}</Text>;
-  }
+  const StyledText = styled.p`
+    margin: 12px 0;
+    color: ${localTheme.color};
+
+    /* Local to this politics */
+    font-family: "Roboto", sans-serif;
+    ${props.style};
+  `;
+  return <StyledText>{props.children}</StyledText>;
 }
 Text.defaultProps = {
   style: ""
@@ -139,7 +142,7 @@ Text.defaultProps = {
 
 /**
  * Represents a page link (i.e. a styled <a href="" />)
- * @param {*} props 
+ * @param {*} props
  */
 function Link(props) {
   const StyledLink = styled.a`
