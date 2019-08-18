@@ -14,7 +14,9 @@ class MyLink {
    */
   isActive() {
     // TODO: not working
-    
+
+    // maybe https://github.com/jense5/browser-monads ?
+
     // "Gatsby's making me so sad, when I build, it's not running this "
     // https://www.youtube.com/watch?v=taupuK6oND4
 
