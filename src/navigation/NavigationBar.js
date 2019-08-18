@@ -7,11 +7,18 @@ import styled from "styled-components";
 import { SiteContext } from "../utilities/SiteContext";
 import { Heading, Text } from "../utilities/Typography";
 import { Button } from "../ui-components/Button";
-import Spacer from "../ui-components/Spacer"
-import NavButton from "./NavButton"
+import Spacer from "../ui-components/Spacer";
+import NavButton from "./NavButton";
 
 /** Represents a navbar element */
 function NavBar(props) {
+  const [loaded, setLoaded] = useState(false);
+  const [currentPath, setCurrentPath] = useState("");
+  useEffect(() => {
+    setLoaded(true);
+    setCurrentPath(window.location.pathname);
+  });
+
   const theme = useContext(ThemeContext).navbar;
 
   const StyledNavBar = styled.div`
@@ -28,7 +35,13 @@ function NavBar(props) {
   const links = (() => {
     let mylinks = [];
     props.links.forEach(value => {
-      mylinks.push(<NavButton to={value.path} label={value.name} active={value.isActive()} />);
+      mylinks.push(
+        <NavButton
+          to={value.path}
+          label={value.name}
+          active={value.isActive(currentPath)}
+        />
+      );
     });
     return mylinks;
   })();

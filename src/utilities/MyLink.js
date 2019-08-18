@@ -12,8 +12,8 @@ class MyLink {
    * Determines whether a link is active
    * @returns true if so, otherwise false
    */
-  isActive() {
-    return window.location.pathname === this.path;
+  isActive(currentPath) {
+    return currentPath === this.path;
   }
 }
 export default MyLink;
