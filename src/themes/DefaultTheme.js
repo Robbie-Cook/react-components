@@ -17,7 +17,8 @@ class DefaultTheme {
   };
 
   static text = {
-    color: this.textColor
+    color: this.textColor,
+    font: "'Roboto', sans-serif",
   };
 
   static page = {
