@@ -2,7 +2,7 @@ import AppBar from "@material-ui/core/AppBar";
 import { withStyles } from "@material-ui/core/styles";
 import Tabs from "@material-ui/core/Tabs";
 import Toolbar from "@material-ui/core/Toolbar";
-import React from "react";
+import { Transition } from "../animation";
 import styled from "styled-components";
 // import { MyAnilink } from "../animation";
 import { MobileView, ViewSizes } from "../layout/Views";
