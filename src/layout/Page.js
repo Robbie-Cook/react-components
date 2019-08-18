@@ -24,27 +24,25 @@ const StyledPage = styled.div`
     flex-direction: column;
     padding: ${new Dimensions(20, 30)}; 
   `)}
-`
+`;
 
 /* Navigation links, which are passed to navbar.js */
-
 
 /**
  * Define a React Context for all child components to use
  * Made to make finding DefaultTheme easier
  */
-const DefaultThemeContext = React.createContext(DefaultTheme)
 
 // Main Page component
-class WebPage extends Component {
+class Page extends Component {
   constructor(props) {
-    super(props)
+    super(props);
   }
 
   render() {
     return (
-      <DefaultThemeContext.Provider value={DefaultTheme}>
-        <MyHelmet /> {/* SEO Stuff */}
+      <>
+        <MyHelmet />
         <div>
           <NavigationBar />
           <div style={this.props.style}>
@@ -53,9 +51,9 @@ class WebPage extends Component {
             </StyledPage>
           </div>
         </div>
-      </DefaultThemeContext.Provider>
-    )
+      </>
+    );
   }
 }
 
-export default WebPage
+export default Page;

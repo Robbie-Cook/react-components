@@ -1,11 +1,11 @@
 import React from "react";
-import { Col, LayoutWrapper, Row, WebPage } from "../layout";
+import { Col, LayoutWrapper, Row, Page } from "../layout";
 import { Heading } from "../utilities";
 
 // Main Page component
 export default function Sample(props) {
   return (
-    <WebPage>
+    <Page>
       <LayoutWrapper>
         <Heading type="h1">Sample</Heading>
         <Row>
@@ -13,6 +13,6 @@ export default function Sample(props) {
           <Col></Col>
         </Row>
       </LayoutWrapper>
-    </WebPage>
+    </Page>
   )
 }

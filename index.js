@@ -5,7 +5,7 @@ export { SampleComponent, SamplePage } from "./src/examples"
 export { MyHelmet } from "./src/headers"
 
 export { BorderBox, Col, Row, 
-    LayoutWrapper, WebPage, Section, 
+    LayoutWrapper, Page, Section, 
     MobileView, Container } from "./src/layout"
 
 export { NavigationBar } from "./src/navigation"
