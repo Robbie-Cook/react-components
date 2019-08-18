@@ -8,6 +8,9 @@ import {
   Link,
   Button,
   Transition,
+  NavigationBar,
+  DefaultTheme,
+  ThemeContext,
   SiteContext,
   DefaultSiteContext,
   Page
@@ -26,25 +29,27 @@ function App() {
   new Dimensions();
 
   return (
-    <div className="App">
-      <header className="App-header">
-        {/* <NavigationBar /> */}
-        <Heading>My React storyboard</Heading>
-        <Text>
-          This is a test of the different components in{" "}
-          <Link href="https://www.npmjs.com/package/@robbie-cook/react-components">
-            @robbie-cook/react-components
-          </Link>
-        </Text>
-        <Button label="Testing button" />
+    <SiteContext.Provider value={DefaultSiteContext}>
+      <ThemeContext.Provider value={DefaultTheme}>
+        <Page>
+          <Transition loaded={loaded}>
+            <Heading>My React storyboard</Heading>
+            <Text>
+              This is a test of the different components in{" "}
+              <Link href="https://www.npmjs.com/package/@robbie-cook/react-components">
+                @robbie-cook/react-components
+              </Link>
+            </Text>
             <Button label="Testing button" />
-            <Button label="Testing button" />
-            <Button label="Testing button" />
-            <Button label="Testing button" />
-            <Button label="Testing button" />
-            <Button label="Testing button" />
-      </header>
-    </div>
+          </Transition>
+
+          <Heading type="h2">Testing loader</Heading>
+          <Transition loaded={false}>
+            <Text>Hidden text</Text>
+          </Transition>
+        </Page>
+      </ThemeContext.Provider>
+    </SiteContext.Provider>
   );
 }
 
