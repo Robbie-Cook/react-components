@@ -10,8 +10,8 @@ import PropTypes from "prop-types";
  */
 export default function Spacer(props) {
   const MySpacer = styled.div`
-    height: ${this.props.height};
-    width: ${this.props.width};
+    height: ${props.height};
+    width: ${props.width};
   `;
 
   return <MySpacer />;
