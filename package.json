@@ -8,9 +8,9 @@
     "react": "^16.4.0"
   },
   "scripts": {
-    "start": "yarn link && cd node_modules/react && yarn link && cd ../.. && rollup -c --watch",
+    "start": "concurrently \"npm install && yarn link && cd node_modules/react && yarn link && cd ../.. && rollup -c --watch\" \"yarn test\"",
     "build": "rollup -c",
-    "test": "npm start && cd test && npm start"
+    "test": "cd test && npm start"
   },
   "author": "Robbie Cook",
   "license": "ISC",
