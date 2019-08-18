@@ -6,7 +6,7 @@ import {
   Dimensions,
   Text,
   Link,
-  Button
+  Button,
   Transition,
   SiteContext,
   DefaultSiteContext,
@@ -37,6 +37,12 @@ function App() {
           </Link>
         </Text>
         <Button label="Testing button" />
+            <Button label="Testing button" />
+            <Button label="Testing button" />
+            <Button label="Testing button" />
+            <Button label="Testing button" />
+            <Button label="Testing button" />
+            <Button label="Testing button" />
       </header>
     </div>
   );
