@@ -2,15 +2,15 @@
 
 /* Imports */
 /* Stylesheets etc. */
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import styled from "styled-components";
-import DefaultTheme from "../themes/DefaultTheme";
 import ThemeContext from "../themes/ThemeContext";
 import { Dimensions } from "../utilities";
 import MyHelmet from "../headers/MyHelmet";
 
 import NavigationBar from "../navigation/NavigationBar";
 import { MobileView } from "../layout/Views";
+import { Transition } from "../animation";
 
 /* Navigation links, which are passed to navbar.js */
 
@@ -21,6 +21,9 @@ import { MobileView } from "../layout/Views";
 
 // Main Page component
 export default function Page(props) {
+  const [ loaded, setLoaded ] = useState(false)
+  useEffect(() => {setLoaded(true)}, [])
+
   const theme = useContext(ThemeContext);
 
   // Styles for component
@@ -41,12 +44,14 @@ export default function Page(props) {
   return (
     <>
       <MyHelmet />
-      <div>
-        <NavigationBar />
-        <div style={props.style}>
-          <StyledPage style={props.style}>{props.children}</StyledPage>
+      <Transition loaded={loaded}>
+        <div>
+          <NavigationBar />
+          <div style={props.style}>
+            <StyledPage style={props.style}>{props.children}</StyledPage>
+          </div>
         </div>
-      </div>
+      </Transition>
     </>
   );
 }

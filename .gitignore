@@ -8,4 +8,6 @@ redux/reducers/color\.js
 *.log
 *.stackdump
 
+test/package-lock.json
+
 package-lock.json
