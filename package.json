@@ -1,6 +1,6 @@
 {
   "name": "@robbie-cook/react-components",
-  "version": "3.0.24",
+  "version": "3.0.20",
   "description": "A bunch of common react components",
   "main": "./build/index.js",
   "module": "./build/index.es.js",
@@ -8,9 +8,9 @@
     "react": "^16.4.0"
   },
   "scripts": {
-    "start": "yarn link && cd node_modules/react && yarn link && cd ../.. && rollup -c --watch",
+    "start": "concurrently \"npm install && yarn link && cd node_modules/react && yarn link && cd ../.. && rollup -c --watch\" \"yarn test\"",
     "build": "rollup -c",
-    "test": "npm start && cd test && npm start"
+    "test": "cd test && npm start"
   },
   "author": "Robbie Cook",
   "license": "ISC",

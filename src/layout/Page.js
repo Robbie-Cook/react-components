@@ -4,14 +4,13 @@
 /* Stylesheets etc. */
 import React, { useContext, useState, useEffect } from "react";
 import styled from "styled-components";
-import DefaultTheme from "../themes/DefaultTheme";
 import ThemeContext from "../themes/ThemeContext";
 import { Dimensions } from "../utilities";
 import MyHelmet from "../headers/MyHelmet";
 
 import NavigationBar from "../navigation/NavigationBar";
 import { MobileView } from "../layout/Views";
-import Transition from "../animation/Transition";
+import { Transition } from "../animation";
 
 /* Navigation links, which are passed to navbar.js */
 
@@ -22,10 +21,10 @@ import Transition from "../animation/Transition";
 
 // Main Page component
 export default function Page(props) {
-  const [loaded, setLoaded] = useState(false);
-  useEffect(() => {
-    setLoaded(true);
-  }, []);
+  const [ loaded, setLoaded ] = useState(false)
+  useEffect(() => {setLoaded(true)}, [])
+
+  const theme = useContext(ThemeContext);
 
   // Styles for component
   const StyledPage = styled.div`
@@ -44,9 +43,11 @@ export default function Page(props) {
     <>
       <MyHelmet />
       <Transition loaded={loaded}>
-        <NavigationBar />
-        <div style={props.style}>
-          <StyledPage style={props.style}>{props.children}</StyledPage>
+        <div>
+          <NavigationBar />
+          <div style={props.style}>
+            <StyledPage style={props.style}>{props.children}</StyledPage>
+          </div>
         </div>
       </Transition>
     </>

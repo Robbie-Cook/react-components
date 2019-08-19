@@ -12,6 +12,7 @@ import PropTypes from "prop-types";
 class Transition extends PureComponent {
   constructor(props) {
     super(props);
+    this.state = {loaded: false}
   }
 
   PosedDiv = posed.div({
@@ -33,12 +34,13 @@ class Transition extends PureComponent {
 
   render() {
     return (
+      
       <>
         <this.StyledDiv pose={this.props.loaded ? "hidden" : "visible"}>
           <Spinner color={this.context.text.color} />
         </this.StyledDiv>
         <this.StyledDiv pose={this.props.loaded ? "visible" : "hidden"}>
-          {this.props.children}
+          {this.state.loaded && this.props.children}
         </this.StyledDiv>
       </>
     );

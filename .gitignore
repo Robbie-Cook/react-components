@@ -9,3 +9,5 @@ redux/reducers/color\.js
 *.stackdump
 
 test/package-lock.json
+
+package-lock.json
