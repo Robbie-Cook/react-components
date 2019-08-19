@@ -28,8 +28,6 @@ export default function Page(props) {
 
   // Styles for component
   const StyledPage = styled.div`
-    background-color: ${theme.backgroundColor};
-
     display: flex;
     flex-direction: column;
     padding: ${new Dimensions(40, 90, 0, 90)};
