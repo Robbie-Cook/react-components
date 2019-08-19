@@ -21,12 +21,9 @@ import { MobileView } from "../layout/Views";
 
 // Main Page component
 export default function Page(props) {
-  const theme = useContext(ThemeContext);
 
   // Styles for component
   const StyledPage = styled.div`
-    background-color: ${theme.backgroundColor};
-
     display: flex;
     flex-direction: column;
     padding: ${new Dimensions(40, 90, 0, 90)};
