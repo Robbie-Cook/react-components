@@ -1,13 +1,10 @@
-import React, { useContext, useState, useEffect } from "react";
-// import MobileNav from "../navigation/MobileNav";
-import { ThemeContext, DefaultTheme } from "../themes";
-import MyLink from "../utilities/MyLink";
-import { Transition } from "../animation";
+import React, { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
-import { SiteContext } from "../utilities/SiteContext";
-import { Heading, Text } from "../utilities/Typography";
-import { Button } from "../ui-components/Button";
+// import MobileNav from "../navigation/MobileNav";
+import { DefaultTheme, ThemeContext } from "../themes";
 import Spacer from "../ui-components/Spacer";
+import { SiteContext } from "../utilities/SiteContext";
+import { Text } from "../utilities/Typography";
 import NavButton from "./NavButton";
 
 /** Represents a navbar element */

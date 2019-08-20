@@ -21,6 +21,7 @@ function Transition(props) {
     hidden: {
       opacity: 0,
       height: "0px",
+      overflow: "hidden",
       transition: {
         default: { ease: "linear", duration: 500 }
       }
@@ -31,16 +32,22 @@ function Transition(props) {
 
   const poseJsx = (
     <>
-      <StyledDiv initialPose="hidden" pose={props.loaded ? "hidden" : "visible"}>
+      <StyledDiv
+        initialPose="visible"
+        pose={props.loaded ? "hidden" : "visible"}
+      >
         <Spinner color="white" />
       </StyledDiv>
-      <StyledDiv initialPose="hidden" pose={props.loaded ? "visible" : "hidden"}>
-        {props.children}
+      <StyledDiv
+        initialPose="hidden"
+        pose={props.loaded ? "visible" : "hidden"}
+      >
+        {props.loaded && props.children}
       </StyledDiv>
     </>
   );
 
-  return poseJsx
+  return poseJsx;
 }
 Transition.defaultProps = {
   loaded: false // Whether the component is loaded

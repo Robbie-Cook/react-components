@@ -130,8 +130,7 @@ function Text(props) {
     margin: 12px 0;
     color: ${localTheme.color};
 
-    /* Local to this politics */
-    font-family: "Roboto", sans-serif;
+    font-family: ${localTheme.font};
     ${props.style};
   `;
   return <StyledText>{props.children}</StyledText>;
