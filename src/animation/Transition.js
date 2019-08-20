@@ -9,46 +9,41 @@ import PropTypes from "prop-types";
 /**
  * A loading screen
  */
-class Transition extends PureComponent {
-  constructor(props) {
-    super(props);
-    this.state = {loaded: false}
-  }
-
-  PosedDiv = posed.div({
+function Transition(props) {
+  const PosedDiv = posed.div({
     visible: {
       opacity: 1,
-      height: "auto"
+      height: "auto",
+      transition: {
+        default: { ease: "linear", duration: 500 }
+      }
     },
     hidden: {
       opacity: 0,
       height: "0px",
       transition: {
-        default: { ease: "linear", duration: 100 }
+        default: { ease: "linear", duration: 500 }
       }
     }
   });
 
-  StyledDiv = styled(this.PosedDiv)`
-  `;
+  const StyledDiv = styled(PosedDiv)``;
 
-  render() {
-    return (
-      
-      <>
-        <this.StyledDiv pose={this.props.loaded ? "hidden" : "visible"}>
-          <Spinner color={this.context.text.color} />
-        </this.StyledDiv>
-        <this.StyledDiv pose={this.props.loaded ? "visible" : "hidden"}>
-          {this.state.loaded && this.props.children}
-        </this.StyledDiv>
-      </>
-    );
-  }
+  const poseJsx = (
+    <>
+      <StyledDiv initialPose="hidden" pose={props.loaded ? "hidden" : "visible"}>
+        <Spinner color="white" />
+      </StyledDiv>
+      <StyledDiv initialPose="hidden" pose={props.loaded ? "visible" : "hidden"}>
+        {props.children}
+      </StyledDiv>
+    </>
+  );
+
+  return poseJsx
 }
-Transition.contextType = ThemeContext;
 Transition.defaultProps = {
-  loaded: true // Whether the component is loaded
+  loaded: false // Whether the component is loaded
 };
 
 // A spinner graphic
@@ -63,13 +58,13 @@ function Spinner(props) {
   `;
 
   const StyledIconWrapper = styled.div`
-    animation-name: spin; 
+    animation-name: spin;
     align-items: center;
     max-width: 200px;
     animation-duration: 2500ms;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
-  
+
     @keyframes spin {
       from {
         transform: rotate(0deg);
@@ -78,15 +73,15 @@ function Spinner(props) {
         transform: rotate(360deg);
       }
     }
-  `
+  `;
 
   return (
     <StyledSpinnerWrapper>
       <StyledIconWrapper>
-      <FontAwesomeIcon
-        style={{ fontSize: "65px", display: "flex", margin: "auto" }}
-        icon={faCircleNotch}
-      />
+        <FontAwesomeIcon
+          style={{ fontSize: "65px", display: "flex", margin: "auto" }}
+          icon={faCircleNotch}
+        />
       </StyledIconWrapper>
     </StyledSpinnerWrapper>
   );
@@ -96,4 +91,4 @@ Spinner.defaultProps = {
   color: "white"
 };
 
-export default Transition
+export default Transition;
