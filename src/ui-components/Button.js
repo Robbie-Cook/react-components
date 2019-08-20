@@ -1,10 +1,10 @@
-import React, { Component, useContext } from "react";
+import { Button as GrommetButton } from "grommet";
 import PropTypes from "prop-types";
-import { Button as GrommetButton, Grommet } from "grommet";
-import DefaultTheme from "../themes/DefaultTheme";
-import ThemeContext from "../themes/ThemeContext"
-
+import React, { Component, useContext } from "react";
 import styled from "styled-components";
+import ThemeContext from "../themes/ThemeContext";
+import { Text } from "../utilities/Typography";
+
 
 /**
  * A class for generic buttons.
@@ -13,7 +13,7 @@ import styled from "styled-components";
 function Button(props) {
 
   // Can take a custom theme for a navbar button
-  const theme = props.navbar ? useContext(ThemeContext).navbar.button : useContext(ThemeContext).button
+  const theme = useContext(ThemeContext).button
   
   console.log(theme)
 
@@ -52,17 +52,17 @@ function Button(props) {
     ${props.style};
   `;
 
-  const BorderedText = styled.p`
+  const BorderedText = <Text style={`
     color: ${theme.color};
     margin: 0;
     text-decoration: none;
     line-height: 20px;
-  `;
+  `}>{props.label}</Text>
 
   return (
     <MyButton
       icon={props.icon}
-      label={<BorderedText>{props.label}</BorderedText>}
+      label={BorderedText}
       onClick={props.function}
       href={props.to}
     />
@@ -146,3 +146,4 @@ ButtonWrapper.propTypes = {
 };
 
 export { Button, ButtonGenerator, ButtonWrapper };
+

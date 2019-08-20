@@ -1,20 +1,19 @@
 // import { Heading, Transition, ThemeContext, DefaultTheme } from "@robbie-cook/react-components";
+import {
+  Button,
+  DefaultSiteContext,
+  DefaultTheme,
+  Dimensions,
+  Heading,
+  Link,
+  Page,
+  SiteContext,
+  Text,
+  ThemeContext,
+  Transition
+} from "@robbie-cook/react-components";
 import React, { useEffect, useState } from "react";
 import "./App.css";
-import {
-  Heading,
-  Dimensions,
-  Text,
-  Link,
-  Button,
-  Transition,
-  NavigationBar,
-  DefaultTheme,
-  ThemeContext,
-  SiteContext,
-  DefaultSiteContext,
-  Page
-} from "@robbie-cook/react-components";
 
 /**
  * The main entry point for the app
@@ -23,7 +22,9 @@ function App() {
   // State updated when component painted
   const [loaded, setLoaded] = useState(false);
   useEffect(() => {
-    setTimeout(() => {setLoaded(true)}, 2000);
+    setTimeout(() => {
+      setLoaded(true);
+    }, 2000);
   }, []);
 
   new Dimensions();
