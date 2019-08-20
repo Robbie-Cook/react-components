@@ -10,7 +10,7 @@ import MyHelmet from "../headers/MyHelmet";
 
 import NavigationBar from "../navigation/NavigationBar";
 import { MobileView } from "../layout/Views";
-import { Transition } from "../animation";
+import PageTransition from "gatsby-plugin-page-transitions";
 
 /* Navigation links, which are passed to navbar.js */
 
@@ -40,16 +40,14 @@ export default function Page(props) {
   `;
 
   return (
-    <>
+    <PageTransition>
       <MyHelmet />
-      <Transition loaded={loaded}>
         <div>
           <NavigationBar />
           <div style={props.style}>
             <StyledPage style={props.style}>{props.children}</StyledPage>
           </div>
         </div>
-      </Transition>
-    </>
+    </PageTransition>
   );
 }

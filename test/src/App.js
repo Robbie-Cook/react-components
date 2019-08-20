@@ -23,7 +23,7 @@ function App() {
   // State updated when component painted
   const [loaded, setLoaded] = useState(false);
   useEffect(() => {
-    setLoaded(true);
+    setTimeout(() => {setLoaded(true)}, 2000);
   }, []);
 
   new Dimensions();
@@ -41,11 +41,11 @@ function App() {
               </Link>
             </Text>
             <Button label="Testing button" />
-          </Transition>
 
-          <Heading type="h2">Testing loader</Heading>
-          <Transition loaded={false}>
-            <Text>Hidden text</Text>
+            <Heading type="h2">Testing loader</Heading>
+            <Transition loaded={false}>
+              <Text>Hidden text</Text>
+            </Transition>
           </Transition>
         </Page>
       </ThemeContext.Provider>
