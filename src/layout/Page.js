@@ -20,10 +20,12 @@ import { MobileView } from "../layout/Views";
 
 // Main Page component
 export default function Page(props) {
-  const [ loaded, setLoaded ] = useState(false)
-  useEffect(() => {setLoaded(true)}, [])
+  const [loaded, setLoaded] = useState(false);
+  useEffect(() => {
+    setLoaded(true);
+  }, []);
 
-  const theme = useContext(ThemeContext);
+  const theme = useContext(ThemeContext)
 
   // Styles for component
   const StyledPage = styled.div`
@@ -40,13 +42,17 @@ export default function Page(props) {
 
   return (
     <>
-      <MyHelmet />
-        <div>
-          <NavigationBar />
-          <div style={props.style}>
-            <StyledPage style={props.style}>{props.children}</StyledPage>
-          </div>
-        </div>
+      <MyHelmet backgroundColor={theme.backgroundColor}/>
+      <div>
+        {loaded && (
+          <>
+            <NavigationBar />
+            <div style={props.style}>
+              <StyledPage style={props.style}>{props.children}</StyledPage>
+            </div>
+          </>
+        )}
+      </div>
     </>
   );
 }
