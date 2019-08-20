@@ -4,9 +4,7 @@ import React, {useContext} from "react";
 import { Helmet } from "react-helmet";
 import ThemeContext from "../themes/ThemeContext";
 
-function MyHelmet() {
-  const theme = useContext(ThemeContext)
-
+function MyHelmet(props) {
   return (
     <div className="application">
       <Helmet>
@@ -25,7 +23,7 @@ function MyHelmet() {
         <style>
           {`
               body {
-                background-color: ${theme.backgroundColor};
+                background-color: ${props.backgroundColor};
                 margin: 0;
               }
             `}
@@ -33,6 +31,9 @@ function MyHelmet() {
       </Helmet>
     </div>
   );
+}
+MyHelmet.defaultProps = {
+  backgroundColor: 'white'
 }
 
 export default MyHelmet;
