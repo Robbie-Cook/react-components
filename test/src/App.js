@@ -12,6 +12,7 @@ import {
   ThemeContext,
   Transition
 } from "@robbie-cook/react-components";
+// import NavigationBar from "src/navigation/NavigationBar"
 import React, { useEffect, useState } from "react";
 import "./App.css";
 
