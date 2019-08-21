@@ -6,7 +6,7 @@ import MyLink from "./MyLink";
  */
 class DefaultSiteContext {
   static name = "My Website";
-  static links = [new MyLink("Home", "/"), new MyLink("News", "/news")];
+  static links = [new MyLink("Home", "/"), new MyLink("News", "/news"), new MyLink("Link3", '/link3')];
 }
 
 /**
