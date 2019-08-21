@@ -13,7 +13,7 @@ class MyLink {
    * @returns true if so, otherwise false
    */
   isActive() {
-    return ('/' + document.URL.split('/')[3]) === this.path;
+    return ('/' + global.document.URL.split('/')[3]) === this.path;
   }
 }
 export default MyLink;
