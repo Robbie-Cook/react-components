@@ -17,11 +17,11 @@ Then run
 `cd react-components`
 
 Then go 
-`yarn` and then `yarn start`. This will build the components into the `build/` directory. 
+`yarn` and then `yarn start`.
 
 ### Storybook / Testing
 
-After following the setup steps, go to the `test/` directory (e.g. `cd test`) and run `yarn start`
+The steps will run automatically, but you can go to the `test/` directory (e.g. `cd test`) and run `yarn start`
 
 ## Notes 
 
@@ -29,7 +29,6 @@ This project is in its very early stages, but it is massively necessary for me. 
 
 ### Roadmap
 
-* ThemeProvider introduction - I will use React's Context API to make the theme customisable at a page / website level. Probably page
-  * Gradual ThemeProvider implementation as needed across components (major version change will be needed)
- 
-
+* Improvements to transition element & navbar 
+* Gradual ThemeProvider implementation as needed across components (major version change will be needed)
+* Very gradual move to Typescript
