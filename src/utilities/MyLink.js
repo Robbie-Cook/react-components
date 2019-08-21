@@ -1,3 +1,5 @@
+import { window, document, exists } from 'browser-monads';
+
 /**
  * Represents a link to a page
  */
@@ -13,7 +15,7 @@ class MyLink {
    * @returns true if so, otherwise false
    */
   isActive() {
-    return ('/' + global.document.URL.split('/')[3]) === this.path;
+    return ('/' + document.URL.split('/')[3]) === this.path;
   }
 }
 export default MyLink;
