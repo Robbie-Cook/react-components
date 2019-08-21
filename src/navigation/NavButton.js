@@ -9,13 +9,6 @@ import ThemeContext from "../themes/ThemeContext";
 export default function NavButton(props) {
   const theme = useContext(ThemeContext).navbar.button;
 
-  // Styles to apply when the button is active
-  const activeStyles = `
-    & * {
-      color: ${theme.activeColor}!important;
-    }
-  `;
-
   const style = `
     background-color: ${theme.backgroundColor};
     border-color: ${theme.borderColor};
@@ -23,17 +16,22 @@ export default function NavButton(props) {
     &:hover {
       background-color: ${theme.backgroundColor};
     }
-    ${props.active && activeStyles}
+    ${props.active &&
+      `
+    & p {
+      color: ${theme.activeColor};
+    }
+    `}
   `;
 
   return (
-    <Button style={style} label={props.label} to={props.link}>
+    <Button style={style} label={props.label} to={props.to}>
       {props.children}
     </Button>
   );
 }
 NavButton.defaultProps = {
   label: "My label",
-  link: "/",
+  to: "/",
   active: false
 };

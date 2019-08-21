@@ -11,3 +11,5 @@ redux/reducers/color\.js
 test/package-lock.json
 
 package-lock.json
+
+yarn.lock
