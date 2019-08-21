@@ -10,6 +10,7 @@
   "scripts": {
     "start": "concurrently \"yarn install && yarn link && cd node_modules/react && yarn link && cd ../.. && rollup -c --watch\" \"cd test && npm start\"",
     "build": "rollup -c",
+    "build-test": "cd test && yarn run build",
     "test": "cd test && yarn start"
   },
   "author": "Robbie Cook",
