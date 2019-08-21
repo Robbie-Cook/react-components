@@ -2,14 +2,16 @@
 
 /* Imports */
 /* Stylesheets etc. */
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
+// import MyHelmet from "../headers/MyHelmet";
+import NextHelmet from "../headers/NextHelmet";
+import { MobileView } from "../layout/Views";
+import NavigationBar from "../navigation/NavigationBar";
 import ThemeContext from "../themes/ThemeContext";
 import { Dimensions } from "../utilities";
-import MyHelmet from "../headers/MyHelmet";
+import { SiteContext } from "../utilities/SiteContext"
 
-import NavigationBar from "../navigation/NavigationBar";
-import { MobileView } from "../layout/Views";
 
 /* Navigation links, which are passed to navbar.js */
 
@@ -26,6 +28,7 @@ export default function Page(props) {
   }, []);
 
   const theme = useContext(ThemeContext)
+  const site = useContext(SiteContext)
 
   // Styles for component
   const StyledPage = styled.div`
@@ -42,16 +45,15 @@ export default function Page(props) {
 
   return (
     <>
-      <MyHelmet backgroundColor={theme.backgroundColor}/>
+      {/* <MyHelmet backgroundColor={theme.backgroundColor}/> */}
+      <NextHelmet title={site.name} backgroundColor={"red"}/>
       <div>
-        {loaded && (
           <>
             <NavigationBar />
             <div style={props.style}>
               <StyledPage style={props.style}>{props.children}</StyledPage>
             </div>
           </>
-        )}
       </div>
     </>
   );
