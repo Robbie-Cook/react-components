@@ -3,7 +3,7 @@
   "version": "0.1.1",
   "private": true,
   "dependencies": {
-    "@robbie-cook/react-components": "^2.0.34",
+    "@robbie-cook/react-components": "^3.0.45",
     "eslint": "^6.1.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
