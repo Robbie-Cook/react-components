@@ -14,29 +14,31 @@ function Button(props) {
 
   // Can take a custom theme for a navbar button
   const theme = useContext(ThemeContext).button
-  
-  console.log(theme)
 
   const MyButton = styled(GrommetButton)`
     border: 3px solid ${theme.backgroundColor};
     border-radius: 6px;
-    color: ${theme.color};
     transition: 0.03s;
-    height: 36px;
+    height: 40px;
+    transition: .2s;
 
     /* for svg icons */
     fill: ${theme.color};
     stroke: ${theme.color};
+    border: 1px solid ${theme.color};
 
     &:hover {
       & p {
         border-bottom: 1px solid transparent;
+        color: ${theme.hover.color};
       }
-      background-color: ${theme.backgroundColor};
+      background-color: ${theme.hover.backgroundColor};
+      box-shadow: none;
     }
 
     & p {
-      color: ${theme.color}
+      color: ${theme.color};
+      line-height: 28px;
     }
 
     margin: ${props.margin};

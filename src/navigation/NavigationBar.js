@@ -72,8 +72,12 @@ export default function NavigationBar(props) {
   return (
     <>
       {/* <Transition loaded={loaded}> */}
-      <NavBar title={site.name} links={site.links} />
+      <NavBar title={props.title} links={props.links} />
       {/* </Transition> */}
     </>
   );
+}
+NavigationBar.defaultProps = {
+  title: 'My Website',
+  links: []
 }

@@ -54,7 +54,7 @@ export default function Page(props) {
               backgroundColor={theme.backgroundColor}
             />
           )}
-          <NavigationBar />
+          <NavigationBar title={theme.navbar.title} links={site.links}/>
           <div style={props.style}>
             {/* Only display contents if loaded */}
             <StyledPage style={props.style}>{props.children}</StyledPage>
