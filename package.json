@@ -4,10 +4,6 @@
   "description": "A bunch of common react components",
   "main": "./build/index.js",
   "module": "./build/index.es.js",
-  "peerDependencies": {
-    "react": "^16.4.0",
-    "react-responsive-carousel": "^3.1.50"
-  },
   "scripts": {
     "start": "concurrently \"yarn install && yarn link && cd node_modules/react && yarn link && cd ../.. && rollup -c --watch\" \"cd test && npm start\"",
     "build": "rollup -c",
@@ -17,6 +13,11 @@
   "author": "Robbie Cook",
   "license": "ISC",
   "keywords": [],
+  "peerDependencies": {
+    "react": "^16.4.0",
+    "react-responsive-carousel": "^3.1.50",
+    "styled-components": "^4.3.2"
+  },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.21",
     "@fortawesome/free-solid-svg-icons": "^5.10.1",
@@ -36,7 +37,6 @@
     "react-pose": "^4.0.8",
     "react-scripts": "^3.1.1",
     "serve": "^11.1.0",
-    "styled-components": "^4.3.2",
     "typescript": "^3.5.3",
     "webpack": "4.39.1"
   },
