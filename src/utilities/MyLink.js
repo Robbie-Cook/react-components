@@ -1,3 +1,5 @@
+import { window, document, exists } from 'browser-monads';
+
 /**
  * Represents a link to a page
  */

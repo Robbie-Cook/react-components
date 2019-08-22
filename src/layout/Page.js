@@ -10,8 +10,8 @@ import { MobileView } from "../layout/Views";
 import NavigationBar from "../navigation/NavigationBar";
 import ThemeContext from "../themes/ThemeContext";
 import { Dimensions } from "../utilities";
-import { SiteContext } from "../utilities/SiteContext"
-
+import { SiteContext } from "../utilities/SiteContext";
+import MyHelmet from "../headers/MyHelmet";
 
 /* Navigation links, which are passed to navbar.js */
 
@@ -27,8 +27,8 @@ export default function Page(props) {
     setLoaded(true);
   }, []);
 
-  const theme = useContext(ThemeContext)
-  const site = useContext(SiteContext)
+  const theme = useContext(ThemeContext);
+  const site = useContext(SiteContext);
 
   // Styles for component
   const StyledPage = styled.div`
@@ -46,15 +46,22 @@ export default function Page(props) {
   return (
     <>
       {/* <MyHelmet backgroundColor={theme.backgroundColor}/> */}
-      <NextHelmet title={site.name} backgroundColor={"red"}/>
+      {props.next ? (
+        <NextHelmet title={site.name} backgroundColor={theme.backgroundColor} />
+      ) : (
+        <MyHelmet title={site.name} backgroundColor={theme.backgroundColor} />
+      )}
       <div>
-          <>
-            <NavigationBar />
-            <div style={props.style}>
-              <StyledPage style={props.style}>{props.children}</StyledPage>
-            </div>
-          </>
+        <>
+          <NavigationBar />
+          <div style={props.style}>
+            <StyledPage style={props.style}>{props.children}</StyledPage>
+          </div>
+        </>
       </div>
     </>
   );
 }
+Page.defaultProps = {
+  next: true
+};

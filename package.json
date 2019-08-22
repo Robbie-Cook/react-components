@@ -1,6 +1,6 @@
 {
   "name": "@robbie-cook/react-components",
-  "version": "2.0.30",
+  "version": "2.0.34",
   "description": "A bunch of common react components",
   "main": "./build/index.js",
   "module": "./build/index.es.js",
@@ -23,6 +23,7 @@
     "@material-ui/core": "^4.3.2",
     "@material-ui/icons": "^4.2.1",
     "@zeit/next-css": "^1.0.1",
+    "browser-monads": "^1.0.0",
     "create-react-app": "^3.1.1",
     "grommet": "^2.7.6",
     "gsap": "^2.1.3",

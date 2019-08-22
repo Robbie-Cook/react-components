@@ -32,7 +32,7 @@ function App() {
   return (
     <SiteContext.Provider value={DefaultSiteContext}>
       <ThemeContext.Provider value={DefaultTheme}>
-        <Page>
+        <Page next={false}>
           <Transition loaded={loaded}>
             <Heading>My React storyboard</Heading>
             <Text>

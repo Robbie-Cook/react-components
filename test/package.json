@@ -3,7 +3,7 @@
   "version": "0.1.1",
   "private": true,
   "dependencies": {
-    "@robbie-cook/react-components": "^3.0.4",
+    "@robbie-cook/react-components": "^2.0.34",
     "eslint": "^6.1.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
@@ -12,7 +12,7 @@
   },
   "scripts": {
     "start": "yarn link @robbie-cook/react-components && yarn link react && react-scripts start",
-    "raw-start": "react-scripts start", 
+    "raw-start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
