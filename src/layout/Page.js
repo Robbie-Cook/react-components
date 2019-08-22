@@ -44,18 +44,17 @@ export default function Page(props) {
   `;
 
   return (
+    loaded &&
     <>
-      <MyHelmet title={site.name} backgroundColor={theme.backgroundColor}/>
+      <MyHelmet title={site.name} backgroundColor={theme.backgroundColor} />
       {props.next && (
         <NextHelmet title={site.name} backgroundColor={theme.backgroundColor} />
       )}
-        <>
-          <NavigationBar />
-          <div style={props.style}>
-            {/* Only display contents if loaded */}
-            {loaded && <StyledPage style={props.style}>{props.children}</StyledPage>}
-          </div>
-        </>
+      <NavigationBar />
+      <div style={props.style}>
+        {/* Only display contents if loaded */}
+        <StyledPage style={props.style}>{props.children}</StyledPage>
+      </div>
     </>
   );
 }
