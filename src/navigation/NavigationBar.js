@@ -6,6 +6,7 @@ import Spacer from "../ui-components/Spacer";
 import { SiteContext } from "../utilities/SiteContext";
 import { Text } from "../utilities/Typography";
 import NavButton from "./NavButton";
+import MobileNav from "./MobileNav";
 
 /** Represents a navbar element */
 function NavBar(props) {
@@ -45,6 +46,7 @@ function NavBar(props) {
 
   return (
     <StyledNavBar>
+      <MobileNav links={props.links} theme={theme}/>
       <Title>{props.title}</Title>
       <Spacer width="30px" />
       {links}

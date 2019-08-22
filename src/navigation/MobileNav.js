@@ -1,18 +1,10 @@
-import ClickAwayListener from "@material-ui/core/ClickAwayListener";
-import Grow from "@material-ui/core/Grow";
-import IconButton from "@material-ui/core/IconButton";
-import MenuItem from "@material-ui/core/MenuItem";
-import MenuList from "@material-ui/core/MenuList";
-import Paper from "@material-ui/core/Paper";
-import Popper from "@material-ui/core/Popper";
-import { withStyles } from "@material-ui/core/styles";
-import MenuIcon from "@material-ui/icons/Menu";
-import { Link } from "gatsby";
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
-import { MyAnilink } from "../animation";
-import { ViewSizes } from "../layout/Views";
-import { DefaultTheme, Sizes } from "../themes";
+import NavButton from "./NavButton";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { DefaultTheme, ThemeContext } from "../themes";
+import { MobileView } from "../layout/Views";
 
 /**
  * A class representing a mobile nav.
@@ -22,113 +14,79 @@ import { DefaultTheme, Sizes } from "../themes";
  */
 class MobileNav extends React.Component {
   constructor(props) {
-    super(props)
-    this.anchorEl = React.createRef()
-    this.state = { open: false }
+    super(props);
+    this.anchorEl = React.createRef();
+    this.state = { open: false };
 
     // Bind 'this' to functions so functions can use 'this' keyword
-    this.handleToggle = this.handleToggle.bind(this)
-    this.handleClose = this.handleClose.bind(this)
+    this.handleToggle = this.handleToggle.bind(this);
+    this.handleClose = this.handleClose.bind(this);
   }
 
   // Generates the mobile menu
   generateMobileNav() {
-    let array = []
-    const StyledMenuItem = styled(MenuItem)`
-      font-weight: bold;
-      &.active {
-        color: ${DefaultTheme.link.color};
-      }
-    `
+    let jsx = [];
 
-    this.props.pages.map(item =>
-      array.push(
-        <StyledMenuItem component={Link} activeClassName={"active"}>
-          <MyAnilink style={`color: ${DefaultTheme.link.color}`} path={item.path}>{item.name}</MyAnilink>
-        </StyledMenuItem>
+    this.props.links.map(item =>
+      jsx.push(
+        <NavButton
+          to={value.path}
+          label={value.name}
+          active={value.isActive()}
+        />
       )
-    )
-    return array
+    );
+    return array;
   }
 
   // Toggle 'open' state of navmenu
   handleToggle() {
     this.setState(prevState => ({
-      open: !prevState.open,
-    }))
+      open: !prevState.open
+    }));
   }
 
   handleClose(event) {
     if (this.anchorEl.current.contains(event.target)) {
-      return
+      return;
     }
-    this.setState({ open: false })
+    this.setState({ open: false });
   }
 
   render() {
     /* CSS */
-    const StyledIconButton = withStyles({
-      root: {
-        // Not ideal, should be done with breakpoints in theme
-        // re: https://stackoverflow.com/questions/45847090/media-queries-in-material-ui-components
-        [`@media (min-width:${ViewSizes.mobileSize}px)`]: {
-          display: "none",
-        },
-        marginTop: "10px",
-      },
-    })(IconButton)
-
-    const StyledMenuList = withStyles({
-      root: {
-        // Not ideal, should be done with breakpoints in theme
-        // re: https://stackoverflow.com/questions/45847090/media-queries-in-material-ui-components
-        [`@media (min-width:${ViewSizes.mobileSize}px)`]: {
-          display: "none",
-        },
-        marginTop: Sizes.navbar.height,
-      },
-    })(MenuList)
 
     return (
-      <div>
-        <div>
-          <StyledIconButton
-            buttonRef={this.anchorEl}
-            aria-owns={this.state.open ? "menu-list-grow" : undefined}
-            aria-haspopup="true"
-            aria-label="Menu"
-            color="inherit"
-            onClick={this.handleToggle}
-          >
-            <MenuIcon />
-          </StyledIconButton>
-          <Popper
-            open={this.state.open}
-            anchorEl={this.anchorEl.current}
-            transition
-            disablePortal
-          >
-            {({ TransitionProps, placement }) => (
-              <Grow
-                {...TransitionProps}
-                id="menu-list-grow"
-                style={{
-                  transformOrigin:
-                    placement === "bottom" ? "center top" : "center bottom",
-                }}
-              >
-                <Paper>
-                  <ClickAwayListener onClickAway={this.handleClose}>
-                    <StyledMenuList>{this.generateMobileNav()}</StyledMenuList>
-                  </ClickAwayListener>
-                </Paper>
-              </Grow>
-            )}
-          </Popper>
-        </div>
-      </div>
-    )
+      <MobileNavButton>
+        <FontAwesomeIcon icon={faBars} />
+      </MobileNavButton>
+    );
   }
 }
+MobileNav.defaultProps = {
+  theme: DefaultTheme.navbar
+};
 
-export default MobileNav
+function MobileNavButton(props) {
+  const theme = useContext(ThemeContext).navbar;
+
+  const StyledNavButton = styled.div`
+    display: none;
+    & * {
+      color: ${theme.color};
+      margin: 0 30px 0 0;
+      font-size: 20px;
+      transition: 0.2s;
+    }
+    &:hover {
+      cursor: pointer;
+      & * {
+        color: ${theme.button.hoverColor};
+      }
+    }
+    ${new MobileView(`display: block`)}
+  `;
+  return <StyledNavButton />;
+}
+
+export default MobileNav;

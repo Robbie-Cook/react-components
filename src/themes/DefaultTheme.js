@@ -40,6 +40,7 @@ class DefaultTheme {
     backgroundColor: this.backgroundColor,
     height: "60px",
     title: <Title>My dank website</Title>,
+    color: this.text.color,
     // Navbar button styles
     button: {
       backgroundColor: this.backgroundColor,
