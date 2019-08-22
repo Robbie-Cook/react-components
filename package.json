@@ -1,6 +1,6 @@
 {
   "name": "@robbie-cook/react-components",
-  "version": "3.0.35",
+  "version": "3.0.36",
   "description": "A bunch of common react components",
   "main": "./build/index.js",
   "module": "./build/index.es.js",
