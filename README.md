@@ -1,6 +1,6 @@
 # React Components
 
-A collection of reusable UI components: https://www.npmjs.com/package/@robbie-cook/react-components
+A collection of reusable UI components for React: https://www.npmjs.com/package/@robbie-cook/react-components
 
 These components are used throughout some personal projects. 
 
@@ -10,18 +10,22 @@ Pull requests / contributions welcome. Please send me an email to robbie@robbie.
 
 ### Setup
 
-Firstly, clone the repository: 
-`git clone https://github.com/Robbie-Cook/react-components.git`
+### Prerequisites / Peer dependencies
+
+* Node (https://nodejs.org/en/)
+* Yarn (https://yarnpkg.com)
+* React (https://reactjs.org/)
+* styled-components (https://github.com/styled-components/styled-components)
+* react-responsive-carousel (https://www.npmjs.com/package/react-responsive-carousel)
+
+### Installation
+
+Firstly, install the package (you will need to install yarn first -- (`npm install -g yarn`)): 
+`yarn add @robbie-cook/react-components --save`
   
-Then run 
-`cd react-components`
+Then import the components you need. For example,
 
-Then go 
-`yarn` and then `yarn start`.
-
-### Storybook / Testing
-
-The steps will run automatically, but you can go to the `test/` directory (e.g. `cd test`) and run `yarn start`
+`import { Button } from @robbie-cook/react-components`
 
 ## Notes 
 
