@@ -53,7 +53,7 @@ export default function Page(props) {
           <NavigationBar />
           <div style={props.style}>
             {/* Only display contents if loaded */}
-            {this.loaded && <StyledPage style={props.style}>{props.children}</StyledPage>}
+            {loaded && <StyledPage style={props.style}>{props.children}</StyledPage>}
           </div>
         </>
     </>
