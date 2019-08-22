@@ -16,6 +16,9 @@ export default function NavButton(props) {
     &:hover {
       background-color: ${theme.backgroundColor};
     }
+
+    margin: ${props.margin};
+
     ${props.active &&
       `
     & p {
@@ -33,5 +36,6 @@ export default function NavButton(props) {
 NavButton.defaultProps = {
   label: "My label",
   to: "/",
-  active: false
+  active: false,
+  margin: "0 30px 0 0"
 };
