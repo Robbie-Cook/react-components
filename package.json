@@ -5,7 +5,8 @@
   "main": "./build/index.js",
   "module": "./build/index.es.js",
   "peerDependencies": {
-    "react": "^16.4.0"
+    "react": "^16.4.0",
+    "react-responsive-carousel": "^3.1.50"
   },
   "scripts": {
     "start": "concurrently \"yarn install && yarn link && cd node_modules/react && yarn link && cd ../.. && rollup -c --watch\" \"cd test && npm start\"",
@@ -33,7 +34,6 @@
     "react-dom": "^16.9.0",
     "react-helmet": "^5.2.1",
     "react-pose": "^4.0.8",
-    "react-responsive-carousel": "^3.1.50",
     "react-scripts": "^3.1.1",
     "styled-components": "^4.3.2",
     "typescript": "^3.5.3",
