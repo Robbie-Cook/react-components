@@ -1,3 +1,5 @@
+import React from "react"
+
 /** Content for a header */
 export default function HeaderContent(props) {
   return (
