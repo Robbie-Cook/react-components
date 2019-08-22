@@ -2,7 +2,6 @@
 
 import React, {useContext} from "react";
 import { Helmet } from "react-helmet";
-import ThemeContext from "../themes/ThemeContext";
 
 function MyHelmet(props) {
   return (
@@ -15,7 +14,7 @@ function MyHelmet(props) {
           rel="stylesheet"
         />
 
-        <title>Robbie Cook</title>
+        <title>{props.title}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         {/* <link rel="canonical" href="http://mysite.com/example" /> */}
 
@@ -33,7 +32,8 @@ function MyHelmet(props) {
   );
 }
 MyHelmet.defaultProps = {
-  backgroundColor: 'white'
+  backgroundColor: 'white',
+  title: 'Robbie Cook'
 }
 
 export default MyHelmet;
