@@ -12,6 +12,6 @@ export { NavigationBar } from "./src/navigation"
 
 export { DefaultTheme, ThemeContext, Sizes } from "./src/themes"
 
-export { Button, ButtonGenerator, ButtonWrapper, Carousel, Codify, Icon, IconsWrapper, Spacer } from "./src/ui-components"
+export { Button, ButtonGenerator, ButtonWrapper, Codify, Icon, IconsWrapper, Spacer } from "./src/ui-components"
 
 export { Dimensions, MyLink, Heading, Link, Text, SiteContext, DefaultSiteContext } from "./src/utilities"

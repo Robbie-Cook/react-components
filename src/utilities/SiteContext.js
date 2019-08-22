@@ -5,7 +5,7 @@ import MyLink from "./MyLink";
  * Global site information for website
  */
 class DefaultSiteContext {
-  static name = "My Website";
+  static name = "My Dank Website";
   static links = [new MyLink("Home", "/"), new MyLink("News", "/news"), new MyLink("Link3", '/link3')];
 }
 

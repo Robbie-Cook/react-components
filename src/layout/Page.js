@@ -45,20 +45,22 @@ export default function Page(props) {
 
   return (
     <>
-      {/* <MyHelmet backgroundColor={theme.backgroundColor}/> */}
-      {props.next ? (
-        <NextHelmet title={site.name} backgroundColor={theme.backgroundColor} />
-      ) : (
-        <MyHelmet title={site.name} backgroundColor={theme.backgroundColor} />
-      )}
-      <div>
+      <MyHelmet title={site.name} backgroundColor={theme.backgroundColor} />
+      {loaded && (
         <>
-          <NavigationBar />
+          {props.next && (
+            <NextHelmet
+              title={site.name}
+              backgroundColor={theme.backgroundColor}
+            />
+          )}
+          <NavigationBar title={theme.navbar.title} links={site.links}/>
           <div style={props.style}>
+            {/* Only display contents if loaded */}
             <StyledPage style={props.style}>{props.children}</StyledPage>
           </div>
         </>
-      </div>
+      )}
     </>
   );
 }

@@ -1,3 +1,5 @@
+import React from "react"
+
 /** Content for a header */
 export default function HeaderContent(props) {
   return (
@@ -17,7 +19,7 @@ export default function HeaderContent(props) {
       <style jsx global>
         {`
           body {
-            background-color: red;
+            background-color: ${props.backgroundColor};
             margin: 0;
           }
         `}

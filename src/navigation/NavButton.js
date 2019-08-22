@@ -12,9 +12,17 @@ export default function NavButton(props) {
   const style = `
     background-color: ${theme.backgroundColor};
     border-color: ${theme.borderColor};
+    border-width: 1px;
+    color: ${theme.color};
 
     &:hover {
       background-color: ${theme.backgroundColor};
+      border-color: ${theme.activeColor};
+      box-shadow: 0px 0px 0px 2px ${theme.activeColor};
+
+      & * {
+        color: ${theme.hoverColor};
+      }
     }
 
     margin: ${props.margin};
