@@ -7,6 +7,7 @@ import { SiteContext } from "../utilities/SiteContext";
 import { Text } from "../utilities/Typography";
 import NavButton from "./NavButton";
 import MobileNav from "./MobileNav";
+import { MobileView } from "../layout/Views"
 
 /** Represents a navbar element */
 function NavBar(props) {
@@ -44,12 +45,19 @@ function NavBar(props) {
 
   const Title = styled(Text)``;
 
+  const LinksWrapper = styled.div`
+    display: flex;
+    ${new MobileView(`display: none;`)}
+  `
+
   return (
     <StyledNavBar>
       <MobileNav links={props.links} theme={theme}/>
       <Title>{props.title}</Title>
       <Spacer width="30px" />
-      {links}
+      <LinksWrapper>
+        {links}
+      </LinksWrapper>
     </StyledNavBar>
   );
 }

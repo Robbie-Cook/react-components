@@ -32,7 +32,9 @@ export default function NavButton(props) {
     & p {
       color: ${theme.activeColor};
     }
-    `}
+    `};
+
+    ${props.style};
   `;
 
   return (

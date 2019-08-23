@@ -1,10 +1,11 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useTheme } from "react";
 import styled from "styled-components";
 import NavButton from "./NavButton";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { DefaultTheme, ThemeContext } from "../themes";
 import { MobileView } from "../layout/Views";
+import posed from "react-pose";
 
 /**
  * A class representing a mobile nav.
@@ -12,70 +13,68 @@ import { MobileView } from "../layout/Views";
  * This class is used by NavigationBar, and should be refactored and added to this class
  * in the future.
  */
-class MobileNav extends React.Component {
-  constructor(props) {
-    super(props);
-    this.anchorEl = React.createRef();
-    this.state = { open: false };
-
-    // Bind 'this' to functions so functions can use 'this' keyword
-    this.handleToggle = this.handleToggle.bind(this);
-    this.handleClose = this.handleClose.bind(this);
-  }
+function MobileNav(props) {
+  const [mobileNavVisible, setMobileNavVisible] = useState(false);
 
   // Generates the mobile menu
-  generateMobileNav() {
+  let generateLinks = () => {
     let jsx = [];
 
-    this.props.links.map(item =>
+    props.links.map(value =>
       jsx.push(
         <NavButton
           to={value.path}
           label={value.name}
           active={value.isActive()}
+          style={`margin-bottom: 10px;`}
         />
       )
     );
-    return array;
-  }
+    return jsx;
+  };
 
-  // Toggle 'open' state of navmenu
-  handleToggle() {
-    this.setState(prevState => ({
-      open: !prevState.open
-    }));
-  }
+  const buttonWidth = "63px";
 
-  handleClose(event) {
-    if (this.anchorEl.current.contains(event.target)) {
-      return;
-    }
-    this.setState({ open: false });
-  }
+  const StyledMobileNav = styled.div`
+    display: none;
+    z-index: 1;
+    align-self: baseline;
+    ${new MobileView(`display: flex!important;`)}
+    flex-direction: column;
+    width: ${buttonWidth};
+  `;
 
-  render() {
-    /* CSS */
-
-    return (
-      <MobileNavButton>
+  return (
+    <StyledMobileNav>
+      <MobileNavButton
+        buttonWidth={buttonWidth}
+        onClick={() => {setMobileNavVisible(true)}}
+      >
         <FontAwesomeIcon icon={faBars} />
       </MobileNavButton>
-    );
-  }
+
+      <MenuContainer visible={mobileNavVisible}>
+        {generateLinks()}
+      </MenuContainer>
+    </StyledMobileNav>
+  );
 }
 MobileNav.defaultProps = {
-  theme: DefaultTheme.navbar
+  theme: DefaultTheme.navbar,
+  show: false
 };
 
 function MobileNavButton(props) {
   const theme = useContext(ThemeContext).navbar;
 
   const StyledNavButton = styled.div`
-    display: none;
+    display: flex;
+    width: ${props.buttonWidth};
     & * {
+      height: ${theme.height};
       color: ${theme.color};
-      margin: 0 30px 0 0;
-      font-size: 20px;
+      margin: 0 20px;
+      font-size: 25px;
       transition: 0.2s;
     }
     &:hover {
@@ -84,9 +83,35 @@ function MobileNavButton(props) {
         color: ${theme.button.hoverColor};
       }
     }
-    ${new MobileView(`display: block`)}
   `;
-  return <StyledNavButton />;
+  return <StyledNavButton>{props.children}</StyledNavButton>;
 }
+
+function MenuContainer(props) {
+  const theme = useContext(ThemeContext);
+
+  const StyledLinkContainer = styled.div`
+    background-color: ${theme.navbar.backgroundColor};
+    display: flex;
+    flex-direction: column;
+  `;
+
+  const Box = posed.div({
+    visible: { opacity: 1 },
+    hidden: { opacity: 0 }
+  });
+
+  return (
+    <div onClick={() => {}}>
+      <Box pose={props.visible ? "visible" : "hidden"}>
+        <StyledLinkContainer>{props.children}</StyledLinkContainer>
+      </Box>
+    </div>
+  );
+}
+MenuContainer.defaultProps = {
+  visible: false,
+  onClick: () => {console.log("Navbar clicked")}
+};
 
 export default MobileNav;
