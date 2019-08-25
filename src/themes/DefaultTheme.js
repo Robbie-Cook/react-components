@@ -1,9 +1,5 @@
 /**
- * Styling for entire website. All common variables are being migrated here from
- * css/global-styles.css. 
- *
- * This is to be replaced with React.Context, where this is an object passed 
- * through a color context
+ * Styling for entire website. 
 */
 import React from "react"
 import styled from "styled-components"
