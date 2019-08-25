@@ -7,7 +7,7 @@ import { ThemeContext } from "../../themes";
  * The list of items to appear after the button to open has been pressed.
  * @param {} props
  */
-export default function MenuContainer({ visible, children }) {
+export default function MenuContainer({ open, children }) {
   const theme = useContext(ThemeContext);
 
   const StyledLinkContainer = styled.div`
@@ -19,7 +19,7 @@ export default function MenuContainer({ visible, children }) {
 
   return (
     <AnimatePresence>
-      {visible && (
+      {open && (
         <motion.div
           // enter={{opacity: 1}}
           key="modal"
