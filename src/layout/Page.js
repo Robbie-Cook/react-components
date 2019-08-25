@@ -34,12 +34,12 @@ export default function Page(props) {
   const StyledPage = styled.div`
     display: flex;
     flex-direction: column;
-    padding: ${new Dimensions(40, 90, 0, 90)};
+    padding: ${theme.page.padding};
 
     // Mobile styles
     ${new MobileView(`
       flex-direction: column;
-      padding: ${new Dimensions(20, 30)}; 
+      padding: ${theme.page.mobilePadding}; 
     `)}
   `;
 
@@ -65,5 +65,6 @@ export default function Page(props) {
   );
 }
 Page.defaultProps = {
-  next: true
+  next: true,
+  padding: '',
 };

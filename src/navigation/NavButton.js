@@ -7,13 +7,14 @@ import ThemeContext from "../themes/ThemeContext";
  * A 'Higher order component'-like button to represent a navigation link
  */
 export default function NavButton(props) {
-  const theme = useContext(ThemeContext).navbar.button;
+  const theme = useContext(ThemeContext).navbar.links;
 
   const style = `
     background-color: ${theme.backgroundColor};
     border-color: ${theme.borderColor};
     border-width: 1px;
     color: ${theme.color};
+    width: fit-content;
 
     &:hover {
       background-color: ${theme.backgroundColor};
@@ -25,7 +26,7 @@ export default function NavButton(props) {
       }
     }
 
-    margin: ${props.margin};
+    margin: ${theme.margin};
 
     ${props.active &&
       `
@@ -47,5 +48,4 @@ NavButton.defaultProps = {
   label: "My label",
   to: "/",
   active: false,
-  margin: "0 30px 0 0"
 };
