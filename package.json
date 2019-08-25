@@ -34,6 +34,7 @@
     "react-pose": "^4.0.8",
     "react-scripts": "^3.1.1",
     "serve": "^11.1.0",
+    "styled-components": "^4.3.2",
     "styled-icons": "^8.3.0",
     "typescript": "^3.5.3",
     "webpack": "4.39.1"
@@ -81,7 +82,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "rollup -c",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
