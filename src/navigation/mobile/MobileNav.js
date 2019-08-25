@@ -5,8 +5,7 @@ import { MobileView } from "../../layout/Views";
 import { DefaultTheme, ThemeContext } from "../../themes";
 import NavButton from "../NavButton";
 import MobileMenuButton from "./MobileMenuButton";
-import MobileMenu from "./MobileMenu"
-
+import MobileMenu from "./MobileMenu";
 
 /**
  * A class representing a mobile nav.
@@ -15,7 +14,8 @@ import MobileMenu from "./MobileMenu"
  * in the future.
  */
 function MobileNav(props) {
-  const [mobileNavVisible, setMobileNavVisible] = useState(false);
+
+  const theme = useContext(ThemeContext);
 
   // Generates the mobile menu
   const generateLinks = () => {
@@ -44,23 +44,18 @@ function MobileNav(props) {
     ${new MobileView(`display: flex!important;`)}
     flex-direction: column;
     width: ${menuNavWidth};
+    height: ${theme.navbar.height};
   `;
 
   return (
     <StyledMobileNav>
-      <div
-        onClick={() => {
-          setMobileNavVisible(!mobileNavVisible);
-        }}
-      >
-        <MobileMenuButton navOpen={mobileNavVisible} links={generateLinks()}></MobileMenuButton>
-      </div>
+      <MobileMenu links={generateLinks()} height={theme.navbar.height}></MobileMenu>
     </StyledMobileNav>
   );
 }
 MobileNav.defaultProps = {
   theme: DefaultTheme,
+  height: "60px",
 };
-
 
 export default MobileNav;

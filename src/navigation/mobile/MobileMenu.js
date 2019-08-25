@@ -5,34 +5,23 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 import ThemeContext from "../../themes/ThemeContext";
 import MobileMenuButton from "./MobileMenuButton";
+import MenuContainer from "./MenuContainer"
 
-export default function MobileMenu(props) {
+export default function MobileMenu({links, height}) {
   const theme = useContext(ThemeContext).navbar;
+  const [mobileNavVisible, setMobileNavVisible] = useState(false);
 
-  const StyledNavButton = styled.div`
-    display: flex;
-    width: ${props.buttonWidth};
-    & * {
-      height: ${theme.height};
-      color: ${theme.color};
-      margin: 0 20px 0 0;
-      font-size: 25px;
-      transition: 0.2s;
-    }
-  `;
   return (
-    <>
-      <StyledNavButton>
-        <MobileMenuButton navOpen={props.navOpen} width={props.buttonWidth}/>
-      </StyledNavButton>
-      <MenuContainer visible={props.navOpen}>{props.links}</MenuContainer>
-    </>
+    <div onClick={() => { setMobileNavVisible(!mobileNavVisible); } } style={{height: height}}>
+      <MobileMenuButton key="mobile-menu-button" open={mobileNavVisible} height={height}/>
+      <MenuContainer key="menu-container" open={mobileNavVisible}>{links}</MenuContainer>
+    </div>
   );
 }
 MobileMenuButton.defaultProps = {
   onClick: () => {
     console.log("Pressed!");
   },
-  navOpen: false,
-  links: <></>
+  links: <></>,
+  height: "60px",
 };
