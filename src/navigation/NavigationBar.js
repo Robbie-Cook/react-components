@@ -6,6 +6,8 @@ import Spacer from "../ui-components/Spacer";
 import { SiteContext } from "../utilities/SiteContext";
 import { Text } from "../utilities/Typography";
 import NavButton from "./NavButton";
+import MobileNav from "./mobile/MobileNav";
+import { MobileView } from "../layout/Views"
 
 /** Represents a navbar element */
 function NavBar(props) {
@@ -14,17 +16,20 @@ function NavBar(props) {
     setLoaded(true);
   });
 
-  const theme = useContext(ThemeContext).navbar;
+  const theme = useContext(ThemeContext);
 
   const StyledNavBar = styled.div`
-    height: ${theme.height};
+    height: ${theme.navbar.height};
     display: flex;
     flex-direction: row;
     align-items: center;
-    background-color: ${theme.backgroundColor};
-    padding-left: 40px;
-    padding-right: 40px;
+    background-color: ${theme.navbar.backgroundColor};
+    padding: ${theme.navbar.padding};
     box-sizing: border-box;
+
+    ${new MobileView(`
+      padding: ${theme.navbar.mobilePadding};
+    `)}
   `;
 
   const links = (() => {
@@ -43,17 +48,25 @@ function NavBar(props) {
 
   const Title = styled(Text)``;
 
+  const LinksWrapper = styled.div`
+    display: flex;
+    ${new MobileView(`display: none;`)}
+  `
+
   return (
     <StyledNavBar>
+      <MobileNav links={props.links} theme={theme}/>
       <Title>{props.title}</Title>
       <Spacer width="30px" />
-      {links}
+      <LinksWrapper>
+        {links}
+      </LinksWrapper>
     </StyledNavBar>
   );
 }
 NavBar.defaultProps = {
   title: "Testing title",
-  links: DefaultTheme.navbar.links
+  links: DefaultTheme.navbar.links,
 };
 
 /**
@@ -70,11 +83,7 @@ export default function NavigationBar(props) {
   const site = useContext(SiteContext);
 
   return (
-    <>
-      {/* <Transition loaded={loaded}> */}
-      <NavBar title={props.title} links={props.links} />
-      {/* </Transition> */}
-    </>
+    <NavBar title={props.title} links={props.links} height={theme.height} />
   );
 }
 NavigationBar.defaultProps = {

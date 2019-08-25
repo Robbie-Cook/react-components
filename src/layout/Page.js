@@ -34,23 +34,23 @@ export default function Page(props) {
   const StyledPage = styled.div`
     display: flex;
     flex-direction: column;
-    padding: ${new Dimensions(40, 90, 0, 90)};
+    padding: ${theme.page.padding};
 
     // Mobile styles
     ${new MobileView(`
       flex-direction: column;
-      padding: ${new Dimensions(20, 30)}; 
+      padding: ${theme.page.mobilePadding}; 
     `)}
   `;
 
   return (
     <>
-      <MyHelmet title={site.name} backgroundColor={theme.backgroundColor} />
+      <MyHelmet title={site.sitename} backgroundColor={theme.backgroundColor} />
       {loaded && (
         <>
           {props.next && (
             <NextHelmet
-              title={site.name}
+              title={site.sitename}
               backgroundColor={theme.backgroundColor}
             />
           )}
@@ -65,5 +65,6 @@ export default function Page(props) {
   );
 }
 Page.defaultProps = {
-  next: true
+  next: true,
+  padding: '',
 };

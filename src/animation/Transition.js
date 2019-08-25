@@ -20,8 +20,6 @@ function Transition(props) {
     },
     hidden: {
       opacity: 0,
-      height: "0px",
-      overflow: "hidden",
       transition: {
         default: { ease: "linear", duration: 500 }
       }
@@ -32,17 +30,19 @@ function Transition(props) {
 
   const poseJsx = (
     <>
+      {props.spinner && 
       <StyledDiv
         initialPose="visible"
-        pose={props.loaded ? "hidden" : "visible"}
+        pose={props.show ? "hidden" : "visible"}
       >
         <Spinner color="white" />
       </StyledDiv>
+      }
       <StyledDiv
         initialPose="hidden"
-        pose={props.loaded ? "visible" : "hidden"}
+        pose={props.show ? "visible" : "hidden"}
       >
-        {props.loaded && props.children}
+        {props.show && props.children}
       </StyledDiv>
     </>
   );
@@ -50,7 +50,7 @@ function Transition(props) {
   return poseJsx;
 }
 Transition.defaultProps = {
-  loaded: false // Whether the component is loaded
+  show: false // Whether the component is loaded
 };
 
 // A spinner graphic

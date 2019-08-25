@@ -33,21 +33,26 @@ class DefaultTheme {
 
   static page = {
     backgroundColor: "#0f0f0f",
-    secondaryColor: "#EB6D6D" // reddish
+    secondaryColor: "#EB6D6D", // reddish
+    padding: "20px 90px",
+    mobilePadding: "20px 30px"
   };
 
   static navbar = {
     backgroundColor: this.backgroundColor,
     height: "60px",
     title: <Title>My dank website</Title>,
+    color: this.text.color,
+    padding: "0px 90px 0px 90px",
+    mobilePadding: "0 30px",
     // Navbar button styles
-    button: {
+    links: {
       backgroundColor: this.backgroundColor,
       color: this.textColor,
       borderColor: 'transparent',
       activeColor: this.link.color,
       hoverColor: this.link.color
-    }
+    },
   };
 
   static button = {
