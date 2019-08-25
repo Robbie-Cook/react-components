@@ -3,14 +3,10 @@
   "version": "0.1.1",
   "private": true,
   "dependencies": {
-<<<<<<< HEAD
     "@babel/plugin-proposal-class-properties": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
-    "@robbie-cook/react-components": "^3.0.4",
     "customize-cra": "^0.5.0",
-=======
     "@robbie-cook/react-components": "^3.0.45",
->>>>>>> develop
     "eslint": "^6.1.0",
     "react": "^16.9.0",
     "react-app-rewired": "^2.1.3",
