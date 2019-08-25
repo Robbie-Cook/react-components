@@ -66,7 +66,7 @@ function NavBar(props) {
 }
 NavBar.defaultProps = {
   title: "Testing title",
-  links: DefaultTheme.navbar.links
+  links: DefaultTheme.navbar.links,
 };
 
 /**
@@ -83,11 +83,7 @@ export default function NavigationBar(props) {
   const site = useContext(SiteContext);
 
   return (
-    <>
-      {/* <Transition show={loaded}> */}
-      <NavBar title={props.title} links={props.links} />
-      {/* </Transition> */}
-    </>
+    <NavBar title={props.title} links={props.links} height={theme.height} />
   );
 }
 NavigationBar.defaultProps = {
