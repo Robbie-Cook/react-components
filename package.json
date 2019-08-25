@@ -4,12 +4,6 @@
   "description": "A bunch of common react components",
   "main": "./build/index.js",
   "module": "./build/index.es.js",
-  "scripts": {
-    "start": "concurrently \"yarn install && yarn link && cd node_modules/react && yarn link && cd ../.. && rollup -c --watch\" \"cd test && npm start\"",
-    "build": "rollup -c",
-    "build-test": "cd test && yarn run build",
-    "test": "cd test && yarn start"
-  },
   "author": "Robbie Cook",
   "license": "ISC",
   "keywords": [],
@@ -84,5 +78,26 @@
     "webpack-bundle-analyzer": "^3.4.1",
     "webpack-cli": "^3.3.6",
     "webpack-node-externals": "^1.7.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
