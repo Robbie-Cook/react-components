@@ -33,8 +33,8 @@ function App() {
   return (
     <SiteContext.Provider value={DefaultSiteContext}>
       <ThemeContext.Provider value={DefaultTheme}>
-        <Page>
-          <Transition loaded={loaded}>
+        <Page next={false}>
+          <Transition show={loaded} spinner={true}>
             <Heading>My React storyboard</Heading>
             <Text>
               This is a test of the different components in{" "}
@@ -45,7 +45,7 @@ function App() {
             <Button label="Testing button" />
 
             <Heading type="h2">Testing loader</Heading>
-            <Transition loaded={false}>
+            <Transition show={false} spinner={true}>
               <Text>Hidden text</Text>
             </Transition>
           </Transition>

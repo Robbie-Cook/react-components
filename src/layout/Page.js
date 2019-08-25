@@ -2,14 +2,16 @@
 
 /* Imports */
 /* Stylesheets etc. */
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
+// import MyHelmet from "../headers/MyHelmet";
+import NextHelmet from "../headers/NextHelmet";
+import { MobileView } from "../layout/Views";
+import NavigationBar from "../navigation/NavigationBar";
 import ThemeContext from "../themes/ThemeContext";
 import { Dimensions } from "../utilities";
+import { SiteContext } from "../utilities/SiteContext";
 import MyHelmet from "../headers/MyHelmet";
-
-import NavigationBar from "../navigation/NavigationBar";
-import { MobileView } from "../layout/Views";
 
 /* Navigation links, which are passed to navbar.js */
 
@@ -25,34 +27,44 @@ export default function Page(props) {
     setLoaded(true);
   }, []);
 
-  const theme = useContext(ThemeContext)
+  const theme = useContext(ThemeContext);
+  const site = useContext(SiteContext);
 
   // Styles for component
   const StyledPage = styled.div`
     display: flex;
     flex-direction: column;
-    padding: ${new Dimensions(40, 90, 0, 90)};
+    padding: ${theme.page.padding};
 
     // Mobile styles
     ${new MobileView(`
       flex-direction: column;
-      padding: ${new Dimensions(20, 30)}; 
+      padding: ${theme.page.mobilePadding}; 
     `)}
   `;
 
   return (
     <>
-      <MyHelmet backgroundColor={theme.backgroundColor}/>
-      <div>
-        {loaded && (
-          <>
-            <NavigationBar />
-            <div style={props.style}>
-              <StyledPage style={props.style}>{props.children}</StyledPage>
-            </div>
-          </>
-        )}
-      </div>
+      <MyHelmet title={site.name} backgroundColor={theme.backgroundColor} />
+      {loaded && (
+        <>
+          {props.next && (
+            <NextHelmet
+              title={site.name}
+              backgroundColor={theme.backgroundColor}
+            />
+          )}
+          <NavigationBar title={theme.navbar.title} links={site.links}/>
+          <div style={props.style}>
+            {/* Only display contents if loaded */}
+            <StyledPage style={props.style}>{props.children}</StyledPage>
+          </div>
+        </>
+      )}
     </>
   );
 }
+Page.defaultProps = {
+  next: true,
+  padding: '',
+};
