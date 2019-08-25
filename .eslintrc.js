@@ -9,6 +9,6 @@ module.exports={
       2,
       "double"
     ],
-    "class-methods-use-this": [disabled]
+    "class-methods-use-this": [0]
   }
 }
