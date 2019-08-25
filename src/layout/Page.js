@@ -45,12 +45,12 @@ export default function Page(props) {
 
   return (
     <>
-      <MyHelmet title={site.name} backgroundColor={theme.backgroundColor} />
+      <MyHelmet title={site.sitename} backgroundColor={theme.backgroundColor} />
       {loaded && (
         <>
           {props.next && (
             <NextHelmet
-              title={site.name}
+              title={site.sitename}
               backgroundColor={theme.backgroundColor}
             />
           )}
