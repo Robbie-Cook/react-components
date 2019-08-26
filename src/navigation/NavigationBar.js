@@ -7,7 +7,7 @@ import { SiteContext } from "../utilities/SiteContext";
 import { Text } from "../utilities/Typography";
 import NavButton from "./NavButton";
 import MobileNav from "./mobile/MobileNav";
-import { MobileView } from "../layout/Views"
+import { MobileView } from "../layout/Views";
 
 /** Represents a navbar element */
 function NavBar(props) {
@@ -40,34 +40,46 @@ function NavBar(props) {
           to={value.path}
           label={value.name}
           active={value.isActive()}
-          style="margin: 0 20px 0 0"          
+          style={`
+            margin: 0 20px 0 0; 
+            line-height: ${theme.navbar.height}!important;
+            & > * {
+              line-height: ${theme.navbar.height}!important
+            }
+          `}
         />
       );
     });
     return mylinks;
   })();
 
-  const Title = styled(Text)``;
+  const Title = styled.p`
+    margin: 0;
+    color: ${theme.navbar.color};
+    margin-bottom: 0;
+    font: ${theme.navbar.title.font};
+  `;
 
   const LinksWrapper = styled.div`
     display: flex;
     ${new MobileView(`display: none;`)}
-  `
+    height: ${theme.navbar.height};
+    line-height: ${theme.navbar.height};
+    align-items: center;
+  `;
 
   return (
     <StyledNavBar>
-      <MobileNav links={props.links} theme={theme}/>
-      <Title>{props.title}</Title>
-      <Spacer width="30px" />
-      <LinksWrapper>
-        {links}
-      </LinksWrapper>
+      <MobileNav links={props.links} theme={theme} />
+      <Title>{theme.navbar.title.name}</Title>
+      <Spacer width="55px" />
+      <LinksWrapper>{links}</LinksWrapper>
     </StyledNavBar>
   );
 }
 NavBar.defaultProps = {
   title: "Testing title",
-  links: DefaultTheme.navbar.links,
+  links: DefaultTheme.navbar.links
 };
 
 /**
@@ -84,10 +96,10 @@ export default function NavigationBar(props) {
   const site = useContext(SiteContext);
 
   return (
-    <NavBar title={props.title} links={props.links} height={theme.height} />
+    <NavBar links={props.links} height={theme.height} />
   );
 }
 NavigationBar.defaultProps = {
-  title: 'My Website',
+  title: "My Website",
   links: []
-}
+};
