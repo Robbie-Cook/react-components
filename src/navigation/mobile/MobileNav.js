@@ -28,7 +28,7 @@ function MobileNav(props) {
           to={value.path}
           label={value.name}
           active={value.isActive()}
-          style={`margin-bottom: 10px;`}
+          style={`margin-bottom: 10px; background-color: transparent;`}
         />
       );
     });

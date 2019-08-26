@@ -40,6 +40,7 @@ function NavBar(props) {
           to={value.path}
           label={value.name}
           active={value.isActive()}
+          style="margin: 0 20px 0 0"          
         />
       );
     });

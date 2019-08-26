@@ -7,31 +7,37 @@ import ThemeContext from "../themes/ThemeContext";
  * A 'Higher order component'-like button to represent a navigation link
  */
 export default function NavButton(props) {
-  const theme = useContext(ThemeContext).navbar.links;
+  const theme = useContext(ThemeContext);
 
   const style = `
-    background-color: ${theme.backgroundColor};
-    border-color: ${theme.borderColor};
-    border-width: 1px;
-    color: ${theme.color};
+    background-color: transparent;
+    border-color: transparent;
+    border-width: 0px;
+    color: ${theme.navbar.links.color};
     width: fit-content;
+    display: flex;
+    align-contents: center;
+
+    & > * {
+      transition-duration: .1s;
+      font: ${theme.navbar.links.font}!important;
+      color: ${theme.navbar.links.hoverColor};
+      align-self: center;
+    }
 
     &:hover {
-      background-color: ${theme.backgroundColor};
-      border-color: ${theme.activeColor};
-      box-shadow: 0px 0px 0px 2px ${theme.activeColor};
-
-      & * {
-        color: ${theme.hoverColor};
+      & > * {
+        color: ${theme.navbar.links.hoverColor};
+        border-bottom: 0px!important;
       }
     }
 
-    margin: ${theme.margin};
+    margin: ${theme.navbar.links.margin};
 
     ${props.active &&
       `
     & p {
-      color: ${theme.activeColor};
+      color: ${theme.navbar.links.activeColor};
     }
     `};
 

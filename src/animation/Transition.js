@@ -1,56 +1,43 @@
 import { faCircleNotch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { PureComponent } from "react";
-import posed from "react-pose";
+import { motion, AnimatePresence } from "framer-motion";
 import styled from "styled-components";
 import { ThemeContext } from "../themes";
 import PropTypes from "prop-types";
 
 /**
- * A loading screen
+ * A transition element
  */
 function Transition(props) {
-  const PosedDiv = posed.div({
-    visible: {
-      opacity: 1,
-      height: "auto",
-      transition: {
-        default: { ease: "linear", duration: 500 }
-      }
-    },
-    hidden: {
-      opacity: 0,
-      transition: {
-        default: { ease: "linear", duration: 500 }
-      }
-    }
-  });
-
-  const StyledDiv = styled(PosedDiv)``;
-
   const poseJsx = (
-    <>
-      {props.spinner && 
-      <StyledDiv
-        initialPose="visible"
-        pose={props.show ? "hidden" : "visible"}
+    <AnimatePresence>
+      {props.spinner && !props.show && <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 2 }}
+        exit={{ opacity: 0 }}
+        key={"spinner"}
       >
-        <Spinner color="white" />
-      </StyledDiv>
-      }
-      <StyledDiv
-        initialPose="hidden"
-        pose={props.show ? "visible" : "hidden"}
+        <Spinner color="white" />}
+      </motion.div>}
+
+      {props.show && <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 2 }}
+        key="main"
       >
-        {props.show && props.children}
-      </StyledDiv>
-    </>
+        {props.children}
+      </motion.div>}
+    </AnimatePresence>
   );
 
   return poseJsx;
 }
 Transition.defaultProps = {
-  show: false // Whether the component is loaded
+  show: false, // Whether the component is loaded
 };
 
 // A spinner graphic
@@ -93,7 +80,6 @@ function Spinner(props) {
     </StyledSpinnerWrapper>
   );
 }
-
 Spinner.defaultProps = {
   color: "white"
 };

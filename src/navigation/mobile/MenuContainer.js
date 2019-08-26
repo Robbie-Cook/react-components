@@ -15,6 +15,9 @@ export default function MenuContainer({ open, children }) {
     display: flex;
     flex-direction: column;
     width: fit-content;
+    position: absolute;
+    left: 0;
+    padding: 6px 11px 10px 10px;
   `;
 
   return (

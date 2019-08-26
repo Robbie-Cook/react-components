@@ -4,13 +4,6 @@
 import React from "react"
 import styled from "styled-components"
 
-const Title = styled.p`
-  font-weight: bold;
-  font-family: 'Roboto Slab', sans-serif;
-  margin-right: 25px;
-  text-transform: lowercase;
-`
-
 class DefaultTheme {
   static textColor = "#dcd6ce";
   static backgroundColor = "#0f0f0f";
@@ -37,17 +30,17 @@ class DefaultTheme {
   static navbar = {
     backgroundColor: this.backgroundColor,
     height: "60px",
-    title: <Title>My dank website</Title>,
+    title: "My dank website",
     color: this.text.color,
     padding: "0px 90px 0px 90px",
     mobilePadding: "0 30px",
     // Navbar button styles
     links: {
-      backgroundColor: this.backgroundColor,
       color: this.textColor,
       borderColor: 'transparent',
       activeColor: this.link.color,
-      hoverColor: this.link.color
+      hoverColor: this.link.color,
+      font: "bold 15px serif"
     },
   };
 
