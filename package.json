@@ -1,6 +1,6 @@
 {
   "name": "@robbie-cook/react-components",
-  "version": "3.1.4",
+  "version": "3.1.5",
   "description": "A bunch of common react components",
   "main": "./build/index.js",
   "module": "./build/index.es.js",
@@ -85,7 +85,7 @@
     "build": "rollup -c",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "prepublish": "yarn run build && git commit -m \"Committing build changes\""
+    "prepublish": "yarn run build"
   },
   "eslintConfig": {
     "extends": "react-app"
