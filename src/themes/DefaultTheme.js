@@ -30,7 +30,10 @@ class DefaultTheme {
   static navbar = {
     backgroundColor: this.backgroundColor,
     height: "60px",
-    title: "My dank website",
+    title: {
+      name: "My dank website",
+      font: "bold 20px 'Roboto Slab',serif"
+    },
     color: this.text.color,
     padding: "0px 90px 0px 90px",
     mobilePadding: "0 30px",
@@ -40,7 +43,7 @@ class DefaultTheme {
       borderColor: 'transparent',
       activeColor: this.link.color,
       hoverColor: this.link.color,
-      font: "bold 15px serif"
+      font: "bold 15px 'Roboto Slab',serif"
     },
   };
 
