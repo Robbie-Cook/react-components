@@ -85,7 +85,7 @@
     "build": "rollup -c",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "prepublish": "yarn run build && git commit -m 'Committing build changes'"
+    "prepublish": "yarn run build && git commit -m \"Committing build changes\""
   },
   "eslintConfig": {
     "extends": "react-app"
