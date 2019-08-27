@@ -20,7 +20,7 @@ const navbarStyles = {
   backgroundColor: pageStyles.backgroundColor,
   height: "60px",
   title: {
-    name: "My dank website",
+    name: "My dank website", // Should come from SiteContext
     font: "bold 20px 'Roboto Slab',serif",
   },
   color: textStyles.color,
