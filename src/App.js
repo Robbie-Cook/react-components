@@ -7,6 +7,7 @@ import {Heading, Link, Text } from "./utilities/Typography"
 import Page from  "./layout/Page"
 import ThemeContext from "./themes/ThemeContext"
 import Transition from "./animation/Transition"
+import ThemeManager from "./themes/ThemeManager"
 
 import React, { useEffect, useState } from "react";
 
@@ -24,9 +25,18 @@ function App() {
 
   new Dimensions();
 
+  const MyThemeObject = ThemeManager.getTheme({
+    page: {
+      backgroundColor: "pink",
+    },
+    text: {
+      color: "pink",
+    },
+  });
+
   return (
     <SiteContext.Provider value={DefaultSiteContext}>
-      <ThemeContext.Provider value={DefaultThemeObject}>
+      <ThemeContext.Provider value={MyThemeObject}>
         <Page next={false}>
           <Transition show={loaded} spinner={true}>
             <Heading>My React storyboard</Heading>
