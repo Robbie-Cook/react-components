@@ -25,6 +25,7 @@
     "browser-monads": "^1.0.0",
     "create-react-app": "^3.1.1",
     "eslint-config-airbnb": "^18.0.1",
+    "eslint-utils": "^1.4.2",
     "framer-motion": "^1.6.3",
     "grommet": "^2.7.6",
     "gsap": "^2.1.3",
