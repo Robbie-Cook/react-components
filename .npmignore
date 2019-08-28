@@ -11,3 +11,4 @@ yarn.lock
 index.js
 rollup.config.js
 .eslintrc.js
+build

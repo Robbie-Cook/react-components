@@ -9,6 +9,7 @@ module.exports={
       2,
       "double"
     ],
-    "class-methods-use-this": [0]
+    "class-methods-use-this": [0],
+    "max-classes-per-file": [0],
   }
 }

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import React, { Component, useContext } from "react";
 import PropTypes from "prop-types";
-import DefaultTheme from "../themes/DefaultTheme";
+import DefaultThemeObject from "../themes/DefaultThemeObject";
 import ThemeContext from "../themes/ThemeContext";
 import Codify from "../ui-components/Codify";
 
@@ -27,7 +27,7 @@ class Heading extends Component {
       font-weight: bold;
       margin: ${this.props.margin};
       text-transform: lowercase;
-      color: ${DefaultTheme.text.color};
+      color: ${DefaultThemeObject.text.color};
     `;
 
     const h1Height = "53px";
@@ -146,7 +146,7 @@ Text.defaultProps = {
 function Link(props) {
   const StyledLink = styled.a`
     font-family: "Roboto", sans-serif;
-    color: ${DefaultTheme.link.color};
+    color: ${DefaultThemeObject.link.color};
     ${props.style};
   `;
   return <StyledLink href={props.href}>{props.children}</StyledLink>;

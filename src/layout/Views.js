@@ -1,4 +1,4 @@
-import { DefaultTheme } from "../themes"
+import { DefaultThemeObject } from "../themes"
 
 import React, { Component } from "react"
 import PropTypes from "prop-types"

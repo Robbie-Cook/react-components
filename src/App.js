@@ -1,12 +1,13 @@
 // import { Heading, Transition, ThemeContext, DefaultTheme } from "@robbie-cook/react-components";
 import { Button } from "./ui-components/Button"
 import { DefaultSiteContext, SiteContext } from "./utilities/SiteContext"
-import DefaultTheme from "./themes/DefaultTheme"
+import DefaultThemeObject from "./themes/DefaultThemeObject"
 import Dimensions from "./utilities/Dimensions"
 import {Heading, Link, Text } from "./utilities/Typography"
 import Page from  "./layout/Page"
 import ThemeContext from "./themes/ThemeContext"
 import Transition from "./animation/Transition"
+import ThemeManager from "./themes/ThemeManager"
 
 import React, { useEffect, useState } from "react";
 
@@ -24,9 +25,18 @@ function App() {
 
   new Dimensions();
 
+  const MyThemeObject = ThemeManager.fillTheme({
+    page: {
+      backgroundColor: "pink",
+    },
+    text: {
+      color: "pink",
+    },
+  });
+
   return (
     <SiteContext.Provider value={DefaultSiteContext}>
-      <ThemeContext.Provider value={DefaultTheme}>
+      <ThemeContext.Provider value={MyThemeObject}>
         <Page next={false}>
           <Transition show={loaded} spinner={true}>
             <Heading>My React storyboard</Heading>
