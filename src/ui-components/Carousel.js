@@ -4,7 +4,7 @@ import React, { Component } from "react";
 import { Carousel as ReactCarousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import styled from "styled-components";
-import { DefaultTheme } from "../themes"
+import { DefaultThemeObject } from "../themes"
 ;
 
 /*

@@ -1,5 +1,5 @@
-import React from "react"
-import DefaultThemeObject from "./DefaultThemeObject"
+import React from "react";
+import DefaultThemeObject from "./DefaultThemeObject";
 import lodash from "lodash";
 
 /**
