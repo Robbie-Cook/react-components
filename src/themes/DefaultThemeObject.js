@@ -46,6 +46,9 @@ const buttonStyles = {
   },
 };
 
+/**
+ * The theme object to be passed through the whole site
+ */
 const DefaultThemeObject = {
   textColor: "#dcd6ce",
   backgroundColor: "#0f0f0f",
