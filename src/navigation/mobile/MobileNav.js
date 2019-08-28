@@ -2,7 +2,8 @@ import React, { useContext, useState } from "react";
 import posed from "react-pose";
 import styled from "styled-components";
 import { MobileView } from "../../layout/Views";
-import { DefaultTheme, ThemeContext } from "../../themes";
+import ThemeContext from "../../themes/ThemeContext";
+import DefaultThemeObject from "../../themes/DefaultThemeObject";
 import NavButton from "../NavButton";
 import MobileMenuButton from "./MobileMenuButton";
 import MobileMenu from "./MobileMenu";
@@ -54,7 +55,7 @@ function MobileNav(props) {
   );
 }
 MobileNav.defaultProps = {
-  theme: DefaultTheme,
+  theme: DefaultThemeObject,
   height: "60px",
 };
 

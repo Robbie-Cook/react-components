@@ -1,3 +1,7 @@
+/**
+ * When a new component is created, it needs to be exported from here
+ */
+
 export { Transition } from "./src/animation"
 
 export { SampleComponent, SamplePage } from "./src/examples"
@@ -10,7 +14,7 @@ export { BorderBox, Col, Row,
 
 export { NavigationBar } from "./src/navigation"
 
-export { DefaultTheme, ThemeContext, Sizes } from "./src/themes"
+export { ThemeContext, Sizes, ThemeManager } from "./src/themes"
 
 export { Button, ButtonGenerator, ButtonWrapper, Codify, Icon, IconsWrapper, Spacer } from "./src/ui-components"
 

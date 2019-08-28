@@ -1,7 +1,7 @@
 // import { Heading, Transition, ThemeContext, DefaultTheme } from "@robbie-cook/react-components";
 import { Button } from "./ui-components/Button"
 import { DefaultSiteContext, SiteContext } from "./utilities/SiteContext"
-import DefaultTheme from "./themes/DefaultTheme"
+import DefaultThemeObject from "./themes/DefaultThemeObject"
 import Dimensions from "./utilities/Dimensions"
 import {Heading, Link, Text } from "./utilities/Typography"
 import Page from  "./layout/Page"
@@ -26,7 +26,7 @@ function App() {
 
   return (
     <SiteContext.Provider value={DefaultSiteContext}>
-      <ThemeContext.Provider value={DefaultTheme}>
+      <ThemeContext.Provider value={DefaultThemeObject}>
         <Page next={false}>
           <Transition show={loaded} spinner={true}>
             <Heading>My React storyboard</Heading>

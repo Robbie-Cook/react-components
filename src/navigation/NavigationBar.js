@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 // import MobileNav from "../navigation/MobileNav";
-import { DefaultTheme, ThemeContext } from "../themes";
+import { ThemeContext } from "../themes";
 import Spacer from "../ui-components/Spacer";
 import { SiteContext } from "../utilities/SiteContext";
 import { Text } from "../utilities/Typography";
@@ -79,7 +79,7 @@ function NavBar(props) {
 }
 NavBar.defaultProps = {
   title: "Testing title",
-  links: DefaultTheme.navbar.links
+  links: [],
 };
 
 /**
