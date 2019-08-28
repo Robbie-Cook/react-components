@@ -8,7 +8,7 @@
   "license": "ISC",
   "keywords": [],
   "peerDependencies": {
-    "react": "^16.4.0",
+    "react": "^16.9.0",
     "react-responsive-carousel": "^3.1.50",
     "styled-components": "^4.3.2"
   },

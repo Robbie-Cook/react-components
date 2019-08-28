@@ -25,7 +25,7 @@ function App() {
 
   new Dimensions();
 
-  const MyThemeObject = ThemeManager.getTheme({
+  const MyThemeObject = ThemeManager.fillTheme({
     page: {
       backgroundColor: "pink",
     },
