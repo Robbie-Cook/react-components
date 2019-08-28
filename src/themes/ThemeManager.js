@@ -1,12 +1,11 @@
-import React from "react";
-import DefaultThemeObject from "./DefaultThemeObject";
 import lodash from "lodash";
+import DefaultThemeObject from "./DefaultThemeObject";
 
 /**
  * A manager for adding themes
  */
 export default class ThemeManager {
-    static getTheme(newTheme) {
-        return lodash.merge(DefaultThemeObject, newTheme)
-    }
+  static fillTheme(newTheme) {
+    return lodash.merge(DefaultThemeObject, newTheme);
+  }
 }
