@@ -4,6 +4,7 @@
   "description": "A bunch of common react components",
   "main": "./out/index.js",
   "module": "./out/index.es.js",
+  "files": ["./out/index.es.js", "./out/index.es.js"],
   "author": "Robbie Cook",
   "license": "ISC",
   "keywords": [],
