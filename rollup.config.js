@@ -7,7 +7,6 @@ import postcss from 'rollup-plugin-postcss';
 import { terser } from 'rollup-plugin-terser';
 import url from 'rollup-plugin-url';
 import pkg from './package.json';
-import url from 'rollup-plugin-url';
 
 
 export default {
