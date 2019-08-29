@@ -17,6 +17,9 @@ export default {
       file: pkg.main,
       format: 'cjs',
       sourcemap: true,
+      compact: false,
+      preserveSymlinks: true,
+      
     },
     {
       file: pkg.module,
@@ -36,6 +39,9 @@ export default {
         '@babel/plugin-proposal-class-properties',
       ],
       exclude: 'node_modules/**',
+      minified: false,
+      comments: true,
+
     }),
     postcss({
       plugins: [],
