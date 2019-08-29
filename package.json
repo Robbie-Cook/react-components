@@ -1,10 +1,13 @@
 {
   "name": "@robbie-cook/react-components",
-  "version": "3.1.10",
+  "version": "3.1.11",
   "description": "A bunch of common react components",
   "main": "./out/index.js",
   "module": "./out/index.es.js",
-  "files": ["./out/index.es.js", "./out/index.es.js"],
+  "files": [
+    "./out/index.es.js",
+    "./out/index.es.js"
+  ],
   "author": "Robbie Cook",
   "license": "ISC",
   "keywords": [],
