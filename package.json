@@ -1,6 +1,6 @@
 {
   "name": "@robbie-cook/react-components",
-  "version": "3.1.8",
+  "version": "3.1.9",
   "description": "A bunch of common react components",
   "main": "./out/index.js",
   "module": "./out/index.es.js",
@@ -40,7 +40,6 @@
     "react-pose": "^4.0.8",
     "react-scripts": "^3.1.1",
     "serve": "^11.1.0",
-    "styled-components": "^4.3.2",
     "styled-icons": "^8.3.0",
     "typescript": "^3.5.3",
     "webpack": "4.39.1"
@@ -87,7 +86,7 @@
     "webpack-node-externals": "^1.7.2"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "yarn link && react-scripts start",
     "build": "rollup -c",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
