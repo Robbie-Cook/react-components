@@ -1,3 +1,6 @@
+const textColor = "#dcd6ce";
+const backgroundColor = "#0f0f0f";
+
 const linkStyles = {
   color: "#6385a9",
   colorActive: "#1565c0",
@@ -10,14 +13,14 @@ const textStyles = {
 };
 
 const pageStyles = {
-  backgroundColor: "#0f0f0f",
+  backgroundColor: backgroundColor,
   secondaryColor: "#EB6D6D", // reddish
   padding: "20px 90px",
   mobilePadding: "20px 30px",
 };
 
 const navbarStyles = {
-  backgroundColor: pageStyles.backgroundColor,
+  backgroundColor: backgroundColor,
   height: "60px",
   title: {
     name: "My dank website", // Should come from SiteContext
@@ -50,8 +53,8 @@ const buttonStyles = {
  * The theme object to be passed through the whole site
  */
 const DefaultThemeObject = {
-  textColor: "#dcd6ce",
-  backgroundColor: "#0f0f0f",
+  textColor: textColor,
+  backgroundColor: backgroundColor,
   link: linkStyles,
   text: textStyles,
   page: pageStyles,
