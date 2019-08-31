@@ -42,10 +42,6 @@ function NavBar(props) {
           active={value.isActive()}
           style={`
             margin: 0 20px 0 0; 
-            line-height: ${theme.navbar.height}!important;
-            & > * {
-              line-height: ${theme.navbar.height}!important
-            }
           `}
         />
       );
