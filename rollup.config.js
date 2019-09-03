@@ -40,7 +40,7 @@ export default {
       exclude: 'node_modules/**',
       minified: false,
       comments: true,
-
+      compact: false,
     }),
     postcss({
       plugins: [],
