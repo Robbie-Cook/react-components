@@ -4,6 +4,7 @@
   "description": "A bunch of common react resources",
   "main": "./out/index.js",
   "module": "./out/index.es.js",
+  "types": "./out/index.d.ts",
   "files": [
     "out/*"
   ],
