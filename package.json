@@ -1,12 +1,12 @@
 {
   "name": "@robbie-cook/react-components",
-  "version": "3.1.11",
-  "description": "A bunch of common react components",
+  "version": "3.1.12",
+  "description": "A bunch of common react resources",
   "main": "./out/index.js",
   "module": "./out/index.es.js",
+  "types": "./out/index.d.ts",
   "files": [
-    "./out/index.es.js",
-    "./out/index.es.js"
+    "out/*"
   ],
   "author": "Robbie Cook",
   "license": "ISC",
@@ -85,6 +85,7 @@
     "rollup-plugin-url": "^2.2.2",
     "sass-loader": "^7.2.0",
     "style-loader": "^1.0.0",
+    "styled-components": "^4.3.2",
     "webpack-bundle-analyzer": "^3.4.1",
     "webpack-cli": "^3.3.6",
     "webpack-node-externals": "^1.7.2"

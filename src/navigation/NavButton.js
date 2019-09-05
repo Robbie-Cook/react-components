@@ -23,12 +23,14 @@ export default function NavButton(props) {
       font: ${theme.navbar.links.font}!important;
       color: ${theme.navbar.links.hoverColor};
       align-self: center;
+      height: 20px;
+      box-sizing: border-box;
     }
 
     &:hover {
       & > * {
+        border-bottom: 2px solid ${theme.navbar.links.hoverColor}!important;
         color: ${theme.navbar.links.hoverColor};
-        border-bottom: 0px!important;
       }
     }
 
