@@ -70,7 +70,6 @@ Then, in your component:
     <App />
   </ThemeContext.Provider>
 </SiteContext.Provider>
-</Container>
 ```
 
 After that, you can import any components you need. For example, you can run `import { Button } from @robbie-cook/react-components`
