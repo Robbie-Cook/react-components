@@ -25,7 +25,7 @@ Firstly, install the package (you will need to install yarn first -- (`npm insta
 
 Then, you will need to wrap your root components in a ThemeContext.Provider and SiteContext.Provider provided by the package. For example,
 
-`
+```
 import { ThemeContext, SiteContext } from "@robbie-cook/react-components"
 ...
 <Container>
@@ -36,13 +36,13 @@ import { ThemeContext, SiteContext } from "@robbie-cook/react-components"
   </SiteContext.Provider>
 </Container>
 ...
-`
+```
 
 This will populate the default values for the theme.
 To make your own theme for the app, you can add a value when you add the provider. Make sure you use ThemeManager to merge your theme with the default.
 
 e.g. 
-`
+```
 import { ThemeManager } from "@robbie-cook/react-components"
 
 const MyTheme = ThemeManager.fillTheme({
@@ -60,18 +60,18 @@ const MyTheme = ThemeManager.fillTheme({
 
   button: button,
 })
-`.
+```.
 
 Then, in your component: 
 
-`
+```
 <SiteContext.Provider value={MySiteContext}>
   <ThemeContext.Provider value={MyTheme}>
     <App />
   </ThemeContext.Provider>
 </SiteContext.Provider>
 </Container>
-`
+```
 
 After that, you can import any components you need. For example, you can run `import { Button } from @robbie-cook/react-components`
 
