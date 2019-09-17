@@ -60,7 +60,7 @@ const MyTheme = ThemeManager.fillTheme({
 
   button: button,
 })
-```.
+```
 
 Then, in your component: 
 
