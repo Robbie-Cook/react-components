@@ -36,20 +36,20 @@ class Icon extends Component {
       text-align: center;
       font-size: ${diameter - 15}px;
       cursor: pointer;
-      background-color: ${DefaultTheme.text.color};
+      background-color: ${DefaultThemeObject.text.color};
       margin: 0 9px;
-      color: ${DefaultTheme.backgroundColor};
+      color: ${DefaultThemeObject.backgroundColor};
       transition: 0.1s;
       transition-timing-function: ease-out;
 
       &:hover {
-        background-color: ${DefaultTheme.link.color};
-        color: ${DefaultTheme.text.color};
+        background-color: ${DefaultThemeObject.link.color};
+        color: ${DefaultThemeObject.text.color};
       }
 
       &:active {
-        background-color: ${DefaultTheme.link.color};
-        color: ${DefaultTheme.text.color};
+        background-color: ${DefaultThemeObject.link.color};
+        color: ${DefaultThemeObject.text.color};
       }
     `
 

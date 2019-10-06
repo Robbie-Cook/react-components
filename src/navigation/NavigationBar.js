@@ -1,13 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
+import { MobileView } from "../layout/Views";
 // import MobileNav from "../navigation/MobileNav";
 import { ThemeContext } from "../themes";
 import Spacer from "../ui-components/Spacer";
 import { SiteContext } from "../utilities/SiteContext";
-import { Text } from "../utilities/Typography";
-import NavButton from "./NavButton";
 import MobileNav from "./mobile/MobileNav";
-import { MobileView } from "../layout/Views";
+import NavButton from "./NavButton";
 
 /** Represents a navbar element */
 function NavBar(props) {
@@ -17,6 +16,7 @@ function NavBar(props) {
   });
 
   const theme = useContext(ThemeContext);
+  const site = useContext(SiteContext);
 
   const StyledNavBar = styled.div`
     height: ${theme.navbar.height};
@@ -67,7 +67,7 @@ function NavBar(props) {
   return (
     <StyledNavBar>
       <MobileNav links={props.links} theme={theme} />
-      <Title>{theme.navbar.title.name}</Title>
+      <Title>{site.sitename}</Title>
       <Spacer width="55px" />
       <LinksWrapper>{links}</LinksWrapper>
     </StyledNavBar>

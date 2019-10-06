@@ -1,6 +1,6 @@
 import React from "react";
 import { Col, LayoutWrapper, Row, Page } from "../layout";
-import { Heading } from "../utilities";
+import Heading from "../typography/Heading";
 
 // Main Page component
 export default function Sample(props) {

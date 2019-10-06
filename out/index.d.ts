@@ -1,1 +1,0 @@
-declare module '@robbie-cook/react-components'

@@ -1,10 +1,8 @@
-import { faCircleNotch } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { PureComponent } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import styled from "styled-components";
-import { ThemeContext } from "../themes";
-import PropTypes from "prop-types";
+import { faCircleNotch } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { AnimatePresence, motion } from 'framer-motion';
+import React from 'react';
+import styled from 'styled-components';
 
 /**
  * A transition element
@@ -12,25 +10,29 @@ import PropTypes from "prop-types";
 function Transition(props) {
   const poseJsx = (
     <AnimatePresence>
-      {props.spinner && !props.show && <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 2 }}
-        exit={{ opacity: 0 }}
-        key={"spinner"}
-      >
-        <Spinner color="white" />}
-      </motion.div>}
+      {props.spinner && !props.show && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 2 }}
+          exit={{ opacity: 0 }}
+          key={'spinner'}
+        >
+          <Spinner color='white' />
+        </motion.div>
+      )}
 
-      {props.show && <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 2 }}
-        key="main"
-      >
-        {props.children}
-      </motion.div>}
+      {props.show && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 2 }}
+          key='main'
+        >
+          {props.children}
+        </motion.div>
+      )}
     </AnimatePresence>
   );
 
@@ -73,7 +75,7 @@ function Spinner(props) {
     <StyledSpinnerWrapper>
       <StyledIconWrapper>
         <FontAwesomeIcon
-          style={{ fontSize: "65px", display: "flex", margin: "auto" }}
+          style={{ fontSize: '65px', display: 'flex', margin: 'auto' }}
           icon={faCircleNotch}
         />
       </StyledIconWrapper>
@@ -81,7 +83,7 @@ function Spinner(props) {
   );
 }
 Spinner.defaultProps = {
-  color: "white"
+  color: 'white',
 };
 
 export default Transition;

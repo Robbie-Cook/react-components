@@ -1,15 +1,15 @@
-// import { Heading, Transition, ThemeContext, DefaultTheme } from "@robbie-cook/react-components";
-import { Button } from "./ui-components/Button"
-import { DefaultSiteContext, SiteContext } from "./utilities/SiteContext"
-import DefaultThemeObject from "./themes/DefaultThemeObject"
-import Dimensions from "./utilities/Dimensions"
-import {Heading, Link, Text } from "./utilities/Typography"
-import Page from  "./layout/Page"
-import ThemeContext from "./themes/ThemeContext"
-import Transition from "./animation/Transition"
-import ThemeManager from "./themes/ThemeManager"
-
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet';
+import Transition from './animation/Transition';
+import Page from './layout/Page';
+import ThemeContext from './themes/ThemeContext';
+import ThemeManager from './themes/ThemeManager';
+import Heading from './typography/Heading';
+import Link from './typography/Link';
+import Text from './typography/Text';
+import { Button } from './ui-components/Button';
+import Dimensions from './utilities/Dimensions';
+import { DefaultSiteContext, SiteContext } from './utilities/SiteContext';
 
 /**
  * The main entry point for the app
@@ -23,33 +23,41 @@ function App() {
     }, 2000);
   }, []);
 
-  new Dimensions();
-
   const MyThemeObject = ThemeManager.fillTheme({
-    page: {
-      backgroundColor: "pink",
-    },
     text: {
-      color: "pink",
+      color: 'pink',
     },
   });
 
   return (
     <SiteContext.Provider value={DefaultSiteContext}>
       <ThemeContext.Provider value={MyThemeObject}>
-        <Page next={false}>
-          <Transition show={loaded} spinner={true}>
+        <ThemeContext.Consumer>
+          {(value) => (
+            <Helmet>
+              <style type='text/css'>
+                {`
+                  body {
+                      background-color: ${value.page.backgroundColor};
+                  }
+                `}
+              </style>
+            </Helmet>
+          )}
+        </ThemeContext.Consumer>
+        <Page>
+          <Transition show={loaded} spinner>
             <Heading>My React storyboard</Heading>
             <Text>
-              This is a test of the different components in{" "}
-              <Link href="https://www.npmjs.com/package/@robbie-cook/react-components">
+              This is a test of the different components in{' '}
+              <Link href='https://www.npmjs.com/package/@robbie-cook/react-components'>
                 @robbie-cook/react-components
               </Link>
             </Text>
-            <Button label="Testing button" />
+            <Button label='Testing button' />
 
-            <Heading type="h2">Testing loader</Heading>
-            <Transition show={false} spinner={true}>
+            <Heading type='h2'>Testing loader</Heading>
+            <Transition show={false} spinner>
               <Text>Hidden text</Text>
             </Transition>
           </Transition>

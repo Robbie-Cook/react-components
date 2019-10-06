@@ -44,7 +44,7 @@ class Carousel extends Component {
       & > div {
         overflow: hidden!important;
         width: 100%;
-        border: 4px solid ${DefaultTheme.text.color};
+        border: 4px solid ${DefaultThemeObject.text.color};
       }
       
       // Make arrows bigger on carousel

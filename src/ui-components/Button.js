@@ -1,26 +1,25 @@
-import { Button as GrommetButton } from "grommet";
-import PropTypes from "prop-types";
-import React, { Component, useContext } from "react";
-import styled from "styled-components";
-import ThemeContext from "../themes/ThemeContext";
-import { Text } from "../utilities/Typography";
-
+/* eslint-disable max-classes-per-file */
+import { Button as GrommetButton } from 'grommet';
+import PropTypes from 'prop-types';
+import React, { Component, useContext } from 'react';
+import styled from 'styled-components';
+import ThemeContext from '../themes/ThemeContext';
+import Text from '../typography/Text';
 
 /**
  * A class for generic buttons.
  * Takes a title and a function.
  */
 function Button(props) {
-
   // Can take a custom theme for a navbar button
-  const theme = useContext(ThemeContext).button
+  const theme = useContext(ThemeContext).button;
 
   const MyButton = styled(GrommetButton)`
     border: 3px solid ${theme.backgroundColor};
     border-radius: 6px;
     transition: 0.03s;
     height: 40px;
-    transition: .2s;
+    transition: 0.2s;
 
     /* for svg icons */
     fill: ${theme.color};
@@ -39,6 +38,7 @@ function Button(props) {
     & p {
       color: ${theme.color};
       line-height: 28px;
+      margin: 0;
     }
 
     margin: ${props.margin};
@@ -54,12 +54,18 @@ function Button(props) {
     ${props.style};
   `;
 
-  const BorderedText = <Text style={`
+  const BorderedText = (
+    <Text
+      style={`
     color: ${theme.color};
     margin: 0;
     text-decoration: none;
     line-height: 20px;
-  `}>{props.label}</Text>
+  `}
+    >
+      {props.label}
+    </Text>
+  );
 
   return (
     <MyButton
@@ -73,7 +79,7 @@ function Button(props) {
 Button.defaultProps = {
   to: '/', // Signifies the button is a link, this is the link address
   label: 'My name', // Label for the button
-  active: false // whether or not this button is active
+  active: false, // whether or not this button is active
 };
 
 /**
@@ -109,7 +115,7 @@ ButtonGenerator.propTypes = {
   functions: PropTypes.array, // Should be an array of functions
   buttonRow: PropTypes.bool, // Whether to display the buttons as a row
   buttonStyle: PropTypes.string, // Styles passed to the button
-  activeColor: PropTypes.string // The color of an active button
+  activeColor: PropTypes.string, // The color of an active button
 };
 
 /**
@@ -131,9 +137,9 @@ class ButtonWrapper extends Component {
            * Sets flex direction to row by default, and column if buttonRow
            * is true
            */
-          "flex-direction: " +
-          (this.props.buttonRow !== false ? "row" : "column") +
-          ";"
+          'flex-direction: ' +
+          (this.props.buttonRow !== false ? 'row' : 'column') +
+          ';'
         );
       })()}
       display: flex;
@@ -143,9 +149,8 @@ class ButtonWrapper extends Component {
   }
 }
 ButtonWrapper.propTypes = {
-  buttonRow: PropTypes.bool // Whether or not the buttons should be displayed
+  buttonRow: PropTypes.bool, // Whether or not the buttons should be displayed
   // as a row or column. Defaults to true.
 };
 
 export { Button, ButtonGenerator, ButtonWrapper };
-

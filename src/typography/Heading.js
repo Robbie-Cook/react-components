@@ -1,14 +1,8 @@
-import styled from "styled-components";
-import React, { Component, useContext } from "react";
-import PropTypes from "prop-types";
-import DefaultThemeObject from "../themes/DefaultThemeObject";
-import ThemeContext from "../themes/ThemeContext";
-import Codify from "../ui-components/Codify";
-
-/**
- *  Common components relating to text. This includes
- *  <Text> and <Heading>.
- */
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
+import styled from 'styled-components';
+import DefaultThemeObject from '../themes/DefaultThemeObject';
+import Codify from '../ui-components/Codify';
 
 /**
  * Heading section for a page
@@ -30,7 +24,7 @@ class Heading extends Component {
       color: ${DefaultThemeObject.text.color};
     `;
 
-    const h1Height = "53px";
+    const h1Height = '53px';
     const H1 = styled.h1`
       ${myStyles}
       font-size: ${h1Height};
@@ -64,29 +58,29 @@ class Heading extends Component {
       & * {
         align-self: center;
       }
-      ${this.props.center && "align-self: center"};
+      ${this.props.center && 'align-self: center'};
       ${this.props.style};
     `;
 
-    let headingElementToUse = "";
+    let headingElementToUse = '';
 
     // Probably should use TypeScript for this
-    if (type === "h1" || type === undefined) {
+    if (type === 'h1' || type === undefined) {
       headingElementToUse = H1;
-    } else if (type === "h2") {
+    } else if (type === 'h2') {
       headingElementToUse = H2;
-    } else if (type === "h3") {
+    } else if (type === 'h3') {
       headingElementToUse = H3;
-    } else if (type === "h4") {
+    } else if (type === 'h4') {
       headingElementToUse = H4;
-    } else if (type === "h5") {
+    } else if (type === 'h5') {
       headingElementToUse = H5;
     }
 
     const headingElement = React.createElement(
       headingElementToUse,
       { className: className },
-      this.props.children
+      this.props.children,
     );
 
     return (
@@ -95,13 +89,14 @@ class Heading extends Component {
       </HeadingWrapper>
     );
   }
+
   render() {
     return this.getHeading(
       this.props.type,
       this.props.style,
       this.props.className,
       this.props.codify, // option to display the heading as < {content} />
-      this.props.margin
+      this.props.margin,
     );
   }
 }
@@ -110,46 +105,12 @@ Heading.propTypes = {
   codify: PropTypes.bool,
   style: PropTypes.string,
   margin: PropTypes.string,
-  center: PropTypes.bool
+  center: PropTypes.bool,
+  className: PropTypes.string,
 };
 Heading.defaultProps = {
-  margin: "0 0 20px 0;",
-  center: false
+  margin: '0 0 20px 0;',
+  center: false,
 };
 
-/**
- * Text element for a page.
- * Should be used in place of <p>, because this
- * is a globally-styled version
- */
-function Text(props) {
-  const globalTheme = useContext(ThemeContext);
-  const localTheme = globalTheme.text
-
-  const StyledText = styled.p`
-    margin: 12px 0;
-    color: ${localTheme.color};
-
-    font-family: ${localTheme.font};
-    ${props.style};
-  `;
-  return <StyledText>{props.children}</StyledText>;
-}
-Text.defaultProps = {
-  style: ""
-};
-
-/**
- * Represents a page link (i.e. a styled <a href="" />)
- * @param {*} props
- */
-function Link(props) {
-  const StyledLink = styled.a`
-    font-family: "Roboto", sans-serif;
-    color: ${DefaultThemeObject.link.color};
-    ${props.style};
-  `;
-  return <StyledLink href={props.href}>{props.children}</StyledLink>;
-}
-
-export { Heading, Text, Link };
+export default Heading;

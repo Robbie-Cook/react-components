@@ -6,8 +6,8 @@ import PropTypes from "prop-types"
 /**
  * Sizing of views
  */
-class Sizes {
-  static mobileSize = "900"
+const Sizes = {
+  mobileSize: "900"
 }
 
 /**
