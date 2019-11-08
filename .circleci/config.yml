@@ -8,6 +8,8 @@ only-deploy-tags: &only-deploy-tags
 version: 2
 jobs:
   deploy:
+    docker:
+      - image: circleci/node:4.8.2-jessie
     steps:
       - run:
           name: Echo tag
