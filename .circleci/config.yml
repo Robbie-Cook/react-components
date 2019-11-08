@@ -38,11 +38,11 @@ jobs:
           command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/repo/.npmrc
       - run:
           name: Setting version number
-          command: echo $CIRCLE_TAG 
-                   npm version $CIRCLE_TAG
-      - run:
-          name: Publish package
-          command: npm publish
+          command: echo TAG
+      #              npm version $CIRCLE_TAG
+      # - run:
+      #     name: Publish package
+      #     command: npm publish
             
 workflows:
   version: 2
