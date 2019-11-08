@@ -1,7 +1,7 @@
 only-deploy-tags: &only-deploy-tags
   filters:
     tags:
-      only: /v*/
+      only: /[0-9]*/
     branches:
       ignore: /.*/
 
