@@ -14,7 +14,7 @@ jobs:
       - run:
           name: Echo tag
           command: 
-            - echo $CIRCLE_TAG
+            echo $CIRCLE_TAG
 
 workflows:
   version: 2
