@@ -9,12 +9,12 @@ version: 2
 jobs:
   deploy:
     docker:
-      - image: circleci/node:4.8.2-jessie
+      - image: circleci/node
     steps:
       - run:
           name: Echo tag
-          command: |
-            echo $CIRCLE_TAG
+          command: 
+            - echo $CIRCLE_TAG
 
 workflows:
   version: 2
