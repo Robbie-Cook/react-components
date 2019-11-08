@@ -1,7 +1,5 @@
 # Javascript Node CircleCI 2.0 configuration file
 #
-# Check {{ '/2.0/language-javascript/' | docs_url }} for more details
-#
 version: 2
 
 defaults: &defaults
@@ -37,7 +35,7 @@ jobs:
           at: ~/repo
       - run:
           name: Authenticate with registry
-          command: echo "//registry.npmjs.org/:_authToken=$npm_TOKEN" > ~/repo/.npmrc
+          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/repo/.npmrc
       - run:
           name: Publish package
           command: npm publish
@@ -55,6 +53,6 @@ workflows:
           #   - test
           filters:
             tags:
-              only: /^v.*/
+              only: /([0-9]+.[0-9]+.[0-9]+.*)/
             branches:
               ignore: /.*/
