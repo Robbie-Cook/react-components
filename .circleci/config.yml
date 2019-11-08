@@ -37,7 +37,7 @@ jobs:
           name: Authenticate with registry
           command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/repo/.npmrc
       - run:
-          name: Setting version number
+          name: Getting tag number
           command: echo $CIRCLE_TAG	
       #              npm version $CIRCLE_TAG
       # - run:
