@@ -55,8 +55,8 @@ workflows:
       - deploy:
           requires:
             - test
-          # filters:
-          #   tags:
-          #     only: /([0-9]+.[0-9]+.[0-9]+.*)/
+          filters:
+            tags:
+              only: /[0-9]+/
           #   branches:
           #     ignore: /.*/
