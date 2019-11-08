@@ -1,6 +1,6 @@
 {
   "name": "@robbie-cook/react-components",
-  "version": "3.2.2",
+  "version": "3.2.3",
   "description": "A bunch of common react resources",
   "main": "./dist/index.js",
   "module": "./dist/index.es.js",
