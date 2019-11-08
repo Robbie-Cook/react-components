@@ -38,7 +38,8 @@ jobs:
           command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/repo/.npmrc
       - run:
           name: Setting version number
-          command: npm version $CIRCLE_TAG
+          command: echo $CIRCLE_TAG 
+                   npm version $CIRCLE_TAG
       - run:
           name: Publish package
           command: npm publish
