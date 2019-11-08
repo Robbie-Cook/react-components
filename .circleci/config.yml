@@ -8,14 +8,14 @@ only-deploy-tags: &only-deploy-tags
 version: 2
 jobs:
   deploy:
-    working_directory: ~/react-components
+    # working_directory: ~/react-components
     docker:
       - image: circleci/node
     steps:
       - run:
           name: All files
           command: 
-            ls
+            cat package.json
       - run:
           name: Setting version
           command: 
