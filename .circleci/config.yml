@@ -12,9 +12,13 @@ jobs:
       - image: circleci/node
     steps:
       - run:
-          name: Echo tag
+          name: Setting version
           command: 
-            echo $CIRCLE_TAG
+            npm version $CIRCLE_TAG
+      - run:
+          name: Publishing
+          command:
+            npm publish
 
 workflows:
   version: 2
