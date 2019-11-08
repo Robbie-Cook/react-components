@@ -18,10 +18,6 @@ jobs:
 
 workflows:
   version: 2
-  # This runs on non-tag pushes
-  untagged-build:
-    jobs:
-      - build
   # This only runs on deploy tags and not branches
   tagged-build:
     jobs:
