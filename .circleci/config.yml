@@ -1,60 +1,27 @@
-# Javascript Node CircleCI 2.0 configuration file
-#
+only-deploy-tags: &only-deploy-tags
+  filters:
+    tags:
+      only: /v*/
+    branches:
+      ignore: /.*/
+
 version: 2
-
-defaults: &defaults
-  working_directory: ~/repo
-  docker:
-    - image: circleci/node:10.16.3
-
 jobs:
-  # test:
-  #   <<: *defaults  
-  #   steps:
-  #     - checkout
-
-  #     - restore_cache:
-  #         keys:
-  #         - v1-dependencies-{{ checksum "package.json" }}
-  #         - v1-dependencies-
-
-  #     - run: npm install
-
-  #     - save_cache:
-  #         paths:
-  #           - node_modules
-  #         key: v1-dependencies-{{ checksum "package.json" }}
-
-  #     - persist_to_workspace:
-  #         root: ~/repo
-  #         paths: .
   deploy:
-    <<: *defaults
     steps:
-      - attach_workspace:
-          at: ~/repo
       - run:
-          name: Authenticate with registry
-          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/repo/.npmrc
-      - run:
-          name: Getting version
-          command: 
+          name: Echo tag
+          command: |
             echo $CIRCLE_TAG
-      - run:
-          name: Getting version
-          command: 
-            npm version $CIRCLE_TAG
-      - run:
-          name: Publish package
-          command: npm publish
-            
+
 workflows:
   version: 2
-  test-deploy:
+  # This runs on non-tag pushes
+  untagged-build:
+    jobs:
+      - build
+  # This only runs on deploy tags and not branches
+  tagged-build:
     jobs:
       - deploy:
-          filters:
-            tags:
-              only: /[0-9]+.[0-9]+.*/
-            branches:
-              ignore: /.*/
+          <<: *only-deploy-tags
