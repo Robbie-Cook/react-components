@@ -16,6 +16,10 @@ jobs:
           command: 
             npm version $CIRCLE_TAG
       - run:
+          name: All files
+          command: 
+            ls
+      - run:
           name: Publishing
           command:
             npm publish
