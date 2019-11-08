@@ -12,13 +12,13 @@ jobs:
       - image: circleci/node
     steps:
       - run:
-          name: Setting version
-          command: 
-            npm version $CIRCLE_TAG
-      - run:
           name: All files
           command: 
             ls
+      - run:
+          name: Setting version
+          command: 
+            npm version $CIRCLE_TAG
       - run:
           name: Publishing
           command:
