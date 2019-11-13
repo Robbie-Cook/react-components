@@ -12,8 +12,6 @@
     "start": "react-scripts start",
     "build": "webpack --mode=production --config=webpack.js --display-modules",
     "build:dev": "webpack --mode=development --config=webpack.js --display-modules",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
     "prepublish": "yarn run build",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"

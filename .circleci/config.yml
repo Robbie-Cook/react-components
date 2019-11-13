@@ -12,15 +12,15 @@ jobs:
     docker:
       - image: circleci/node
     steps:
-      - checkout
+      - checkout # Needed to grab code
       - run:
-          name: npm install
+          name: Installing
           command: 
-            npm install
+            yarn install
       - run:
-          name: All files
+          name: Building
           command: 
-            cat package.json
+            yarn run build
       - run:
           name: Setting version
           command: 
