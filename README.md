@@ -1,5 +1,7 @@
 # React Components
 
+[![CircleCI](https://circleci.com/gh/Robbie-Cook/react-components/tree/master.svg?style=svg)](https://circleci.com/gh/Robbie-Cook/react-components/tree/master)`
+
 A collection of reusable UI components for React: https://www.npmjs.com/package/@robbie-cook/react-components
 
 These components are used throughout some personal projects. 
