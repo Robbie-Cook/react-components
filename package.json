@@ -14,7 +14,8 @@
     "build:dev": "webpack --mode=development --config=webpack.js --display-modules",
     "prepublish": "yarn run build",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "test": "echo 'no tests'"
   },
   "author": "Robbie Cook",
   "license": "ISC",
