@@ -28,9 +28,13 @@ jobs:
           command: 
             yarn run build
       - run:
+          name: Setting git credentials
+          command: 
+            yarn run build
+      - run:
           name: Setting version
           command: 
-            npm version $CIRCLE_TAG
+            npm version from-git --no-git-tag-version
       - run:
           name: Publishing
           command:
