@@ -50,7 +50,3 @@ workflows:
     jobs:
       - deploy:
           <<: *only-deploy-tags
-  untagged-build:
-    jobs:
-      - test
-         
