@@ -8,11 +8,14 @@ only-deploy-tags: &only-deploy-tags
 version: 2
 jobs:
   test:
-    - checkout
-    - run:
-        name: Testing
-        command: 
-          yarn run test
+    docker:
+      - image: circleci/node
+    steps:
+      - checkout
+      - run:
+          name: Testing
+          command: 
+            yarn run test
   deploy:
     # working_directory: ~/react-components
     docker:
