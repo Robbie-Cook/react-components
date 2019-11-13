@@ -48,7 +48,6 @@ workflows:
   # This only runs on deploy tags and not branches
   tagged-build:
     jobs:
-      - test
       - deploy:
           <<: *only-deploy-tags
   untagged-build:
