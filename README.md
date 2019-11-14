@@ -1,6 +1,6 @@
 # React Components
 
-![CircleCI](https://img.shields.io/circleci/build/github/Robbie-Cook/react-components/master)
+![CircleCI](https://img.shields.io/circleci/build/github/Robbie-Cook/react-components/master) ![GitHub package.json version](https://img.shields.io/github/package-json/v/Robbie-Cook/react-components)
 
 A collection of reusable UI components for React: https://www.npmjs.com/package/@robbie-cook/react-components
 
