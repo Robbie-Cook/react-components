@@ -28,9 +28,9 @@ jobs:
           - v1-dependencies-
 
       - run:
-        name: Installing
-        command: 
-          yarn install
+          name: Installing
+          command: 
+            yarn install
 
       - save_cache:
           paths:
