@@ -71,6 +71,6 @@ workflows:
   # This only runs on deploy tags and not branches
   tagged-build:
     jobs:
-      caching
+      - caching
       - deploy:
           <<: *only-deploy-tags
