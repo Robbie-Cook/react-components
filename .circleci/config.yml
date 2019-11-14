@@ -7,13 +7,6 @@ only-deploy-tags: &only-deploy-tags
 
 version: 2
 jobs:
-  caching:
-    docker:
-      - image: circleci/node 
-    steps:
-      - checkout
-
-      
   deploy:
     # working_directory: ~/react-components
     docker:
@@ -71,6 +64,5 @@ workflows:
   # This only runs on deploy tags and not branches
   tagged-build:
     jobs:
-      - caching
       - deploy:
           <<: *only-deploy-tags
