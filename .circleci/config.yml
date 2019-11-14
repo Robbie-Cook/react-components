@@ -7,15 +7,19 @@ only-deploy-tags: &only-deploy-tags
 
 version: 2
 jobs:
-  test:
+  caching:
+    docker:
+      - image: circleci/node 
+    steps:
+      - checkout
+
+      
+  deploy:
+    # working_directory: ~/react-components
     docker:
       - image: circleci/node
     steps:
-      - checkout
- test:
-    <<: *defaults  
-    steps:
-      - checkout
+      - checkout # Needed to grab code
 
       - restore_cache:
           keys:
@@ -23,11 +27,10 @@ jobs:
 	        # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
 
-      - run: yarn install
-
-      # - run:
-      #     name: Run tests
-      #     command: npm test
+        - run:
+          name: Installing
+          command: 
+            yarn install
 
       - save_cache:
           paths:
@@ -37,20 +40,12 @@ jobs:
       - persist_to_workspace:
           root: ~/
           paths: .
-  deploy:
-    # working_directory: ~/react-components
-    docker:
-      - image: circleci/node
-    steps:
-      - checkout # Needed to grab code
-      - run:
-          name: Installing
-          command: 
-            yarn install
+
       - run:
           name: Building
           command: 
             yarn run build
+            
       - run:
           name: Setting git credentials
           command: |
@@ -76,5 +71,6 @@ workflows:
   # This only runs on deploy tags and not branches
   tagged-build:
     jobs:
+      caching
       - deploy:
           <<: *only-deploy-tags
