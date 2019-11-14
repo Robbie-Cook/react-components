@@ -3,7 +3,8 @@ only-deploy-tags: &only-deploy-tags
     tags:
       only: /.*/
     branches:
-      ignore: /.*/
+      only: 
+        - master
 
 version: 2
 jobs:
@@ -56,7 +57,9 @@ jobs:
 
       - run:
           name: Pushing to git
-          command:
+          command: | 
+            git checkout master
+            git pull
             git push
 
       - run:
