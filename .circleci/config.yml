@@ -38,7 +38,7 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       - persist_to_workspace:
-          root: ~/
+          root: ~
           paths: .
 
       - run:
@@ -59,7 +59,7 @@ jobs:
       - run:
           name: Setting version
           command: 
-            npm version from-git
+            npm version $CIRCLE_TAG
 
       - run:
           name: Publishing
