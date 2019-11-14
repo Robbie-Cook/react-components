@@ -32,12 +32,13 @@ jobs:
             yarn run build
       - run:
           name: Setting git credentials
-          command: 
-            yarn run build
+          command: |
+            git config --global user.email "robbieck7@gmail.com"
+            git config --global user.name "Robbie Cook"
       - run:
           name: Setting version
           command: 
-            npm version from-git --no-git-tag-version
+            npm version from-git
       - run:
           name: Publishing
           command:
