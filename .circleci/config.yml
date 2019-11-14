@@ -27,10 +27,10 @@ jobs:
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
 
-        - run:
-          name: Installing
-          command: 
-            yarn install
+      - run:
+        name: Installing
+        command: 
+          yarn install
 
       - save_cache:
           paths:
