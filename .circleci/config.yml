@@ -12,10 +12,31 @@ jobs:
       - image: circleci/node
     steps:
       - checkout
-      - run:
-          name: Testing
-          command: 
-            yarn run test
+ test:
+    <<: *defaults  
+    steps:
+      - checkout
+
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "package.json" }}
+	        # fallback to using the latest cache if no exact match is found
+          - v1-dependencies-
+
+      - run: yarn install
+
+      # - run:
+      #     name: Run tests
+      #     command: npm test
+
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+
+      - persist_to_workspace:
+          root: ~/
+          paths: .
   deploy:
     # working_directory: ~/react-components
     docker:
@@ -35,10 +56,16 @@ jobs:
           command: |
             git config --global user.email "robbieck7@gmail.com"
             git config --global user.name "Robbie Cook"
+
+      - run:
+          name: Authenticate with registry
+          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
+          
       - run:
           name: Setting version
           command: 
             npm version from-git
+
       - run:
           name: Publishing
           command:
