@@ -56,13 +56,6 @@ jobs:
             npm version $CIRCLE_TAG
 
       - run:
-          name: Pushing to git
-          command: | 
-            git checkout master
-            git pull
-            git push
-
-      - run:
           name: Publishing
           command:
             npm publish
