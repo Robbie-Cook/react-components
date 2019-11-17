@@ -1,11 +1,3 @@
-only-deploy-tags: &only-deploy-tags
-  filters:
-    tags:
-      only: /.*/
-    branches:
-      only: 
-        - master
-
 version: 2
 jobs:
   storybook:
@@ -89,10 +81,13 @@ jobs:
 workflows:
   version: 2
   # This only runs on deploy tags and not branches
-  untagged-build:
-    jobs:
-      - storybook
   tagged-build:
     jobs:
       - deploy:
-          <<: *only-deploy-tags
+            filters:
+              tags:
+                only: /.*/
+              branches:
+                only: 
+                  - master
+
