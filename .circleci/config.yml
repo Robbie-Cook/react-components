@@ -23,8 +23,9 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
 
-      - building_storybook:
-          yarn run build-storybook
+      - run:
+          name: Building storybook
+          command: yarn run build-storybook
 
   build: 
     # working_directory: ~/react-components
