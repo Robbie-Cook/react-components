@@ -88,6 +88,7 @@ workflows:
   version: 2
   build-n-deploy:
     jobs:
+      - storybook
       - build:
           filters:  # required since `deploy` has tag filters AND requires `build`
             tags:
@@ -98,5 +99,3 @@ workflows:
           filters:
             tags:
               only: /.+/
-            branches:
-              ignore: /.+/
