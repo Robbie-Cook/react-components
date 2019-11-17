@@ -84,10 +84,10 @@ workflows:
   tagged-build:
     jobs:
       - deploy:
-            filters:
-              tags:
-                only: /.*/
-              branches:
-                only: 
-                  - master
+          filters:
+            tags:
+              only: /.*/
+            branches:
+              only: 
+                - master
 
