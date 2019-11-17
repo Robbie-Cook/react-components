@@ -59,25 +59,30 @@ jobs:
             yarn run build
 
   deploy:
-    - run:
-        name: Setting git credentials
-        command: |
-          git config --global user.email "robbieck7@gmail.com"
-          git config --global user.name "Robbie Cook"
+    # working_directory: ~/react-components
+    docker:
+      - image: circleci/node
+    steps:
+      - checkout # Needed to grab code
+      - run:
+          name: Setting git credentials
+          command: |
+            git config --global user.email "robbieck7@gmail.com"
+            git config --global user.name "Robbie Cook"
 
-    - run:
-        name: Authenticate with registry
-        command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
-        
-    - run:
-        name: Setting version
-        command: 
-          npm version $CIRCLE_TAG
+      - run:
+          name: Authenticate with registry
+          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
+          
+      - run:
+          name: Setting version
+          command: 
+            npm version $CIRCLE_TAG
 
-    - run:
-        name: Publishing
-        command:
-          npm publish
+      - run:
+          name: Publishing
+          command:
+            npm publish
 
 workflows:
   version: 2
