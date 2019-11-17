@@ -26,7 +26,7 @@ jobs:
       - building_storybook:
           yarn run build-storybook
 
-  deploy:
+  build: 
     # working_directory: ~/react-components
     docker:
       - image: circleci/node
@@ -58,6 +58,7 @@ jobs:
           command: 
             yarn run build
 
+  deploy:
       - run:
           name: Setting git credentials
           command: |
@@ -80,11 +81,17 @@ jobs:
 
 workflows:
   version: 2
-  # This only runs on deploy tags and not branches
-  tagged-build:
+  build-n-deploy:
     jobs:
+      - build:
+          filters:  # required since `deploy` has tag filters AND requires `build`
+            tags:
+              only: /.+/
       - deploy:
+          requires:
+            - build
           filters:
             tags:
-              only: /^v[0-9]+(\.[0-9]+)*[/]Stage[/]build_.*/
-
+              only: /.+/
+            branches:
+              ignore: /.+/
