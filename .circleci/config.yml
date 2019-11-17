@@ -93,10 +93,10 @@ workflows:
       - build:
           filters:  # required since `deploy` has tag filters AND requires `build`
             tags:
-              only: /.+/
+              only: /[0-9]+/
       - deploy:
           requires:
             - build
           filters:
             tags:
-              only: /.+/
+              only: /[0-9]+/
