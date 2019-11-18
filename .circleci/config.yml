@@ -90,16 +90,7 @@ workflows:
   build:
     jobs:
       # - storybook
-      - build:
-          filters:  # required since `deploy` has tag filters AND requires `build`
-            tags:
-              only: /^v[0-9]+(\.[0-9]+)*[/]Stage[/]build_.*/
-      - deploy:
-          requires:
-            - build
-          filters:  # required since `deploy` has tag filters AND requires `build`
-            tags:
-              only: /^v[0-9]+(\.[0-9]+)*[/]Stage[/]build_.*/
+      - build
   build-n-deploy:
     jobs:
       # - storybook
