@@ -1,12 +1,11 @@
 import { motion, AnimatePresence } from "framer-motion";
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { Close } from "styled-icons/material/Close";
 import { Menu } from "styled-icons/material/Menu";
 import ThemeContext from "../../themes/ThemeContext";
 
-export default function MobileMenuButton({ open, width, height }) {
-  const theme = useContext(ThemeContext);
+export default function MobileMenuButton({ open, width, height, theme }) {
 
   // Styles to share between both open and close button
   const commonButtonStyles = `
@@ -22,7 +21,7 @@ export default function MobileMenuButton({ open, width, height }) {
   const StyledMenu = styled(Menu)`
     ${commonButtonStyles};
     & * {
-      color: ${theme.navbar.links.color};
+      color: ${theme && theme.navbar.links.color};
     }
   `;
 
@@ -46,7 +45,7 @@ export default function MobileMenuButton({ open, width, height }) {
     display: flex;
     width: ${width};
     height: ${height};
-    color: ${theme.color};
+    color: ${theme && theme.color};
     font-size: 25px;
     transition: 0.2s;
 

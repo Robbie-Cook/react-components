@@ -2,13 +2,12 @@
 
 /* Imports */
 /* Stylesheets etc. */
-import React, { useContext, useEffect, useState } from 'react';
+import React, {useEffect, useState } from 'react';
 import styled from 'styled-components';
 // import MyHelmet from "../headers/MyHelmet";
 import NextHelmet from '../headers/NextHelmet';
 import { MobileView } from '../layout/Views';
 import NavigationBar from '../navigation/NavigationBar';
-import ThemeContext from '../themes/ThemeContext';
 import { Dimensions } from '../utilities';
 import { SiteContext } from '../utilities/SiteContext';
 import PropTypes from 'prop-types';
@@ -21,33 +20,30 @@ import PropTypes from 'prop-types';
  */
 
 // Main Page component
-export default function Page(props) {
+export default function Page({ theme, site, myStyles, children }) {
   const [loaded, setLoaded] = useState(false);
   useEffect(() => {
     setLoaded(true);
   }, []);
 
-  const theme = useContext(ThemeContext);
-  const site = useContext(SiteContext);
-
   // Styles for component
   const StyledPage = styled.div`
     display: flex;
     flex-direction: column;
-    padding: ${theme.page.padding};
+    padding: ${theme && theme.page.padding};
 
     ${new MobileView(`
       flex-direction: column;
-      padding: ${theme.page.mobilePadding}; 
+      padding: ${theme && theme.page.mobilePadding}; 
     `)}
   `;
 
   return (
     <>
-      <NavigationBar title={theme.navbar.title} links={site.links} />
-      <div style={props.style}>
+      <NavigationBar title={theme && theme.navbar.title} links={site && site.links} />
+      <div style={myStyles}>
         {/* Only display contents if loaded */}
-        <StyledPage style={props.style}>{props.children}</StyledPage>
+        <StyledPage style={myStyles}>{children}</StyledPage>
       </div>
     </>
   );

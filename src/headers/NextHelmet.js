@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import HeaderContent from "./HeaderContent"
-import React, { useContext } from "react"
+import React from "react"
 import ThemeContext from "../themes/ThemeContext"
 import { SiteContext } from "../utilities/SiteContext"
 

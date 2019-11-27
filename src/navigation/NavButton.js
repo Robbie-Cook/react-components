@@ -1,27 +1,26 @@
 import { Button } from "../ui-components/Button";
 import styled from "styled-components";
-import React, { useContext } from "react";
+import React from "react";
 import ThemeContext from "../themes/ThemeContext";
 
 /**
  * A 'Higher order component'-like button to represent a navigation link
  */
-export default function NavButton(props) {
-  const theme = useContext(ThemeContext);
+export default function NavButton({ theme, styled, active, children, to, label }) {
 
-  const style = `
+  const myStyled = `
     background-color: transparent;
     border-color: transparent;
     border-width: 0px;
-    color: ${theme.navbar.links.color};
+    color: ${theme && theme.navbar.links.color};
     width: fit-content;
     display: flex;
     align-contents: center;
 
     & > * {
       transition-duration: .1s;
-      font: ${theme.navbar.links.font}!important;
-      color: ${theme.navbar.links.hoverColor};
+      font: ${theme && theme.navbar.links.font}!important;
+      color: ${theme && theme.navbar.links.hoverColor};
       align-self: center;
       height: 20px;
       box-sizing: border-box;
@@ -29,26 +28,26 @@ export default function NavButton(props) {
 
     &:hover {
       & > * {
-        border-bottom: 2px solid ${theme.navbar.links.hoverColor}!important;
-        color: ${theme.navbar.links.hoverColor};
+        border-bottom: 2px solid ${theme && theme.navbar.links.hoverColor}!important;
+        color: ${theme && theme.navbar.links.hoverColor};
       }
     }
 
-    margin: ${theme.navbar.links.margin};
+    margin: ${theme && theme.navbar.links.margin};
 
-    ${props.active &&
+    ${active &&
       `
     & p {
-      color: ${theme.navbar.links.activeColor};
+      color: ${theme && theme.navbar.links.activeColor};
     }
     `};
 
-    ${props.style};
+    ${styled};
   `;
 
   return (
-    <Button style={style} label={props.label} to={props.to}>
-      {props.children}
+    <Button styled={myStyled} label={label} to={to}>
+      {children}
     </Button>
   );
 }

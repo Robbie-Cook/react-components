@@ -1,40 +1,35 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { MobileView } from "../layout/Views";
 // import MobileNav from "../navigation/MobileNav";
-import { ThemeContext } from "../themes";
 import Spacer from "../ui-components/Spacer";
-import { SiteContext } from "../utilities/SiteContext";
 import MobileNav from "./mobile/MobileNav";
 import NavButton from "./NavButton";
 
 /** Represents a navbar element */
-function NavBar(props) {
+function NavBar({ theme, site, links }) {
   const [loaded, setLoaded] = useState(false);
   useEffect(() => {
     setLoaded(true);
   });
 
-  const theme = useContext(ThemeContext);
-  const site = useContext(SiteContext);
-
   const StyledNavBar = styled.div`
-    height: ${theme.navbar.height};
+    height: ${theme && theme.navbar.height};
     display: flex;
     flex-direction: row;
     align-items: center;
-    background-color: ${theme.navbar.backgroundColor};
-    padding: ${theme.navbar.padding};
+    background-color: ${theme && theme.navbar.backgroundColor};
+    padding: ${theme && theme.navbar.padding};
     box-sizing: border-box;
 
     ${new MobileView(`
-      padding: ${theme.navbar.mobilePadding};
+      padding: ${theme && theme.navbar.mobilePadding};
     `)}
   `;
 
-  const links = (() => {
+  const linksToUse = (() => {
     let mylinks = [];
-    props.links.forEach(value => {
+    links.forEach(value => {
       mylinks.push(
         <NavButton
           to={value.path}
@@ -51,23 +46,23 @@ function NavBar(props) {
 
   const Title = styled.p`
     margin: 0;
-    color: ${theme.navbar.color};
+    color: ${theme && theme.navbar.color};
     margin-bottom: 0;
-    font: ${theme.navbar.title.font};
+    font: ${theme && theme.navbar.title.font};
   `;
 
   const LinksWrapper = styled.div`
     display: flex;
     ${new MobileView(`display: none;`)}
-    height: ${theme.navbar.height};
-    line-height: ${theme.navbar.height};
+    height: ${theme && theme.navbar.height};
+    line-height: ${theme && theme.navbar.height};
     align-items: center;
   `;
 
   return (
     <StyledNavBar>
-      <MobileNav links={props.links} theme={theme} />
-      <Title>{site.sitename}</Title>
+      <MobileNav links={linksToUse} theme={theme} />
+      <Title>{site &&  site.sitename}</Title>
       <Spacer width="55px" />
       <LinksWrapper>{links}</LinksWrapper>
     </StyledNavBar>
@@ -81,18 +76,14 @@ NavBar.defaultProps = {
 /**
  * Navigation bar UI component (version 2, without material-ui)
  */
-export default function NavigationBar(props) {
+export default function NavigationBar({ theme, links }) {
   const [loaded, setLoaded] = useState(false);
   useEffect(() => {
     setLoaded(true);
   }, []);
 
-  // Careful -- make sure that react is linked to parent when using npm link and useContext
-  const theme = useContext(ThemeContext).navbar;
-  const site = useContext(SiteContext);
-
   return (
-    <NavBar links={props.links} height={theme.height} />
+    <NavBar links={links} height={theme && theme.height} />
   );
 }
 NavigationBar.defaultProps = {

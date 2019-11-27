@@ -1,6 +1,6 @@
 // Metadata for each page
 
-import React, {useContext} from "react";
+import React from "react";
 import { Helmet } from "react-helmet";
 
 function MyHelmet(props) {

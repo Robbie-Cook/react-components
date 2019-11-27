@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import ThemeContext from '../themes/ThemeContext';
 
@@ -7,18 +7,17 @@ import ThemeContext from '../themes/ThemeContext';
  * Should be used in place of <p>, because this
  * is a globally-styled version
  */
-function Text(props) {
-  const globalTheme = useContext(ThemeContext);
-  const localTheme = globalTheme.text;
+function Text({ theme, myStyled, children }) {
+  const localTheme = theme || null;
 
   const StyledText = styled.p`
     margin: 12px 0;
-    color: ${localTheme.color};
+    color: ${localTheme && localTheme.color};
 
-    font-family: ${localTheme.font}; 
-    ${props.styled};
+    font-family: ${localTheme && localTheme.font}; 
+    ${myStyled};
   `;
-  return <StyledText>{props.children}</StyledText>;
+  return <StyledText>{children}</StyledText>;
 }
 Text.defaultProps = {
   style: '',

@@ -1,9 +1,8 @@
 /* eslint-disable max-classes-per-file */
 import { Button as GrommetButton } from 'grommet';
 import PropTypes from 'prop-types';
-import React, { Component, useContext } from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
-import ThemeContext from '../themes/ThemeContext';
 import Text from '../typography/Text';
 
 /**
@@ -11,45 +10,45 @@ import Text from '../typography/Text';
  * Takes a title and a function.
  */
 function Button(props) {
-  // Can take a custom theme for a navbar button
-  const theme = useContext(ThemeContext).button;
+  
+  const theme = props.theme;
 
   const MyButton = styled(GrommetButton)`
-    border: 3px solid ${theme.backgroundColor};
+    border: 3px solid ${theme && theme.backgroundColor};
     border-radius: 6px;
     transition: 0.03s;
     height: 40px;
     transition: 0.2s;
 
     /* for svg icons */
-    fill: ${theme.color};
-    stroke: ${theme.color};
-    border: 1px solid ${theme.color};
+    fill: ${theme && theme.color};
+    stroke: ${theme && theme.color};
+    border: 1px solid ${theme && theme.color};
 
     &:hover {
       & p {
         border-bottom: 1px solid transparent;
-        color: ${theme.hover.color};
+        color: ${theme && theme.hover.color};
       }
-      background-color: ${theme.hover.backgroundColor};
+      background-color: ${theme && theme.hover.backgroundColor};
       box-shadow: none;
     }
 
     & p {
-      color: ${theme.color};
+      color: ${theme && theme.color};
       line-height: 28px;
       margin: 0;
     }
 
     margin: ${props.margin};
-    color: ${theme.color};
+    color: ${theme && theme.color};
     line-height: 27px;
     font-size: 16px;
     padding: 5px 12px;
     font-weight: normal;
 
     // Styles for active links
-    background-color: ${theme.backgroundColor};
+    background-color: ${theme && theme.backgroundColor};
 
     ${props.style};
   `;
@@ -57,7 +56,7 @@ function Button(props) {
   const BorderedText = (
     <Text
       style={`
-    color: ${theme.color};
+    color: ${theme && theme.color};
     margin: 0;
     text-decoration: none;
     line-height: 20px;

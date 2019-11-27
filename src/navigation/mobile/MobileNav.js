@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import posed from "react-pose";
 import styled from "styled-components";
 import { MobileView } from "../../layout/Views";
@@ -16,8 +16,7 @@ import MobileMenu from "./MobileMenu";
  */
 function MobileNav(props) {
 
-  const theme = useContext(ThemeContext);
-
+  const theme = props.theme;
   // Generates the mobile menu
   const generateLinks = () => {
     const jsx = [];
@@ -45,12 +44,12 @@ function MobileNav(props) {
     ${new MobileView(`display: flex!important;`)}
     flex-direction: column;
     width: ${menuNavWidth};
-    height: ${theme.navbar.height};
+    height: ${theme && theme.navbar.height};
   `;
 
   return (
     <StyledMobileNav>
-      <MobileMenu links={generateLinks()} height={theme.navbar.height}></MobileMenu>
+      <MobileMenu links={generateLinks()} height={theme && theme.navbar.height}></MobileMenu>
     </StyledMobileNav>
   );
 }

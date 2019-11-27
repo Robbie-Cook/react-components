@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import { Menu } from "styled-icons/material/Menu";
 import { Close } from "styled-icons/material/Close";
 import styled from "styled-components";
@@ -7,8 +7,7 @@ import ThemeContext from "../../themes/ThemeContext";
 import MobileMenuButton from "./MobileMenuButton";
 import MenuContainer from "./MenuContainer"
 
-export default function MobileMenu({links, height}) {
-  const theme = useContext(ThemeContext).navbar;
+export default function MobileMenu({ links, height, theme }) {
   const [mobileNavVisible, setMobileNavVisible] = useState(false);
 
   return (

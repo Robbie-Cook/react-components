@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { motion, AnimatePresence } from "framer-motion";
 import { ThemeContext } from "../../themes";
@@ -7,11 +7,10 @@ import { ThemeContext } from "../../themes";
  * The list of items to appear after the button to open has been pressed.
  * @param {} props
  */
-export default function MenuContainer({ open, children }) {
-  const theme = useContext(ThemeContext);
+export default function MenuContainer({ open, children, theme}) {
 
   const StyledLinkContainer = styled.div`
-    background-color: ${theme.navbar.backgroundColor};
+    background-color: ${theme && theme.navbar.backgroundColor};
     display: flex;
     flex-direction: column;
     width: fit-content;
