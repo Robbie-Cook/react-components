@@ -1,15 +1,33 @@
-import { ThemeContext } from "@robbie-cook/themer";
+/** @jsx jsx */
+import { jsx, css } from "@emotion/core";
+// import styled from '@emotion/styled'
 import * as React from "react";
+import { ThemeConsumer, ThemeContext, useTheme } from "@robbie-cook/themer";
 
-class Button extends React.Component {
-  render() {
-    let props = this.props;
-    let theme = this.context;
-    return (
-        <button {...props} style={{ backgroundColor: theme.background }}>{JSON.stringify(theme)}</button>
-    );
-  }
+interface Props {
+  children?: any;
 }
-Button.contextType = ThemeContext;
+
+// const StyledButton = styled.div`
+
+// `
+
+const Button: React.SFC<Props> = (props) => {
+  const theme = useTheme();
+
+  console.log(theme);
+
+  return (
+    // <ThemeConsumer>
+      <button
+        css={css`
+          background-color: red;
+        `}
+      >
+        {props.children}
+      </button>
+    // </ThemeConsumer>
+  );
+};
 
 export default Button;
