@@ -51,6 +51,8 @@
     "react-dom": "^15.0.0"
   },
   "dependencies": {
+    "@emotion/core": "^10.0.27",
+    "@emotion/styled": "^10.0.27",
     "@robbie-cook/themer": "^1.0.0"
   }
 }
