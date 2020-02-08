@@ -22,6 +22,7 @@ const Button: React.SFC<IButtonProps> = props => {
     <button
       css={css`
         border: 1px solid ${theme.colors.primary};
+        background-color: ${theme.colors.background}
         font-size: 0.78rem;
         padding: 10px 20px;
         color: ${theme.colors.primary};
@@ -36,6 +37,8 @@ const Button: React.SFC<IButtonProps> = props => {
           transform: scale(1.1);
         }
       `}
+      onClick={props.onClick}
+      style={props.style}
     >
       {props.children}
     </button>
