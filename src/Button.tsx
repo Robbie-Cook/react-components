@@ -4,29 +4,41 @@ import { jsx, css } from "@emotion/core";
 import * as React from "react";
 import { ThemeConsumer, ThemeContext, useTheme } from "@robbie-cook/themer";
 
-interface Props {
-  children?: any;
+interface IButtonProps {
+  children: string;
+  onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+  style?: Record<string, any>;
 }
 
-// const StyledButton = styled.div`
-
-// `
-
-const Button: React.SFC<Props> = (props) => {
+/**
+ * A normal button component
+ */
+const Button: React.SFC<IButtonProps> = props => {
   const theme = useTheme();
 
   console.log(theme);
 
   return (
-    // <ThemeConsumer>
-      <button
-        css={css`
-          background-color: red;
-        `}
-      >
-        {props.children}
-      </button>
-    // </ThemeConsumer>
+    <button
+      css={css`
+        border: 1px solid ${theme.colors.primary};
+        font-size: 0.78rem;
+        padding: 10px 20px;
+        color: ${theme.colors.primary};
+        transition: all 0.2s;
+
+        &:hover {
+          cursor: pointer;
+          background-color: ${theme.colors.primary};
+          color: ${theme.colors.background};
+        }
+        &:active {
+          transform: scale(1.1);
+        }
+      `}
+    >
+      {props.children}
+    </button>
   );
 };
 
