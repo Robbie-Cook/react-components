@@ -13,10 +13,8 @@ interface IButtonProps {
 /**
  * A normal button component
  */
-const Button: React.SFC<IButtonProps> = props => {
+const Button: React.FC<IButtonProps> = props => {
   const theme = useTheme();
-
-  console.log(theme);
 
   return (
     <button
@@ -27,6 +25,7 @@ const Button: React.SFC<IButtonProps> = props => {
         padding: 10px 20px;
         color: ${theme.colors.primary};
         transition: all 0.2s;
+        margin-top: 10px;
 
         &:hover {
           cursor: pointer;
