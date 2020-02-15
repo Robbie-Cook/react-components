@@ -1,16 +1,13 @@
 {
   "include": [
     "./src/**/*",
-    "./test/**/*",
-    "./typings/**/*",
-    "./node_modules/@types/**/*"
   ],
-  "exclude": ["./src/stories"],
+  "exclude": ["./src/stories", "./dist/**/*", "node_modules/**/*",],
   "compilerOptions": {
-    "outDir": "./dist/out",
     "allowJs": true,
-    "baseUrl": "./src",
-    "typeRoots": ["./node_modules/@types", "./typings"],
+    "checkJs": false,
+    "rootDir": "./src",
+    "outDir": "./dist",
     "skipDefaultLibCheck": true,
     "listFiles": true,
     "skipLibCheck": true,
@@ -22,7 +19,6 @@
     "noUnusedLocals": false,
     "experimentalDecorators": true,
     "sourceMap": true,
-    "importHelpers": true,
     "jsx": "react",
     "moduleResolution": "node",
     "module": "commonjs",
