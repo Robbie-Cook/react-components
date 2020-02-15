@@ -28,7 +28,7 @@ const SignupForm: React.FC<ISignupFormProps> = props => {
           min-width: 250px;
         `}
       >
-        Signup
+        Sign up
       </H3>
       <Input
         placeholder="Username"
@@ -45,9 +45,13 @@ const SignupForm: React.FC<ISignupFormProps> = props => {
         css={css`
           margin-top: 15px;
         `}
-        onClick={() => props.onSubmit(username, password)}
+        onClick={() => {
+          props.onSubmit(username, password);
+          setUsername(null);
+          setPassword(null);
+        }}
       >
-        Log in
+        Sign up
       </Button>
     </ContentBox>
   );

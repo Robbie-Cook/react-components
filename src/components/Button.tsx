@@ -3,24 +3,32 @@ import { jsx, css } from "@emotion/core";
 // import styled from '@emotion/styled'
 import * as React from "react";
 import { ThemeConsumer, ThemeContext, useTheme } from "@robbie-cook/themer";
+// import loading from "./loading.svg";
 
 interface IButtonProps {
   children: string;
   onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
   style?: Record<string, any>;
+
+  /**
+   * Trigger loading state for button
+   */
+  loading?: boolean;
 }
 
 /**
  * A normal button component
  */
 const Button: React.FC<IButtonProps> = props => {
-  const theme = useTheme();
+  const theme = useTheme().getComponent('button');
+
+
 
   return (
     <button
       css={css`
         border: 1px solid ${theme.colors.primary};
-        background-color: ${theme.colors.background}
+        background-color: ${theme.colors.background};
         font-size: 0.78rem;
         padding: 10px 20px;
         color: ${theme.colors.primary};
@@ -39,7 +47,7 @@ const Button: React.FC<IButtonProps> = props => {
       onClick={props.onClick}
       style={props.style}
     >
-      {props.children}
+      {props.loading ? props.children : ''}
     </button>
   );
 };

@@ -2,7 +2,10 @@
   "name": "@robbie-cook/react-components",
   "version": "4.0.0-rc8",
   "description": "TypeScript React component library",
-  "files": ["./dist/lib/*", "./typings/*"],
+  "files": [
+    "./dist/lib/*",
+    "./typings/*"
+  ],
   "types": ".dist/lib/index.d.ts",
   "repository": {
     "type": "git"
@@ -43,6 +46,7 @@
     "chai": "^4.2.0",
     "cross-env": "^7.0.0",
     "enzyme": "^3.11.0",
+    "file-loader": "^5.0.2",
     "fork-ts-checker-webpack-plugin": "^4.0.3",
     "jsdom": "^16.0.1",
     "mocha": "^7.0.1",

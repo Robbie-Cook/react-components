@@ -7,7 +7,6 @@
     "checkJs": false,
     "rootDir": "./src",
     "outDir": "./dist/",
-    "listFiles": true,
     "skipLibCheck": true,
     "noImplicitAny": false,
     "resolveJsonModule": false,

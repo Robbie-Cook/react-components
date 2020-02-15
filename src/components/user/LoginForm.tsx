@@ -45,7 +45,13 @@ const LoginForm: React.FC<ILoginFormProps> = props => {
         css={css`
           margin-top: 15px;
         `}
-        onClick={() => props.onSubmit(username, password)}
+        onClick={() => {
+          props.onSubmit(username, password);
+
+          // Set these to null *straight away* for security reasons
+          setUsername(null);
+          setPassword(null);
+        }}
       >
         Log in
       </Button>

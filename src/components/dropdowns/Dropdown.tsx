@@ -1,10 +1,9 @@
 /** @jsx jsx */
 import { jsx, css } from "@emotion/core";
-import { useState, useRef, useEffect, useCallback, createRef } from "react";
-import { ContentBox } from "@robbie-cook/react-components";
+import { useState, useRef, useLayoutEffect, useCallback, createRef } from "react";
+import ContentBox from "../ContentBox";
 import { useTheme } from "@robbie-cook/themer";
 import styled from "@emotion/styled";
-
 
 // const DropdownWidth
 
@@ -36,40 +35,53 @@ const calculateXOffset = (element: HTMLElement): number => {
 /**
  * Defines a UI dropdown
  */
-const Dropdown: React.FC<IDropdownProps> = (props) => {
+const Dropdown: React.FC<IDropdownProps> = props => {
   const offsetElement = useRef(null);
   const theme = useTheme();
 
-  // If the user clicks anywhere but the dropdown, close
-  // the dropdown
-  document.addEventListener("click", (ev: MouseEvent) => {
-    const dropdownElement = offsetElement.current as HTMLElement;
-    const boundingRect = dropdownElement.getBoundingClientRect();
-    console.log(boundingRect.x);
-    console.log(ev.clientX, ev.clientY);
-  })
-
-
+  // // If the user clicks anywhere but the dropdown, close
+  // // the dropdown
+  // document.addEventListener("click", (ev: MouseEvent) => {
+  //   const dropdownElement = offsetElement.current as HTMLElement;
+  //   const boundingRect = dropdownElement.getBoundingClientRect();
+  //   console.log(boundingRect.x);
+  //   console.log(ev.clientX, ev.clientY);
+  // })
 
   // How much to offset the dropdown to the left/right
-  const [xOffset, setXOffset] = useState(0);
+  const [wrapRight, setWrapRight] = useState(null);
 
-  const Wrapper = styled.div`
-    position: absolute;
-    margin-top: 7px;
-  `;
+  useLayoutEffect(() => {
+    if (offsetElement.current) {
+      const boundingBox = (offsetElement?.current as HTMLElement)?.getBoundingClientRect();
+  
+      console.log('Box', boundingBox?.x + boundingBox?.width);
+      console.log('Window', window.innerWidth);
+  
+      if (boundingBox?.x + boundingBox?.width < window.innerWidth) {
+        console.log('Dropdown longer than screen. Wrapping it.');
+        setWrapRight(true);
+      }
+    }
+  }, [offsetElement])
 
 
-  const wrapperStyle = {};
 
   return (
-    <div className="side" css={css`
-      transition: opacity .2s ease 0s;
-      ${props.active ? 'opacity: 1' : 'opacity: 0; height: 0' }
-    `}>
-      <Wrapper style={{ right: xOffset }} ref={offsetElement}>
-        <ContentBox>{props.children}</ContentBox>
-      </Wrapper>
+    <div
+      className="side"
+      css={css`
+        position: absolute;
+        margin-top: 7px;
+        transition: opacity 0.2s ease 0s;
+        ${wrapRight ? 'right: 0' : ''};
+        ${props.active
+          ? "opacity: 1"
+          : "opacity: 0; height: 0; width: 0; overflow: hidden"}
+      `}
+      ref={offsetElement}
+    >
+      <ContentBox>{props.children}</ContentBox>
     </div>
   );
 };

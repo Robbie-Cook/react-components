@@ -8,11 +8,12 @@ export interface IContentBoxProps {
 
 export default function ContentBox (props: IContentBoxProps) {
 
-  const theme = useTheme();
+  const theme = useTheme().getComponent('contentBox');
 
   return (
     <div
       css={css`
+        color: ${theme.colors.text};
         display: flex;
         flex-direction: column;
         max-width: 300px;

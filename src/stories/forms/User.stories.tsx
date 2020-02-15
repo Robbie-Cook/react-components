@@ -15,7 +15,7 @@ const LoginFormStory: React.FC = () => (
 );
 
 const UserDetailsFormStory: React.FC = () => (
-  <UserDetailsForm />
+  <UserDetailsForm email={text('Email', 'example.com')}/>
 );
 
-export { UserDetailsFormStory };
+export { UserDetailsFormStory, LoginFormStory };
