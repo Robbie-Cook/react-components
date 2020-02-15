@@ -1,17 +1,15 @@
 {
-  "include": [
-    "./src/**/*",
-  ],
-  "exclude": ["./src/stories", "./dist/**/*", "node_modules/**/*",],
   "compilerOptions": {
+    "baseUrl": "./src",
+    "declarationDir": "./dist",
+    "declaration": true,
     "allowJs": true,
     "checkJs": false,
     "rootDir": "./src",
-    "outDir": "./dist",
-    "skipDefaultLibCheck": true,
+    "outDir": "./dist/",
     "listFiles": true,
     "skipLibCheck": true,
-    "noImplicitAny": true,
+    "noImplicitAny": false,
     "resolveJsonModule": false,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,

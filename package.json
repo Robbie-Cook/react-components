@@ -2,16 +2,15 @@
   "name": "@robbie-cook/react-components",
   "version": "4.0.0-rc8",
   "description": "TypeScript React component library",
-  "files": [
-    "dist"
-  ],
+  "files": ["./dist/lib/*", "./typings/*"],
+  "types": ".dist/lib/index.d.ts",
   "repository": {
     "type": "git"
   },
   "private": false,
   "author": "Robbie Cook",
   "license": "MIT",
-  "main": "./dist/lib/index.js",
+  "main": "./dist/index",
   "scripts": {
     "start": "nodemon -w ./src --exec yarn build --ext ts,tsx,js,jsx",
     "build": "tsc -p ./tsconfig.build.json",
