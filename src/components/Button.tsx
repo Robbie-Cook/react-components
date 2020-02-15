@@ -25,7 +25,6 @@ const Button: React.FC<IButtonProps> = props => {
         padding: 10px 20px;
         color: ${theme.colors.primary};
         transition: all 0.2s;
-        margin-top: 10px;
 
         &:hover {
           cursor: pointer;
@@ -36,6 +35,7 @@ const Button: React.FC<IButtonProps> = props => {
           transform: scale(1.1);
         }
       `}
+      {...props}
       onClick={props.onClick}
       style={props.style}
     >

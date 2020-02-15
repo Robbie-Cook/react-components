@@ -1,6 +1,10 @@
-import React, { useState, useRef, useEffect, useCallback } from "react";
-import { useTheme } from "@robbie-cook/react-components";
+/** @jsx jsx */
+import { jsx, css } from "@emotion/core";
+import { useState, useRef, useEffect, useCallback, createRef } from "react";
+import { ContentBox } from "@robbie-cook/react-components";
+import { useTheme } from "@robbie-cook/themer";
 import styled from "@emotion/styled";
+
 
 // const DropdownWidth
 
@@ -32,45 +36,39 @@ const calculateXOffset = (element: HTMLElement): number => {
 /**
  * Defines a UI dropdown
  */
-const Dropdown: React.FC<IDropdownProps> = ({ active, children }) => {
+const Dropdown: React.FC<IDropdownProps> = (props) => {
+  const offsetElement = useRef(null);
   const theme = useTheme();
 
-  const StyledDropdown = styled.div`
-    display: flex;
-    width: 200px;
-    height: fit-content;
-    background-color: ${theme.colors.muted};
-    padding: 20px;
-  `;
+  // If the user clicks anywhere but the dropdown, close
+  // the dropdown
+  document.addEventListener("click", (ev: MouseEvent) => {
+    const dropdownElement = offsetElement.current as HTMLElement;
+    const boundingRect = dropdownElement.getBoundingClientRect();
+    console.log(boundingRect.x);
+    console.log(ev.clientX, ev.clientY);
+  })
+
+
 
   // How much to offset the dropdown to the left/right
   const [xOffset, setXOffset] = useState(0);
 
   const Wrapper = styled.div`
     position: absolute;
+    margin-top: 7px;
   `;
 
-  const offsetElement = useRef(null);
 
-  // Pass the element to offset
-  // const offsetElement = useCallback((node) => {
-  //   if (node !== null && xOffset === 0) {
-  //     const localOffset = calculateXOffset(node);
-  //     setXOffset(localOffset);
-  //   }
-  // }, []);
-
-  useEffect(() => {
-    console.log(offsetElement);
-  });
-
-  const style = active ? {} : { display: "none" };
   const wrapperStyle = {};
 
   return (
-    <div className="side" style={style}>
-      <Wrapper style={{ right: xOffset }}>
-        <StyledDropdown ref={offsetElement}>{children}</StyledDropdown>
+    <div className="side" css={css`
+      transition: opacity .2s ease 0s;
+      ${props.active ? 'opacity: 1' : 'opacity: 0; height: 0' }
+    `}>
+      <Wrapper style={{ right: xOffset }} ref={offsetElement}>
+        <ContentBox>{props.children}</ContentBox>
       </Wrapper>
     </div>
   );

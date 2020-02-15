@@ -5,9 +5,10 @@ import Input from "../input/Input";
 import Button from "../Button";
 import { useTheme } from "@robbie-cook/themer";
 import H3 from "../text/H3";
+import ContentBox from "../ContentBox";
 
 interface ILoginFormProps {
-  onSubmit: any;
+  onSubmit: (email: string, password: string) => void;
 }
 
 /** The UI for a login form */
@@ -18,20 +19,13 @@ const LoginForm: React.FC<ILoginFormProps> = props => {
   const [password, setPassword] = useState(null);
 
   return (
-    <div
-      css={css`
-        display: flex;
-        flex-direction: column;
-        max-width: 300px;
-        background-color: ${theme.colors.muted};
-        padding: 20px;
-      `}
-    >
+    <ContentBox {...props}>
       <H3
         css={css`
           text-transform: uppercase;
           text-align: center;
           margin-bottom: 40px;
+          min-width: 250px;
         `}
       >
         Login
@@ -47,8 +41,15 @@ const LoginForm: React.FC<ILoginFormProps> = props => {
         type="password"
         onChange={(event: any) => setPassword(event.target.value)}
       />
-      <Button onClick={() => props.onSubmit(username, password)}>Log in</Button>
-    </div>
+      <Button
+        css={css`
+          margin-top: 15px;
+        `}
+        onClick={() => props.onSubmit(username, password)}
+      >
+        Log in
+      </Button>
+    </ContentBox>
   );
 };
 

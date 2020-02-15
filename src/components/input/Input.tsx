@@ -24,7 +24,7 @@ const Input: React.FC<Props> = ({
   column,
   type
 }) => {
-  const theme = useTheme();
+  const theme = useTheme().getComponent('input');
 
   return (
     <label
@@ -33,7 +33,8 @@ const Input: React.FC<Props> = ({
         ${column ? `flex-direction: column` : `flex-direction: row`};
         font-family: ${theme.font.fontFamily};
         font-weight: normal;
-        height: 31px;
+        font-size: 0.7em;
+        height: 40px;
         margin-bottom: 16px;
         justify-content: center;
         align-items: center;
@@ -49,16 +50,17 @@ const Input: React.FC<Props> = ({
       </span>
       <input
         css={css`
-
-          &:focus {
-            border: none;
-          }
-          border: none;
+          font-size: inherit;
+          border: 2px solid #bfbfbf;
           border-radius: 4px;
           height: 100%;
           box-sizing: border-box;
           padding: 6px;
+          color: ${theme.colors.textColor};
           ${column ? `width: 100%` : `width: auto`};
+          &:focus {
+            border: 2px solid ${theme.colors.textColor};
+          }
         `}
         id={key}
         type={type ? type : "text"}
