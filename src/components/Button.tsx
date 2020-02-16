@@ -47,7 +47,7 @@ const Button: React.FC<IButtonProps> = props => {
       onClick={props.onClick}
       style={props.style}
     >
-      {props.loading ? props.children : ''}
+      {props.loading ? '' : props.children}
     </button>
   );
 };
