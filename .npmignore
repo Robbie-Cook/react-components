@@ -1,0 +1,4 @@
+.git/
+.storybook/
+.vscode/
+node_modules/
