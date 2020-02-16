@@ -3,8 +3,9 @@
   "version": "4.0.0-rc8",
   "description": "TypeScript React component library",
   "files": [
-    "./dist/lib/*",
-    "./typings/*"
+    "./dist/*",
+    "./typings/*",
+    "./assets/*"
   ],
   "types": ".dist/lib/index.d.ts",
   "repository": {
@@ -13,7 +14,6 @@
   "private": false,
   "author": "Robbie Cook",
   "license": "MIT",
-  "main": "./dist/index",
   "scripts": {
     "start": "nodemon -w ./src --exec yarn build --ext ts,tsx,js,jsx",
     "build": "tsc -p ./tsconfig.build.json",

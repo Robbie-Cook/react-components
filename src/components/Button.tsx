@@ -3,7 +3,7 @@ import { jsx, css } from "@emotion/core";
 // import styled from '@emotion/styled'
 import * as React from "react";
 import { ThemeConsumer, ThemeContext, useTheme } from "@robbie-cook/themer";
-// import loading from "./loading.svg";
+import loading from "../../assets/images/icons/tail-spin.svg";
 
 interface IButtonProps {
   children: string;
@@ -47,7 +47,7 @@ const Button: React.FC<IButtonProps> = props => {
       onClick={props.onClick}
       style={props.style}
     >
-      {props.loading ? '' : props.children}
+      {props.loading ? <img src={loading} /> : props.children}
     </button>
   );
 };
