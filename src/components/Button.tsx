@@ -3,11 +3,11 @@ import { jsx, css } from "@emotion/core";
 // import styled from '@emotion/styled'
 import * as React from "react";
 import { ThemeConsumer, ThemeContext, useTheme } from "@robbie-cook/themer";
-import loading from "../../assets/images/icons/tail-spin.svg";
+import LoadingIcon from "../components/icons/LoadingIcon";
 
 interface IButtonProps {
   children: string;
-  onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+  onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => boolean | void;
   style?: Record<string, any>;
 
   /**
@@ -20,12 +20,14 @@ interface IButtonProps {
  * A normal button component
  */
 const Button: React.FC<IButtonProps> = props => {
-  const theme = useTheme().getComponent('button');
+  const theme = useTheme().getComponent("button");
 
-
+  const [iconColor, setIconColor] = React.useState(theme.colors.primary);
 
   return (
     <button
+      onMouseEnter={() => setIconColor(theme.colors.background)}
+      onMouseLeave={() => setIconColor(theme.colors.primary)}
       css={css`
         border: 1px solid ${theme.colors.primary};
         background-color: ${theme.colors.background};
@@ -47,7 +49,11 @@ const Button: React.FC<IButtonProps> = props => {
       onClick={props.onClick}
       style={props.style}
     >
-      {props.loading ? <img src={loading} /> : props.children}
+      {props.loading ? (
+        <LoadingIcon color={iconColor} />
+      ) : (
+        props.children
+      )}
     </button>
   );
 };

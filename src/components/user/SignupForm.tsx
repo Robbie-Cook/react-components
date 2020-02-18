@@ -8,7 +8,7 @@ import H3 from "../text/H3";
 import ContentBox from "../ContentBox";
 
 interface ISignupFormProps {
-  onSubmit: (email: string, password: string) => void;
+  onSubmit: (email: string, password: string) => boolean;
 }
 
 /** The UI for a Signup form */

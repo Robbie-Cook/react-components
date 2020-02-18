@@ -14,23 +14,17 @@ interface Props {
    */
   column?: boolean;
   type?: string;
+  onKeyPress?: (event: React.KeyboardEvent) => any;
 }
 
-const Input: React.FC<Props> = ({
-  label,
-  placeholder,
-  key,
-  onChange,
-  column,
-  type
-}) => {
+const Input: React.FC<Props> = (props) => {
   const theme = useTheme().getComponent('input');
 
   return (
     <label
       css={css`
         display: flex;
-        ${column ? `flex-direction: column` : `flex-direction: row`};
+        ${props.column ? `flex-direction: column` : `flex-direction: row`};
         font-family: ${theme.font.fontFamily};
         font-weight: normal;
         font-size: 0.7em;
@@ -46,26 +40,29 @@ const Input: React.FC<Props> = ({
           min-width: 80px;
         `}
       >
-        {label}
+        {props.label}
       </span>
       <input
         css={css`
           font-size: inherit;
-          border: 2px solid #bfbfbf;
+          border: 2px solid ${theme.colors.primary};
           border-radius: 4px;
           height: 100%;
           box-sizing: border-box;
           padding: 6px;
           color: ${theme.colors.textColor};
-          ${column ? `width: 100%` : `width: auto`};
+          ${props.column ? `width: 100%` : `width: auto`};
           &:focus {
             border: 2px solid ${theme.colors.textColor};
           }
         `}
-        id={key}
-        type={type ? type : "text"}
-        placeholder={placeholder}
-        onChange={onChange}
+        id={props.key}
+        type={props.type ? props.type : "text"}
+        placeholder={props.placeholder}
+        onChange={props.onChange}
+        onKeyPress={(event) => {
+          props.onKeyPress(event);
+        }}
       />
     </label>
   );
