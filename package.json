@@ -7,10 +7,11 @@
     "./typings/*",
     "./assets/*"
   ],
-  "types": ".dist/lib/index.d.ts",
+  "types": ".dist/index.d.ts",
   "repository": {
     "type": "git"
   },
+  "main": "./dist/index.js",
   "private": false,
   "author": "Robbie Cook",
   "license": "MIT",
