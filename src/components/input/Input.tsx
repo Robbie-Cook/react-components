@@ -8,17 +8,16 @@ interface Props {
   placeholder?: string;
   key?: string;
   label?: string;
-  onChange: any;
   /**
    * Whether to display this component as a column (as opposed to the label next to the input on a row)
    */
   column?: boolean;
   type?: string;
-  onKeyPress?: (event: React.KeyboardEvent) => any;
+  onChange?: (string) => void;
 }
 
-const Input: React.FC<Props> = (props) => {
-  const theme = useTheme().getComponent('input');
+const Input: React.FC<Props> = props => {
+  const theme = useTheme().getComponent("input");
 
   return (
     <label
@@ -30,6 +29,7 @@ const Input: React.FC<Props> = (props) => {
         font-size: 0.7em;
         height: 40px;
         margin-bottom: 16px;
+        
         justify-content: center;
         align-items: center;
       `}
@@ -59,9 +59,8 @@ const Input: React.FC<Props> = (props) => {
         id={props.key}
         type={props.type ? props.type : "text"}
         placeholder={props.placeholder}
-        onChange={props.onChange}
-        onKeyPress={(event) => {
-          props.onKeyPress(event);
+        onChange={e => {
+          props.onChange(e.target.value);
         }}
       />
     </label>

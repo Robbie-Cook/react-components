@@ -39,7 +39,7 @@ const SignupForm: React.FC<ISignupFormProps> = props => {
         placeholder="Password"
         column
         type="password"
-        onChange={(event: any) => setPassword(event.target.value)}
+        onChange={(value) => setPassword(value)}
       />
       <Button
         css={css`

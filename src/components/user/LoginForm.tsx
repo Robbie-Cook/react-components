@@ -37,24 +37,28 @@ const LoginForm: React.FC<ILoginFormProps> = props => {
         Login
       </H3>
       <Input
-        placeholder="Username"
+        placeholder="Email"
         column
-        onChange={(event: any) => setUsername(event.target.value)}
+        onChange={(value) => {
+          setUsername(value)
+        }}
       />
       <Input
         placeholder="Password"
         column
         type="password"
-        onChange={(event: any) => setPassword(event.target.value)}
+        onChange={(value) => {
+          setPassword(value)
+        }}
       />
-      <ErrorBox>{error}</ErrorBox>
+      {error && <ErrorBox>{error}</ErrorBox>}
       <Button
         css={css`
           margin-top: 15px;
         `}
         loading={loading}
         onClick={() => {
-          setError(null);
+          {error && setError(null)};
           if (!username || !password) {
             setError('Username or password empty!');
             return;
