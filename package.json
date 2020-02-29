@@ -1,6 +1,6 @@
 {
   "name": "@robbie-cook/react-components",
-  "version": "4.0.0-rc10",
+  "version": "4.0.0-rc11",
   "description": "TypeScript React component library",
   "files": [
     "./dist/*",
@@ -33,7 +33,6 @@
     "@storybook/addon-knobs": "^5.3.12",
     "@storybook/addon-links": "^5.3.12",
     "@storybook/addons": "^5.3.12",
-    "@storybook/preset-typescript": "^1.2.0",
     "@storybook/react": "^5.3.12",
     "@types/chai": "^4.2.8",
     "@types/enzyme": "^3.10.4",
@@ -60,8 +59,7 @@
     "rimraf": "^3.0.1",
     "sinon": "^8.1.1",
     "ts-loader": "^6.2.1",
-    "ts-node": "^8.6.2",
-    "typescript": "^3.7.5"
+    "ts-node": "^8.6.2"
   },
   "peerDependencies": {
     "react": "^15.0.0",
@@ -71,6 +69,7 @@
     "@emotion/core": "^10.0.27",
     "@emotion/styled": "^10.0.27",
     "@robbie-cook/themer": "^1.0.1-alpha",
+    "@storybook/preset-typescript": "^1.2.0",
     "typescript": "^3.8.3"
   }
 }
