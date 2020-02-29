@@ -15,3 +15,4 @@ test/**/*.out.*
 .tmp/
 .yarn-cache.tgz
 dist/
+storybook-static/
