@@ -51,14 +51,14 @@ const LoginForm: React.FC<ILoginFormProps> = props => {
           setPassword(value)
         }}
       />
-      {error && <ErrorBox>{error}</ErrorBox>}
+      {/* {error && <ErrorBox>{error}</ErrorBox>} */}
       <Button
         css={css`
           margin-top: 15px;
         `}
         loading={loading}
         onClick={() => {
-          {error && setError(null)};
+          setError(null);
           if (!username || !password) {
             setError('Username or password empty!');
             return;

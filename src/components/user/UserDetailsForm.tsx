@@ -8,6 +8,7 @@ export interface IUserDetailsFormProps {
   username?: string,
   email?: string
   onLogout?(): void;
+  onSettingsClicked?(): void;
 }
 
 export default function UserDetailsForm (props: IUserDetailsFormProps) {
@@ -16,6 +17,7 @@ export default function UserDetailsForm (props: IUserDetailsFormProps) {
       <H3>{props.username ? `Welcome, ${props.username}!` : `Welcome!`}</H3>
       <p>Email: <span>{props.email}</span></p>
       <Button onClick={props.onLogout}>Log out</Button>
+      <Button onClick={props.onSettingsClicked}>Settings</Button>
     </div>
   );
 }

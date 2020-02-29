@@ -70,6 +70,7 @@
   "dependencies": {
     "@emotion/core": "^10.0.27",
     "@emotion/styled": "^10.0.27",
-    "@robbie-cook/themer": "^1.0.1-alpha"
+    "@robbie-cook/themer": "^1.0.1-alpha",
+    "typescript": "^3.8.3"
   }
 }
