@@ -18,7 +18,7 @@
   "scripts": {
     "start": "nodemon -w ./src --exec yarn build --ext ts,tsx,js,jsx",
     "build": "tsc -p ./tsconfig.build.json",
-    "clean:build": "rimraf ./dist/lib",
+    "clean:build": "rimraf ./dist",
     "dist": "cd ./dist/lib && npm publish",
     "testonly": "cross-env NODE_ENV=test NODE_PATH=src nyc mocha",
     "test": "npm run lint && npm run testonly",

@@ -1,9 +1,9 @@
 {
     "extends": "./tsconfig.json",
     "include": [
-        "src/**/*",
         "typings/**/*"
     ],
+    "files": ["src/index.tsx"],
     "compilerOptions": {
         "outDir": "dist",
         "sourceMap": false,
