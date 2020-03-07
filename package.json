@@ -1,11 +1,11 @@
 {
   "name": "@robbie-cook/react-components",
-  "version": "4.0.0-rc15",
+  "version": "4.0.0-rc16",
   "description": "TypeScript React component library",
   "files": [
-    "./dist/**/*",
-    "./typings/**/*",
-    "./assets/**/*"
+    "dist/*",
+    "typings/*",
+    "assets/*"
   ],
   "types": ".dist/index.d.ts",
   "repository": {
@@ -18,6 +18,7 @@
   "scripts": {
     "start": "nodemon -w ./src --exec yarn build --ext ts,tsx,js,jsx",
     "build": "tsc -p ./tsconfig.build.json",
+    "prepublishOnly": "npm run build",
     "clean:build": "rimraf ./dist",
     "dist": "cd ./dist/lib && npm publish",
     "testonly": "cross-env NODE_ENV=test NODE_PATH=src nyc mocha",
