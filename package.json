@@ -1,6 +1,6 @@
 {
   "name": "@robbie-cook/react-components",
-  "version": "4.0.0-rc16",
+  "version": "4.0.0-rc17",
   "description": "TypeScript React component library",
   "files": [
     "dist/*",
